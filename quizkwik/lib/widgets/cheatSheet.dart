@@ -18,6 +18,24 @@ class CheatSheet extends StatelessWidget {
               color: AppColors.colorBlackHighEmp,
               fontWeight: FontWeight.w700),
         ),
+
+        AppBar(
+          title: Text('My Gradient AppBar'),
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  AppColors.colorAppbarGradientStart,
+                  AppColors.colorAppbarGradientEnd
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+          elevation: 0,
+        ),
+        SizedBox(width: 8.w), SizedBox(height: 24.h),
       ],
     );
   }

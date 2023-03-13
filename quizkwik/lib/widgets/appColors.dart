@@ -40,8 +40,13 @@ class AppColors {
   static const colorInfo = Color(0xff2D8EFF);
   static const colorAlert = Color(0xffF4A100);
   static const colorPopupBg = Color(0xffF0EAFF);
+  static const colorIndicatorUnselected = Color(0xffD6D6D6);
 
   //  ---- Gradient Colors ----  //
   static const colorBlueGradientStart = Color(0xffCCB6FF);
   static const colorBlueGradientEnd = Color(0xff9769FF);
+
+  //  ---- Appbar Gradient Colors ----  //
+  static const colorAppbarGradientStart = Color(0xffEEE7FF);
+  static const colorAppbarGradientEnd = Color(0xffFFFFFF);
 }

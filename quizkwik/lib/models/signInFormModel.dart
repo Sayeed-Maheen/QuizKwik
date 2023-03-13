@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quizkwik/models/myBottomNav.dart';
 import 'package:quizkwik/models/rememberMeModel.dart';
 
 import '../screens/authScreens/forgotPasswordScreen/forgotPasswordScreen.dart';
-import '../screens/homeScreen.dart';
 import '../widgets/appColors.dart';
 import '../widgets/myButton.dart';
 
@@ -50,6 +50,7 @@ class _SignInFormModelState extends State<SignInFormModel> {
                     } else if (emailValid) {
                       return "Enter valid Email";
                     }
+                    return null;
                   },
                   style: TextStyle(color: AppColors.colorBlackHighEmp),
                   decoration: InputDecoration(
@@ -190,7 +191,7 @@ class _SignInFormModelState extends State<SignInFormModel> {
                     emailController.clear();
                     passwordController.clear();
                     Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                        MaterialPageRoute(builder: (context) => MyBottomNav()));
                   }
                 },
                 text: "Sign In")
