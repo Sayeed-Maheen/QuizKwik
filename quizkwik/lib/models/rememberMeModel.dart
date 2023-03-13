@@ -19,7 +19,7 @@ class _RememberMeModelState extends State<RememberMeModel> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.all(6),
+            padding: EdgeInsets.symmetric(horizontal: 2, vertical: 12),
             child: Theme(
               data: Theme.of(context).copyWith(
                 unselectedWidgetColor: AppColors.colorBlackMidEmp,
@@ -27,8 +27,10 @@ class _RememberMeModelState extends State<RememberMeModel> {
               child: Transform.scale(
                 scale: 0.8,
                 child: SizedBox(
-                  width: 10.w,
+                  height: 20.h,
+                  width: 20.w,
                   child: Checkbox(
+                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(2)),
                       value: check1,
@@ -44,7 +46,7 @@ class _RememberMeModelState extends State<RememberMeModel> {
           Text(
             "Remember me",
             style: TextStyle(
-              fontSize: 12.sp,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w500,
               color: AppColors.colorBlackMidEmp,
             ),

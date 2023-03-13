@@ -67,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen>
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 142.h),
+                SizedBox(height: 120.h),
                 FadeTransition(
                   opacity: _textAnimation ??
                       AlwaysStoppedAnimation<double>(_textOpacity),
@@ -185,7 +185,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                             ),
                           ],
                         ),
-                        SizedBox(height: 24.h),
+                        SizedBox(height: 12.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -197,22 +197,25 @@ class _SignUpScreenState extends State<SignUpScreen>
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            SizedBox(width: 4.w),
-                            InkWell(
-                              onTap: () {
+                            TextButton(
+                              onPressed: () {
                                 Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => SignInScreen()));
                               },
-                              child: Center(
-                                child: Text(
-                                  "Sign In",
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    color: AppColors.colorPrimary,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                              style: TextButton.styleFrom(
+                                  padding: EdgeInsets.all(5),
+                                  minimumSize: Size(50, 20),
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  alignment: Alignment.centerLeft),
+                              child: Text(
+                                "Sign In",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: AppColors.colorPrimary,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                             )

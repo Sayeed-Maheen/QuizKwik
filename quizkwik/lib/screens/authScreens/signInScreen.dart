@@ -1,22 +1,62 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:quizkwik/models/signInFormModel.dart';
 import 'package:quizkwik/screens/authScreens/signUpScreen/signUpScreen.dart';
 import 'package:quizkwik/widgets/myContainer.dart';
 
+import '../../main.dart';
 import '../../widgets/appColors.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+  SignInScreen({Key? key}) : super(key: key);
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignInScreenState extends State<SignInScreen>
+    with SingleTickerProviderStateMixin {
+  final ThemeController _themeController = Get.find();
   TextEditingController passwordController = TextEditingController();
+  final double _textOpacity = 1.0;
+  final double _cardOpacity = 0.0;
+  late AnimationController _animationController;
+  late Animation<double> _textAnimation;
+  late Animation<double> _cardAnimation;
+  late ScrollController _scrollController;
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 700),
+    );
+    _textAnimation = Tween<double>(begin: _textOpacity, end: 0.0)
+        .animate(_animationController);
+    _cardAnimation = Tween<double>(begin: _cardOpacity, end: 1.0)
+        .animate(_animationController);
+    _scrollController = ScrollController();
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (_scrollController.offset <= 90) {
+      _animationController.value = (_scrollController.offset / 50);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    _themeController
+        .updateStatusBarColor(Theme.of(context).scaffoldBackgroundColor);
     return Scaffold(
       backgroundColor: AppColors.colorWhiteHighEmp,
       body: SafeArea(
@@ -30,25 +70,35 @@ class _SignInScreenState extends State<SignInScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 142.h),
-                Center(
-                  child: Text(
-                    "Welcome Back",
-                    style: TextStyle(
-                        fontSize: 24.sp,
-                        color: AppColors.colorBlackHighEmp,
-                        fontWeight: FontWeight.w700),
-                  ),
-                ),
-                SizedBox(height: 4.h),
-                Center(
-                  child: Text(
-                    "To your favorite quiz place. Learn, earn,\n compete.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 14.sp,
-                        color: AppColors.colorBlackHighEmp,
-                        fontWeight: FontWeight.w300),
+                SizedBox(height: 120.h),
+                FadeTransition(
+                  opacity: _textAnimation ??
+                      AlwaysStoppedAnimation<double>(_textOpacity),
+                  child: Container(
+                    child: Column(
+                      children: [
+                        Center(
+                          child: Text(
+                            "Welcome Back",
+                            style: TextStyle(
+                                fontSize: 24.sp,
+                                color: AppColors.colorBlackHighEmp,
+                                fontWeight: FontWeight.w700),
+                          ),
+                        ),
+                        SizedBox(height: 4.h),
+                        Center(
+                          child: Text(
+                            "To your favorite quiz place. Learn, earn,\n compete.",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 14.sp,
+                                color: AppColors.colorBlackHighEmp,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: 24.h),
@@ -138,7 +188,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 24.h),
+                        SizedBox(height: 12.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -150,22 +200,25 @@ class _SignInScreenState extends State<SignInScreen> {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            SizedBox(width: 4.w),
-                            GestureDetector(
-                              onTap: () {
+                            TextButton(
+                              onPressed: () {
                                 Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => SignUpScreen()));
                               },
-                              child: Center(
-                                child: Text(
-                                  "Sign up",
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    color: AppColors.colorPrimary,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                              style: TextButton.styleFrom(
+                                  padding: EdgeInsets.all(5),
+                                  minimumSize: Size(50, 20),
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  alignment: Alignment.centerLeft),
+                              child: Text(
+                                "Sign up",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: AppColors.colorPrimary,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                             )

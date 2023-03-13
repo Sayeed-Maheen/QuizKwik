@@ -169,7 +169,7 @@ class _SignInFormModelState extends State<SignInFormModel> {
                 RememberMeModel(),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => ForgotPasswordScreen()));
@@ -189,7 +189,7 @@ class _SignInFormModelState extends State<SignInFormModel> {
                   if (_formfield.currentState!.validate()) {
                     emailController.clear();
                     passwordController.clear();
-                    Navigator.push(context,
+                    Navigator.pushReplacement(context,
                         MaterialPageRoute(builder: (context) => HomeScreen()));
                   }
                 },
