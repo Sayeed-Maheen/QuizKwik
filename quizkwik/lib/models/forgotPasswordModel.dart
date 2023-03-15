@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:quizkwik/screens/authScreens/forgotPasswordScreen/forgotPasswordVerifyEmailScreen.dart';
 
 import '../widgets/appColors.dart';
@@ -89,11 +90,7 @@ class _ForgotPasswordModelState extends State<ForgotPasswordModel> {
             SizedBox(height: 12.h),
             MyButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              ForgotPasswordVerifyEmailScreen()));
+                  Get.off(ForgotPasswordVerifyEmailScreen());
                 },
                 text: "Find")
           ],

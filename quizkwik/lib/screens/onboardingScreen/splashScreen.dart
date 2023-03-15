@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:quizkwik/screens/onboardingScreen/onboardingScreen.dart';
 import 'package:quizkwik/widgets/appColors.dart';
 
@@ -15,8 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 3)).then((value) {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => OnBoardingScreen()));
+      Get.off(() => OnBoardingScreen());
     });
   }
 

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:quizkwik/models/awaitsForYouModel.dart';
 import 'package:quizkwik/models/dailyQuizCarouselModel.dart';
 import 'package:quizkwik/models/exploreClassesModel.dart';
 import 'package:quizkwik/models/homeScreenQuizModel.dart';
 import 'package:quizkwik/models/winnerCardModel.dart';
 import 'package:quizkwik/widgets/appColors.dart';
+import 'package:quizkwik/widgets/myContainer.dart';
 
 import '../models/adCarouselModel.dart';
 import '../models/browseSmartModel.dart';
@@ -126,6 +128,36 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: 6.h),
                   BrowseSmartModel(),
                   AdCarouselModel(),
+                  SizedBox(height: 16.h),
+                  MyContainer(
+                      child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 16.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Awaits for you",
+                              style: TextStyle(
+                                  fontSize: 20.sp,
+                                  color: AppColors.colorBlackHighEmp,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Image.asset(
+                              "assets/images/seeMore.png",
+                              height: 32.h,
+                              width: 40.w,
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 16.h),
+                        AwaitForYouModel(),
+                        SizedBox(height: 16.h),
+                      ],
+                    ),
+                  )),
                   SizedBox(height: 120.h),
                 ],
               ),

@@ -202,10 +202,7 @@ class _SignInScreenState extends State<SignInScreen>
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SignUpScreen()));
+                                Get.to(() => SignUpScreen());
                               },
                               style: TextButton.styleFrom(
                                   padding: EdgeInsets.all(5),

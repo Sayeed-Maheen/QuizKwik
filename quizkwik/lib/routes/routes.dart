@@ -1,7 +1,41 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:quizkwik/screens/authScreens/forgotPasswordScreen/forgotPasswordScreen.dart';
+import 'package:quizkwik/screens/authScreens/forgotPasswordScreen/forgotPasswordVerifyEmailScreen.dart';
+import 'package:quizkwik/screens/authScreens/forgotPasswordScreen/resetPasswordScreen.dart';
+import 'package:quizkwik/screens/authScreens/signInScreen.dart';
+import 'package:quizkwik/screens/authScreens/signUpScreen/signUpScreen.dart';
+import 'package:quizkwik/screens/authScreens/signUpScreen/verifyEmailScreen.dart';
+import 'package:quizkwik/screens/onboardingScreen/onboardingScreen.dart';
+import 'package:quizkwik/screens/onboardingScreen/splashScreen.dart';
 
 class RoutesClass {
-  static String home = "/";
-  static String getHomeRoute() => home;
-  static List<GetPage> routes = [];
+  static String splashScreen = "/";
+  static String getSplashScreenRoute() => splashScreen;
+  static String onBoardingScreen = "/onBoarding";
+  static String getOnboardingScreenRoute() => onBoardingScreen;
+  static String signInScreen = "/signIn";
+  static String getSignInScreenRoute() => signInScreen;
+  static String signUpScreen = "/signUp";
+  static String getSignUpScreenRoute() => signUpScreen;
+  static String verifyEmailScreen = "/verifyEmail";
+  static String getVerifyEmailScreenRoute() => verifyEmailScreen;
+  static String forgotPasswordScreen = "/forgotPassword";
+  static String getForgotPasswordScreenRoute() => forgotPasswordScreen;
+  static String forgotPasswordVerifyEmailScreen = "/forgotPasswordVerifyEmail";
+  static String getForgotPasswordVerifyEmailScreenRoute() =>
+      forgotPasswordVerifyEmailScreen;
+  static String resetPasswordScreen = "/resetPassword";
+  static String getResetPasswordScreenRoute() => resetPasswordScreen;
+  static List<GetPage> routes = [
+    GetPage(name: splashScreen, page: () => SplashScreen()),
+    GetPage(name: onBoardingScreen, page: () => OnBoardingScreen()),
+    GetPage(name: signInScreen, page: () => SignInScreen()),
+    GetPage(name: signInScreen, page: () => SignUpScreen()),
+    GetPage(name: signInScreen, page: () => VerifyEmailScreen()),
+    GetPage(name: forgotPasswordScreen, page: () => ForgotPasswordScreen()),
+    GetPage(
+        name: forgotPasswordVerifyEmailScreen,
+        page: () => ForgotPasswordVerifyEmailScreen()),
+    GetPage(name: resetPasswordScreen, page: () => ResetPasswordScreen()),
+  ];
 }

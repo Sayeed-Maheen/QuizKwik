@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:quizkwik/screens/authScreens/forgotPasswordScreen/resetPasswordScreen.dart';
 import 'package:quizkwik/widgets/myButton.dart';
 
@@ -42,10 +43,7 @@ class _ForgotPasswordOtpModelState extends State<ForgotPasswordOtpModel> {
         SizedBox(height: 16.h),
         MyButton(
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ResetPasswordScreen()));
+              Get.off(ResetPasswordScreen());
             },
             text: "Submit")
       ],

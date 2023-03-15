@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:quizkwik/screens/onboardingScreen/splashScreen.dart';
+import 'package:quizkwik/routes/routes.dart';
 import 'package:quizkwik/widgets/appColors.dart';
 import 'package:quizkwik/widgets/customSwatch.dart';
 
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return GetBuilder<ThemeController>(
-          builder: (_) => MaterialApp(
+          builder: (_) => GetMaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               brightness: _themeController.isDarkMode
@@ -39,7 +39,8 @@ class MyApp extends StatelessWidget {
               primarySwatch: createMaterialColor(AppColors.colorPrimary),
               fontFamily: "Barlow",
             ),
-            home: SplashScreen(),
+            initialRoute: RoutesClass.getSplashScreenRoute(),
+            getPages: RoutesClass.routes,
             routes: {
               // your routes here
             },
@@ -51,10 +52,8 @@ class MyApp extends StatelessWidget {
 }
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness:
-          Brightness.dark)); // set initial status bar text color to dark
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:quizkwik/models/myBottomNav.dart';
 import 'package:quizkwik/models/rememberMeModel.dart';
 
@@ -170,10 +171,7 @@ class _SignInFormModelState extends State<SignInFormModel> {
                 RememberMeModel(),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ForgotPasswordScreen()));
+                    Get.to(() => ForgotPasswordScreen());
                   },
                   child: Text(
                     'Forgot password?',

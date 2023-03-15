@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:quizkwik/screens/authScreens/signUpScreen/verifyEmailScreen.dart';
 
 import '../widgets/appColors.dart';
@@ -283,10 +284,7 @@ class _SignUpFormModelState extends State<SignUpFormModel> {
                     emailController.clear();
                     passwordController.clear();
                     passwordController2.clear();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => VerifyEmailScreen()));
+                    Get.off(() => VerifyEmailScreen());
                   }
                 },
                 text: "Sign Up")

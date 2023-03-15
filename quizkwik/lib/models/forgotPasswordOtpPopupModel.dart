@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quizkwik/screens/homeScreen.dart';
+import 'package:get/get.dart';
+import 'package:quizkwik/models/myBottomNav.dart';
 
 import '../widgets/appColors.dart';
 import '../widgets/myButton.dart';
@@ -76,11 +77,7 @@ class _ForgotPasswordOtpPopupModelState
                       padding: const EdgeInsets.symmetric(horizontal: 52),
                       child: MyButton(
                         onPressed: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HomeScreen()),
-                          );
+                          Get.offAll(MyBottomNav());
                         },
                         text: "Back to Home",
                       ),
