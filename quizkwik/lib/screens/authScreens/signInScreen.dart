@@ -6,6 +6,7 @@ import 'package:quizkwik/screens/authScreens/signUpScreen/signUpScreen.dart';
 import 'package:quizkwik/widgets/myContainer.dart';
 
 import '../../main.dart';
+import '../../models/myBottomNav.dart';
 import '../../widgets/appColors.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -126,64 +127,74 @@ class _SignInScreenState extends State<SignInScreen>
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              height: 40.h,
-                              width: 114.w,
-                              decoration: BoxDecoration(
-                                  color: AppColors.colorWhiteHighEmp,
-                                  border: Border.all(
-                                      color: AppColors.colorWhiteLowEmp),
-                                  borderRadius: BorderRadius.circular(100)),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 20.h,
-                                    width: 20.w,
-                                    child:
-                                        Image.asset('assets/images/google.png'),
-                                  ),
-                                  SizedBox(width: 12.w),
-                                  Text(
-                                    "Google",
-                                    style: TextStyle(
-                                      fontSize: 14.sp,
-                                      color: AppColors.colorBlackLowEmp,
-                                      fontWeight: FontWeight.w400,
+                            GestureDetector(
+                              onTap: () {
+                                Get.offAll(MyBottomNav());
+                              },
+                              child: Container(
+                                height: 40.h,
+                                width: 114.w,
+                                decoration: BoxDecoration(
+                                    color: AppColors.colorWhiteHighEmp,
+                                    border: Border.all(
+                                        color: AppColors.colorWhiteLowEmp),
+                                    borderRadius: BorderRadius.circular(100)),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 20.h,
+                                      width: 20.w,
+                                      child: Image.asset(
+                                          'assets/images/google.png'),
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(width: 12.w),
+                                    Text(
+                                      "Google",
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        color: AppColors.colorBlackLowEmp,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(width: 11.w),
-                            Container(
-                              height: 40.h,
-                              width: 114.w,
-                              padding: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  color: AppColors.colorWhiteHighEmp,
-                                  border: Border.all(
-                                      color: AppColors.colorWhiteLowEmp),
-                                  borderRadius: BorderRadius.circular(100)),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 20.h,
-                                    width: 20.w,
-                                    child: Image.asset(
-                                        'assets/images/facebook.png'),
-                                  ),
-                                  SizedBox(width: 12.w),
-                                  Text(
-                                    "Facebook",
-                                    style: TextStyle(
-                                      fontSize: 14.sp,
-                                      color: AppColors.colorBlackLowEmp,
-                                      fontWeight: FontWeight.w400,
+                            GestureDetector(
+                              onTap: () {
+                                Get.offAll(MyBottomNav());
+                              },
+                              child: Container(
+                                height: 40.h,
+                                width: 114.w,
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                decoration: BoxDecoration(
+                                    color: AppColors.colorWhiteHighEmp,
+                                    border: Border.all(
+                                        color: AppColors.colorWhiteLowEmp),
+                                    borderRadius: BorderRadius.circular(100)),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 20.h,
+                                      width: 20.w,
+                                      child: Image.asset(
+                                          'assets/images/facebook.png'),
                                     ),
-                                  ),
-                                ],
+                                    SizedBox(width: 12.w),
+                                    Text(
+                                      "Facebook",
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        color: AppColors.colorBlackLowEmp,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],

@@ -49,4 +49,15 @@ class AppColors {
   //  ---- Appbar Gradient Colors ----  //
   static const colorAppbarGradientStart = Color(0xffEEE7FF);
   static const colorAppbarGradientEnd = Color(0xffFFFFFF);
+
+  //  ---- ProgressBar Gradient Colors ----  //
+  static const colorProgressBarGradientStart = Color(0xffFF8F3B);
+  static const colorProgressBarGradientEnd = Color(0xffFF4646);
+
+  //  ---- Profile Screen Card Gradient Colors ----  //
+  static const colorCard2GradientStart = Color(0xffFFD77F);
+  static const colorCard2GradientEnd = Color(0xffFF9F43);
+
+  static const colorCard3GradientStart = Color(0xff1BEBB9);
+  static const colorCard3GradientEnd = Color(0xff1A9B65);
 }

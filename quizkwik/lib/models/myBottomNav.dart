@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:quizkwik/screens/addScreen.dart';
 import 'package:quizkwik/screens/homeScreen.dart';
 
+import '../screens/profileScreen.dart';
 import '../widgets/appColors.dart';
 
 class MyBottomNav extends StatefulWidget {
@@ -18,9 +20,9 @@ class _MyBottomNavState extends State<MyBottomNav> {
     return [
       HomeScreen(),
       Container(),
+      AddScreen(),
       Container(),
-      Container(),
-      Container(),
+      ProfileScreen(),
     ];
   }
 
@@ -41,11 +43,32 @@ class _MyBottomNavState extends State<MyBottomNav> {
           activeColorPrimary: AppColors.colorPrimary,
           inactiveColorPrimary: AppColors.colorBlackLowEmp),
       PersistentBottomNavBarItem(
-          icon: Icon(
-            Icons.add,
-            color: AppColors.colorWhiteHighEmp,
+          icon: Container(
+            decoration: BoxDecoration(
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                      color: AppColors.colorPrimaryLightest, blurRadius: 3),
+                ],
+                gradient: LinearGradient(
+                  colors: [
+                    AppColors.colorBlueGradientStart,
+                    AppColors.colorBlueGradientEnd
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+                borderRadius: BorderRadius.circular(100)),
+            child: CircleAvatar(
+              radius: 40,
+              backgroundColor: Colors.transparent,
+              child: Icon(
+                Icons.add,
+                size: 35,
+                color: AppColors.colorWhiteHighEmp,
+              ),
+            ),
           ),
-          activeColorPrimary: AppColors.colorPrimary,
+          activeColorPrimary: Colors.transparent,
           inactiveColorPrimary: AppColors.colorBlackLowEmp),
       PersistentBottomNavBarItem(
           icon: Icon(
@@ -68,11 +91,19 @@ class _MyBottomNavState extends State<MyBottomNav> {
   Widget build(BuildContext context) {
     return PersistentTabView(
       context,
-      navBarHeight: 80.h,
+      navBarHeight: 75.h,
       screens: _buildScreen(),
       controller: controller,
       items: _navBarItem(),
       decoration: NavBarDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.3),
+            spreadRadius: 3,
+            blurRadius: 10,
+            offset: Offset(0, 3), // changes position of shadow
+          ),
+        ],
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(50),
           topRight: Radius.circular(50),

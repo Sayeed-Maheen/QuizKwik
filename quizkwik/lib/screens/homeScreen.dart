@@ -4,6 +4,8 @@ import 'package:quizkwik/models/awaitsForYouModel.dart';
 import 'package:quizkwik/models/dailyQuizCarouselModel.dart';
 import 'package:quizkwik/models/exploreClassesModel.dart';
 import 'package:quizkwik/models/homeScreenQuizModel.dart';
+import 'package:quizkwik/models/myBottomNav.dart';
+import 'package:quizkwik/models/myDrawerModel.dart';
 import 'package:quizkwik/models/winnerCardModel.dart';
 import 'package:quizkwik/widgets/appColors.dart';
 import 'package:quizkwik/widgets/myContainer.dart';
@@ -11,13 +13,22 @@ import 'package:quizkwik/widgets/myContainer.dart';
 import '../models/adCarouselModel.dart';
 import '../models/browseSmartModel.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _globalKey,
       backgroundColor: AppColors.colorWhiteHighEmp,
+      drawer: MyDrawerModel(),
       body: Container(
         child: Column(
           children: [
@@ -37,13 +48,18 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 45, left: 16, right: 16),
-                        child: Image.asset(
-                          "assets/images/profileImage.png",
-                          height: 48.h,
-                          width: 48.w,
+                      GestureDetector(
+                        onTap: () {
+                          _globalKey.currentState!.openDrawer();
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              top: 45, left: 16, right: 16),
+                          child: Image.asset(
+                            "assets/images/profileImage.png",
+                            height: 48.h,
+                            width: 48.w,
+                          ),
                         ),
                       ),
                       Padding(
@@ -167,4 +183,20 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+Route _createRoute() {
+  return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => MyBottomNav(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(-.5, 0.0);
+        const end = Offset.zero;
+        const curve = Curves.easeIn;
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      });
 }

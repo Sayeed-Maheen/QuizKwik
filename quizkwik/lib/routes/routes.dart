@@ -1,4 +1,5 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:quizkwik/models/myDrawerModel.dart';
 import 'package:quizkwik/screens/authScreens/forgotPasswordScreen/forgotPasswordScreen.dart';
 import 'package:quizkwik/screens/authScreens/forgotPasswordScreen/forgotPasswordVerifyEmailScreen.dart';
 import 'package:quizkwik/screens/authScreens/forgotPasswordScreen/resetPasswordScreen.dart';
@@ -26,6 +27,8 @@ class RoutesClass {
       forgotPasswordVerifyEmailScreen;
   static String resetPasswordScreen = "/resetPassword";
   static String getResetPasswordScreenRoute() => resetPasswordScreen;
+  static String myDrawerModel = "/myDrawerModel";
+  static String getMyDrawerModelRoute() => resetPasswordScreen;
   static List<GetPage> routes = [
     GetPage(name: splashScreen, page: () => SplashScreen()),
     GetPage(name: onBoardingScreen, page: () => OnBoardingScreen()),
@@ -37,5 +40,6 @@ class RoutesClass {
         name: forgotPasswordVerifyEmailScreen,
         page: () => ForgotPasswordVerifyEmailScreen()),
     GetPage(name: resetPasswordScreen, page: () => ResetPasswordScreen()),
+    GetPage(name: myDrawerModel, page: () => MyDrawerModel()),
   ];
 }
