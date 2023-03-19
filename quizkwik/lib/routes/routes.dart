@@ -6,8 +6,12 @@ import 'package:quizkwik/screens/authScreens/forgotPasswordScreen/resetPasswordS
 import 'package:quizkwik/screens/authScreens/signInScreen.dart';
 import 'package:quizkwik/screens/authScreens/signUpScreen/signUpScreen.dart';
 import 'package:quizkwik/screens/authScreens/signUpScreen/verifyEmailScreen.dart';
+import 'package:quizkwik/screens/drawerScreens/profileSettingsScreen.dart';
 import 'package:quizkwik/screens/onboardingScreen/onboardingScreen.dart';
 import 'package:quizkwik/screens/onboardingScreen/splashScreen.dart';
+import 'package:quizkwik/screens/profileScreen.dart';
+
+import '../screens/historyScreen.dart';
 
 class RoutesClass {
   static String splashScreen = "/";
@@ -29,6 +33,14 @@ class RoutesClass {
   static String getResetPasswordScreenRoute() => resetPasswordScreen;
   static String myDrawerModel = "/myDrawerModel";
   static String getMyDrawerModelRoute() => resetPasswordScreen;
+  static String profileScreen = "/profileScreen";
+  static String getProfileScreenRoute() => profileScreen;
+  static String profileSettingsScreen = "/profileSettingsScreen";
+  static String getProfileSettingsScreenRoute() => profileSettingsScreen;
+  static String historyScreen = "/historyScreen";
+  static String getHistoryScreenRoute() => profileScreen;
+
+  // ---- Routes ----
   static List<GetPage> routes = [
     GetPage(name: splashScreen, page: () => SplashScreen()),
     GetPage(name: onBoardingScreen, page: () => OnBoardingScreen()),
@@ -41,5 +53,8 @@ class RoutesClass {
         page: () => ForgotPasswordVerifyEmailScreen()),
     GetPage(name: resetPasswordScreen, page: () => ResetPasswordScreen()),
     GetPage(name: myDrawerModel, page: () => MyDrawerModel()),
+    GetPage(name: profileScreen, page: () => ProfileScreen()),
+    GetPage(name: profileSettingsScreen, page: () => ProfileSettingsScreen()),
+    GetPage(name: historyScreen, page: () => HistoryScreen()),
   ];
 }

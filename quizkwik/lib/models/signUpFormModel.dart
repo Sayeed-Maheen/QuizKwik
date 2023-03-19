@@ -30,6 +30,7 @@ class _SignUpFormModelState extends State<SignUpFormModel> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // name field
             Text(
               'Your Name',
               style: TextStyle(
@@ -70,6 +71,7 @@ class _SignUpFormModelState extends State<SignUpFormModel> {
               ),
             ),
             SizedBox(height: 12.h),
+            // email field
             Text(
               'Your Email',
               style: TextStyle(
@@ -134,6 +136,7 @@ class _SignUpFormModelState extends State<SignUpFormModel> {
               ),
             ),
             SizedBox(height: 12.h),
+            // password field
             Text(
               'Create Password',
               style: TextStyle(

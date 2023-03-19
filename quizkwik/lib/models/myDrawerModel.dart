@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:quizkwik/screens/drawerScreens/notificationScreen.dart';
+import 'package:quizkwik/screens/drawerScreens/profileSettingsScreen.dart';
 
 import '../widgets/appColors.dart';
 
@@ -9,7 +12,6 @@ class MyDrawerModel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-
       child: Drawer(
         child: Container(
           color: AppColors.colorWhiteHighEmp,
@@ -77,32 +79,19 @@ class MyDrawerModel extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 24.h),
-                  Row(
-                    children: [
-                      Icon(Icons.settings, color: AppColors.colorPrimary),
-                      SizedBox(width: 8.w),
-                      Text(
-                        "Profile Settings",
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            color: AppColors.colorBlackHighEmp,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20.h),
-                  Divider(height: 2),
-                  SizedBox(height: 20.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
+
+                  // Profile settings
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(ProfileSettingsScreen());
+                    },
+                    child: Container(
+                      child: Row(
                         children: [
-                          Icon(Icons.notifications,
-                              color: AppColors.colorPrimary),
+                          Icon(Icons.settings, color: AppColors.colorPrimary),
                           SizedBox(width: 8.w),
                           Text(
-                            "Notification",
+                            "Profile Settings",
                             style: TextStyle(
                                 fontSize: 16.sp,
                                 color: AppColors.colorBlackHighEmp,
@@ -110,18 +99,49 @@ class MyDrawerModel extends StatelessWidget {
                           ),
                         ],
                       ),
-                      CircleAvatar(
-                        radius: 10,
-                        backgroundColor: AppColors.colorAlert,
-                        child: Text(
-                          "8",
-                          style: TextStyle(
-                              fontSize: 10.sp,
-                              color: AppColors.colorWhiteHighEmp,
-                              fontWeight: FontWeight.w600),
-                        ),
+                    ),
+                  ),
+                  SizedBox(height: 20.h),
+                  Divider(height: 2),
+                  SizedBox(height: 20.h),
+
+                  // Notification
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(NotificationScreen());
+                    },
+                    child: Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.notifications,
+                                  color: AppColors.colorPrimary),
+                              SizedBox(width: 8.w),
+                              Text(
+                                "Notification",
+                                style: TextStyle(
+                                    fontSize: 16.sp,
+                                    color: AppColors.colorBlackHighEmp,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ],
+                          ),
+                          CircleAvatar(
+                            radius: 10,
+                            backgroundColor: AppColors.colorAlert,
+                            child: Text(
+                              "8",
+                              style: TextStyle(
+                                  fontSize: 10.sp,
+                                  color: AppColors.colorWhiteHighEmp,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                   SizedBox(height: 20.h),
                   Divider(height: 2),

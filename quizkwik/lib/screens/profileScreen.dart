@@ -34,6 +34,15 @@ class ProfileScreen extends StatelessWidget {
               color: AppColors.colorBlackHighEmp,
               fontWeight: FontWeight.bold),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Icon(
+              Icons.settings,
+              color: AppColors.colorBlackHighEmp,
+            ),
+          )
+        ],
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
