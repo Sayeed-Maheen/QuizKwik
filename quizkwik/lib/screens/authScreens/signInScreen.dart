@@ -5,7 +5,6 @@ import 'package:quizkwik/models/signInFormModel.dart';
 import 'package:quizkwik/screens/authScreens/signUpScreen/signUpScreen.dart';
 import 'package:quizkwik/widgets/myContainer.dart';
 
-import '../../main.dart';
 import '../../models/myBottomNav.dart';
 import '../../widgets/appColors.dart';
 
@@ -18,7 +17,6 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen>
     with SingleTickerProviderStateMixin {
-  final ThemeController _themeController = Get.find();
   TextEditingController passwordController = TextEditingController();
   final double _textOpacity = 1.0;
   final double _cardOpacity = 0.0;
@@ -56,8 +54,6 @@ class _SignInScreenState extends State<SignInScreen>
 
   @override
   Widget build(BuildContext context) {
-    _themeController
-        .updateStatusBarColor(Theme.of(context).scaffoldBackgroundColor);
     return Scaffold(
       backgroundColor: AppColors.colorWhiteHighEmp,
       body: SafeArea(

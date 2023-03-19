@@ -9,6 +9,7 @@ class MyDrawerModel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+
       child: Drawer(
         child: Container(
           color: AppColors.colorWhiteHighEmp,
@@ -56,7 +57,7 @@ class MyDrawerModel extends StatelessWidget {
                               fontSize: 12.sp),
                           suffixIcon:
                               Icon(Icons.search, color: AppColors.colorPrimary),
-                          contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 15),
+                          contentPadding: EdgeInsets.fromLTRB(16, 20, -6, 15),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: BorderSide(

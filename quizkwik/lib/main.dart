@@ -6,36 +6,22 @@ import 'package:quizkwik/routes/routes.dart';
 import 'package:quizkwik/widgets/appColors.dart';
 import 'package:quizkwik/widgets/customSwatch.dart';
 
-class ThemeController extends GetxController {
-  final _isDarkMode = false.obs;
-  bool get isDarkMode => _isDarkMode.value;
-  set isDarkMode(bool value) => _isDarkMode.value = value;
-
-  void updateStatusBarColor(Color color) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: color,
-      statusBarIconBrightness: isDarkMode ? Brightness.light : Brightness.dark,
-    ));
-  }
+void main() {
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final ThemeController _themeController = Get.put(ThemeController());
-
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
+      designSize: Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return GetBuilder<ThemeController>(
-          builder: (_) => GetMaterialApp(
+        return StatusBarWrapper(
+          child: GetMaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              brightness: _themeController.isDarkMode
-                  ? Brightness.dark
-                  : Brightness.light,
               primarySwatch: createMaterialColor(AppColors.colorPrimary),
               fontFamily: "Barlow",
             ),
@@ -51,9 +37,22 @@ class MyApp extends StatelessWidget {
   }
 }
 
-void main() {
-  SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+class StatusBarWrapper extends StatelessWidget {
+  final Widget child;
+
+  const StatusBarWrapper({Key? key, required this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final brightness = MediaQuery.of(context).platformBrightness;
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness:
+            brightness == Brightness.light ? Brightness.dark : Brightness.light,
+        statusBarBrightness: brightness,
+      ),
+      child: child,
+    );
+  }
 }
