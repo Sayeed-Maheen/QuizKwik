@@ -6,6 +6,7 @@ import 'package:quizkwik/screens/authScreens/forgotPasswordScreen/resetPasswordS
 import 'package:quizkwik/screens/authScreens/signInScreen.dart';
 import 'package:quizkwik/screens/authScreens/signUpScreen/signUpScreen.dart';
 import 'package:quizkwik/screens/authScreens/signUpScreen/verifyEmailScreen.dart';
+import 'package:quizkwik/screens/drawerScreens/privacyPolicyScreen.dart';
 import 'package:quizkwik/screens/drawerScreens/profileSettingsScreen.dart';
 import 'package:quizkwik/screens/onboardingScreen/onboardingScreen.dart';
 import 'package:quizkwik/screens/onboardingScreen/splashScreen.dart';
@@ -39,6 +40,8 @@ class RoutesClass {
   static String getProfileSettingsScreenRoute() => profileSettingsScreen;
   static String historyScreen = "/historyScreen";
   static String getHistoryScreenRoute() => profileScreen;
+  static String privacyPolicyScreen = "/privacyPolicyScreen";
+  static String getPrivacyPolicyScreenRoute() => privacyPolicyScreen;
 
   // ---- Routes ----
   static List<GetPage> routes = [
@@ -56,5 +59,6 @@ class RoutesClass {
     GetPage(name: profileScreen, page: () => ProfileScreen()),
     GetPage(name: profileSettingsScreen, page: () => ProfileSettingsScreen()),
     GetPage(name: historyScreen, page: () => HistoryScreen()),
+    GetPage(name: privacyPolicyScreen, page: () => PrivacyPolicyScreen()),
   ];
 }

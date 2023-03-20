@@ -20,7 +20,16 @@ class HomeScreenQuizModel extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: EdgeInsets.only(right: 10),
-            child: Image.asset(images[index], height: 140.h, width: 104.w),
+            child: GestureDetector(
+                onTap: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => HomeScreenQuizModel(images[index]),
+                  //   ),
+                  // );
+                },
+                child: Image.asset(images[index], height: 140.h, width: 104.w)),
           );
         },
       ),

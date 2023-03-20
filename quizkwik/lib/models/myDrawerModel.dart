@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:quizkwik/screens/drawerScreens/notificationScreen.dart';
 import 'package:quizkwik/screens/drawerScreens/profileSettingsScreen.dart';
 
+import '../screens/drawerScreens/privacyPolicyScreen.dart';
 import '../widgets/appColors.dart';
 
 class MyDrawerModel extends StatelessWidget {
@@ -210,18 +211,25 @@ class MyDrawerModel extends StatelessWidget {
                   SizedBox(height: 20.h),
                   Divider(height: 2),
                   SizedBox(height: 20.h),
-                  Row(
-                    children: [
-                      Icon(Icons.policy, color: AppColors.colorPrimary),
-                      SizedBox(width: 8.w),
-                      Text(
-                        "Privacy & Policy",
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            color: AppColors.colorBlackHighEmp,
-                            fontWeight: FontWeight.w600),
+                  GestureDetector(
+                    onTap: () {
+                      Get.offAll(PrivacyPolicyScreen());
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          Icon(Icons.policy, color: AppColors.colorPrimary),
+                          SizedBox(width: 8.w),
+                          Text(
+                            "Privacy & Policy",
+                            style: TextStyle(
+                                fontSize: 16.sp,
+                                color: AppColors.colorBlackHighEmp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                   SizedBox(height: 20.h),
                   Divider(height: 2),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:quizkwik/models/completedHistoryModel.dart';
 import 'package:quizkwik/models/myBottomNav.dart';
+import 'package:quizkwik/models/ongoingHistoryModel.dart';
 
+import '../models/createdHistoryModel.dart';
 import '../widgets/appColors.dart';
 
 class HistoryScreen extends StatefulWidget {
@@ -110,9 +113,9 @@ class _HistoryScreenState extends State<HistoryScreen>
                           child: TabBarView(
                             physics: BouncingScrollPhysics(),
                             children: [
-                              Container(),
-                              Container(),
-                              Container(),
+                              OngoingHistoryModel(),
+                              CompletedHistoryModel(),
+                              CreatedHistoryModel(),
                             ],
                             controller: _tabController,
                           ),
