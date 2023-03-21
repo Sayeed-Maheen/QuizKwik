@@ -7,8 +7,8 @@ import 'package:quizkwik/widgets/myContainer.dart';
 
 import '../widgets/appColors.dart';
 
-class BrowseSmartModel extends StatelessWidget {
-  const BrowseSmartModel({Key? key}) : super(key: key);
+class JoinQuizBrowseModel extends StatelessWidget {
+  const JoinQuizBrowseModel({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class BrowseSmartModel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Browse Smart!",
+                "Browse More!",
                 style: TextStyle(
                     fontSize: 20.sp,
                     color: AppColors.colorBlackHighEmp,

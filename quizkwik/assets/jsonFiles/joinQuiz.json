@@ -1,0 +1,71 @@
+[
+  {
+    "image": "assets/images/historyImage1.png",
+    "title": "Central History",
+    "subtitle": "by Mahmud Saimon",
+    "amount": "500",
+    "time": "5min"
+  },
+  {
+    "image": "assets/images/historyImage2.png",
+    "title": "Music Classics",
+    "subtitle": "by Mahmud Saimon",
+    "amount": "500",
+    "time": "5min"
+  },
+  {
+    "image": "assets/images/historyImage3.png",
+    "title": "Drama’s of Century",
+    "subtitle": "by Mahmud Saimon",
+    "amount": "500",
+    "time": "5min"
+  },
+  {
+    "image": "assets/images/historyImage4.png",
+    "title": "Sports notifications",
+    "subtitle": "by Mahmud Saimon",
+    "amount": "500",
+    "time": "5min"
+  },{
+  "image": "assets/images/historyImage1.png",
+  "title": "Central History",
+  "subtitle": "by Mahmud Saimon",
+  "amount": "500",
+  "time": "5min"
+},
+  {
+    "image": "assets/images/historyImage2.png",
+    "title": "Music Classics",
+    "subtitle": "by Mahmud Saimon",
+    "amount": "500",
+    "time": "5min"
+  },
+  {
+    "image": "assets/images/historyImage3.png",
+    "title": "Drama’s of Century",
+    "subtitle": "by Mahmud Saimon",
+    "amount": "500",
+    "time": "5min"
+  },
+  {
+    "image": "assets/images/historyImage4.png",
+    "title": "Sports notifications",
+    "subtitle": "by Mahmud Saimon",
+    "amount": "500",
+    "time": "5min"
+  },
+  {
+    "image": "assets/images/historyImage3.png",
+    "title": "Drama’s of Century",
+    "subtitle": "by Mahmud Saimon",
+    "amount": "500",
+    "time": "5min"
+  },
+  {
+    "image": "assets/images/historyImage4.png",
+    "title": "Sports notifications",
+    "subtitle": "by Mahmud Saimon",
+    "amount": "500",
+    "time": "5min"
+  }
+]
