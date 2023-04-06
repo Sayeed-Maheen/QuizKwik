@@ -5,7 +5,6 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:quizkwik/models/createQuizModel.dart';
 import 'package:quizkwik/widgets/appColors.dart';
 import 'package:quizkwik/widgets/myButton.dart';
-import 'package:quizkwik/widgets/myContainer.dart';
 
 class CreateQuizScreen extends StatelessWidget {
   const CreateQuizScreen({Key? key}) : super(key: key);

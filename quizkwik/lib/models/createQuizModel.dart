@@ -18,6 +18,7 @@ class CreateQuizModel extends StatefulWidget {
 }
 
 class _CreateQuizModelState extends State<CreateQuizModel> {
+  final countController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -192,6 +193,7 @@ class _CreateQuizModelState extends State<CreateQuizModel> {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Container(
                   child: TextFormField(
+                    controller: countController,
                     style: TextStyle(color: AppColors.colorBlackHighEmp),
                     decoration: InputDecoration(
                       hintText: 'Enter number',
@@ -282,5 +284,8 @@ class _CreateQuizModelState extends State<CreateQuizModel> {
         SizedBox(height: 16.h),
       ],
     );
+  }
+  void getNum(){
+    final n = countController.text;
   }
 }
