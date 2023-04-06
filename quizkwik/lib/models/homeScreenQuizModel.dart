@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:quizkwik/screens/createQuizScreen.dart';
 import 'package:quizkwik/screens/joinQuizScreen.dart';
 
 class HomeScreenQuizModel extends StatelessWidget {
@@ -12,7 +13,9 @@ class HomeScreenQuizModel extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(CreateQuizScreen());
+              },
               child: Image.asset('assets/images/createQuiz.png',
                   height: 140.h, width: 104.w)),
           GestureDetector(

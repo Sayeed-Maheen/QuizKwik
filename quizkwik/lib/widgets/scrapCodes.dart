@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'appColors.dart';
 
-class CheatSheet extends StatelessWidget {
-  const CheatSheet({Key? key}) : super(key: key);
+class ScrapCodes extends StatelessWidget {
+  const ScrapCodes({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
