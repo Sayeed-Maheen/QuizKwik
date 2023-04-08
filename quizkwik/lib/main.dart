@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     // sets the color and brightness of the status bar, and a GetMaterialApp
     // widget that is the root of the application widget tree.
     return ScreenUtilInit(
-      designSize: Size(360, 690), // The design size of the screen
+      designSize: const Size(360, 690), // The design size of the screen
       minTextAdapt: true, // Whether to adapt text size or not
       splitScreenMode: true, // Whether to support split screen mode or not
       builder: (context, child) {
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
                 .getSplashScreenRoute(), // The initial route of the application
             getPages:
                 RoutesClass.routes, // The list of routes of the application
-            routes: {
+            routes: const {
               // Your custom routes can be added here
             },
           ),

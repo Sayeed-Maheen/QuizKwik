@@ -6,7 +6,8 @@ import 'appColors.dart';
 class MyButton extends StatefulWidget {
   final void Function()? onPressed;
   final String text;
-  MyButton({
+  const MyButton({
+    super.key,
     required this.onPressed,
     required this.text,
   });
@@ -21,7 +22,7 @@ class _MyButtonState extends State<MyButton> {
     return Container(
       height: 50.h,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [
             AppColors.colorBlueGradientStart,
             AppColors.colorBlueGradientEnd,
@@ -30,7 +31,7 @@ class _MyButtonState extends State<MyButton> {
           end: Alignment.bottomCenter,
         ),
         borderRadius: BorderRadius.circular(48),
-        boxShadow: <BoxShadow>[
+        boxShadow: const <BoxShadow>[
           BoxShadow(color: AppColors.colorPrimaryLightest, blurRadius: 7),
         ],
       ),

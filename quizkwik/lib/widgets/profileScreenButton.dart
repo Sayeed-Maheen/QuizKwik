@@ -6,7 +6,8 @@ import 'appColors.dart';
 class ProfileScreenButton extends StatefulWidget {
   final void Function()? onPressed;
   final String text;
-  ProfileScreenButton({
+  const ProfileScreenButton({
+    super.key,
     required this.onPressed,
     required this.text,
   });
@@ -21,7 +22,7 @@ class _ProfileScreenButtonState extends State<ProfileScreenButton> {
     return Container(
       height: 68.h,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [
             AppColors.colorBlueGradientStart,
             AppColors.colorBlueGradientEnd,
@@ -30,7 +31,7 @@ class _ProfileScreenButtonState extends State<ProfileScreenButton> {
           end: Alignment.bottomCenter,
         ),
         borderRadius: BorderRadius.circular(16),
-        boxShadow: <BoxShadow>[
+        boxShadow: const <BoxShadow>[
           BoxShadow(color: AppColors.colorPrimaryLightest, blurRadius: 7),
         ],
       ),
@@ -45,7 +46,7 @@ class _ProfileScreenButtonState extends State<ProfileScreenButton> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.redeem, color: AppColors.colorWhiteHighEmp),
+            const Icon(Icons.redeem, color: AppColors.colorWhiteHighEmp),
             SizedBox(height: 2.h),
             Text(
               widget.text,

@@ -6,7 +6,8 @@ import 'appColors.dart';
 class PlayButton extends StatefulWidget {
   final void Function()? onPressed;
   final Widget child;
-  PlayButton({
+  const PlayButton({
+    super.key,
     required this.onPressed,
     required this.child,
   });
@@ -22,7 +23,7 @@ class _PlayButtonState extends State<PlayButton> {
       height: 44.h,
       width: 68.w,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [
             AppColors.colorCard2GradientStart,
             AppColors.colorCard2GradientEnd,
@@ -31,7 +32,7 @@ class _PlayButtonState extends State<PlayButton> {
           end: Alignment.bottomCenter,
         ),
         borderRadius: BorderRadius.circular(48),
-        boxShadow: <BoxShadow>[
+        boxShadow: const <BoxShadow>[
           BoxShadow(color: AppColors.colorSecondaryLightest, blurRadius: 7),
         ],
       ),

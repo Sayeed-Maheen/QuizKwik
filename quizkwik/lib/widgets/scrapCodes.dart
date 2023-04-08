@@ -20,9 +20,9 @@ class ScrapCodes extends StatelessWidget {
         ),
 
         AppBar(
-          title: Text('My Gradient AppBar'),
+          title: const Text('My Gradient AppBar'),
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
                   AppColors.colorAppbarGradientStart,

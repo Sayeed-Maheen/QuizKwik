@@ -52,8 +52,8 @@ class _DropdownWidgetState extends State<DropdownWidget> {
             height: 0,
             color: Colors.transparent,
           ),
-          icon: Padding(
-            padding: const EdgeInsets.only(left: 8.0),
+          icon: const Padding(
+            padding: EdgeInsets.only(left: 8.0),
             child: Icon(Icons.arrow_drop_down),
           ),
         ),

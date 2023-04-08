@@ -8,7 +8,8 @@ class MyContainer extends StatelessWidget {
   final Color color;
   final BorderRadius borderRadius;
 
-  MyContainer({
+  const MyContainer({
+    super.key,
     required this.child,
     this.width = double.infinity,
     this.color = AppColors.colorWhiteHighEmp,
@@ -19,7 +20,7 @@ class MyContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      margin: EdgeInsets.symmetric(horizontal: 16),
+      margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
         color: color,
         borderRadius: borderRadius,
@@ -28,7 +29,7 @@ class MyContainer extends StatelessWidget {
             color: Colors.grey.withOpacity(.2),
             blurRadius: 15.0, // soften the shadow
             spreadRadius: 0.0, //extend the shadow
-            offset: Offset(
+            offset: const Offset(
               5, // Move to right 10  horizontally
               5, // Move to bottom 10 Vertically
             ),
