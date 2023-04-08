@@ -39,14 +39,14 @@ class _CreateQuizModelState extends State<CreateQuizModel> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+              padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
               child: DottedBorder(
                 borderType: BorderType.RRect,
-                radius: Radius.circular(12),
+                radius: const Radius.circular(12),
                 color: AppColors.colorPrimary,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                  child: Container(
+                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                  child: SizedBox(
                     height: 128.h,
                     width: double.infinity,
                     child: Column(
@@ -100,26 +100,24 @@ class _CreateQuizModelState extends State<CreateQuizModel> {
             Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Container(
-                  child: TextFormField(
-                    style: TextStyle(color: AppColors.colorBlackHighEmp),
-                    decoration: InputDecoration(
-                      hintText: 'Example',
-                      hintStyle: TextStyle(color: AppColors.colorDisabled),
-                      contentPadding: EdgeInsets.fromLTRB(16, 10, 16, 10),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(56),
-                        borderSide: BorderSide(
-                          color: AppColors.colorWhiteLowEmp,
-                          width: 1,
-                        ),
+                child: TextFormField(
+                  style: const TextStyle(color: AppColors.colorBlackHighEmp),
+                  decoration: InputDecoration(
+                    hintText: 'Example',
+                    hintStyle: const TextStyle(color: AppColors.colorDisabled),
+                    contentPadding: EdgeInsets.fromLTRB(16, 10, 16, 10),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(56),
+                      borderSide: const BorderSide(
+                        color: AppColors.colorWhiteLowEmp,
+                        width: 1,
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(56),
-                        borderSide: BorderSide(
-                          color: AppColors.colorWhiteLowEmp,
-                          width: 1,
-                        ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(56),
+                      borderSide: const BorderSide(
+                        color: AppColors.colorWhiteLowEmp,
+                        width: 1,
                       ),
                     ),
                   ),
@@ -139,28 +137,26 @@ class _CreateQuizModelState extends State<CreateQuizModel> {
             Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Container(
-                  child: TextFormField(
-                    maxLines: 5,
-                    maxLength: 100,
-                    style: TextStyle(color: AppColors.colorBlackHighEmp),
-                    decoration: InputDecoration(
-                      hintText: 'Example',
-                      hintStyle: TextStyle(color: AppColors.colorDisabled),
-                      contentPadding: EdgeInsets.fromLTRB(16, 10, 16, 10),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(
-                          color: AppColors.colorWhiteLowEmp,
-                          width: 1,
-                        ),
+                child: TextFormField(
+                  maxLines: 5,
+                  maxLength: 100,
+                  style: const TextStyle(color: AppColors.colorBlackHighEmp),
+                  decoration: InputDecoration(
+                    hintText: 'Example',
+                    hintStyle: const TextStyle(color: AppColors.colorDisabled),
+                    contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
+                      borderSide: const BorderSide(
+                        color: AppColors.colorWhiteLowEmp,
+                        width: 1,
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(
-                          color: AppColors.colorWhiteLowEmp,
-                          width: 1,
-                        ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
+                      borderSide: const BorderSide(
+                        color: AppColors.colorWhiteLowEmp,
+                        width: 1,
                       ),
                     ),
                   ),
@@ -177,7 +173,7 @@ class _CreateQuizModelState extends State<CreateQuizModel> {
                     fontWeight: FontWeight.w600),
               ),
             ),
-            QuizCategoryModel(),
+            const QuizCategoryModel(),
             Padding(
               padding: const EdgeInsets.all(16),
               child: Text(
@@ -191,27 +187,25 @@ class _CreateQuizModelState extends State<CreateQuizModel> {
             Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Container(
-                  child: TextFormField(
-                    controller: countController,
-                    style: TextStyle(color: AppColors.colorBlackHighEmp),
-                    decoration: InputDecoration(
-                      hintText: 'Enter number',
-                      hintStyle: TextStyle(color: AppColors.colorDisabled),
-                      contentPadding: EdgeInsets.fromLTRB(16, 10, 16, 10),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(56),
-                        borderSide: BorderSide(
-                          color: AppColors.colorWhiteLowEmp,
-                          width: 1,
-                        ),
+                child: TextFormField(
+                  controller: countController,
+                  style: const TextStyle(color: AppColors.colorBlackHighEmp),
+                  decoration: InputDecoration(
+                    hintText: 'Enter number',
+                    hintStyle: const TextStyle(color: AppColors.colorDisabled),
+                    contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(56),
+                      borderSide: const BorderSide(
+                        color: AppColors.colorWhiteLowEmp,
+                        width: 1,
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(56),
-                        borderSide: BorderSide(
-                          color: AppColors.colorWhiteLowEmp,
-                          width: 1,
-                        ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(56),
+                      borderSide: const BorderSide(
+                        color: AppColors.colorWhiteLowEmp,
+                        width: 1,
                       ),
                     ),
                   ),
@@ -228,7 +222,7 @@ class _CreateQuizModelState extends State<CreateQuizModel> {
                     fontWeight: FontWeight.w600),
               ),
             ),
-            QuizDurationModel(),
+            const QuizDurationModel(),
             Padding(
               padding: const EdgeInsets.all(16),
               child: Text(
@@ -239,7 +233,7 @@ class _CreateQuizModelState extends State<CreateQuizModel> {
                     fontWeight: FontWeight.w600),
               ),
             ),
-            QuizVisibilityModel(),
+            const QuizVisibilityModel(),
             Padding(
               padding: const EdgeInsets.all(16),
               child: Text(
@@ -253,26 +247,24 @@ class _CreateQuizModelState extends State<CreateQuizModel> {
             Center(
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-                child: Container(
-                  child: TextFormField(
-                    style: TextStyle(color: AppColors.colorBlackHighEmp),
-                    decoration: InputDecoration(
-                      hintText: 'Points',
-                      hintStyle: TextStyle(color: AppColors.colorDisabled),
-                      contentPadding: EdgeInsets.fromLTRB(16, 10, 16, 10),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(56),
-                        borderSide: BorderSide(
-                          color: AppColors.colorWhiteLowEmp,
-                          width: 1,
-                        ),
+                child: TextFormField(
+                  style: const TextStyle(color: AppColors.colorBlackHighEmp),
+                  decoration: InputDecoration(
+                    hintText: 'Points',
+                    hintStyle: const TextStyle(color: AppColors.colorDisabled),
+                    contentPadding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(56),
+                      borderSide: const BorderSide(
+                        color: AppColors.colorWhiteLowEmp,
+                        width: 1,
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(56),
-                        borderSide: BorderSide(
-                          color: AppColors.colorWhiteLowEmp,
-                          width: 1,
-                        ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(56),
+                      borderSide: const BorderSide(
+                        color: AppColors.colorWhiteLowEmp,
+                        width: 1,
                       ),
                     ),
                   ),
@@ -285,7 +277,8 @@ class _CreateQuizModelState extends State<CreateQuizModel> {
       ],
     );
   }
-  void getNum(){
+
+  void getNum() {
     final n = countController.text;
   }
 }

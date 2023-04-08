@@ -3,13 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quizkwik/widgets/appColors.dart';
 
 class AwaitForYouModel extends StatelessWidget {
+  const AwaitForYouModel({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: 4,
       shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 0.78,
           crossAxisSpacing: 16,
@@ -68,7 +70,7 @@ class AwaitForYouModel extends StatelessWidget {
                     SizedBox(height: 2.h),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.star,
                           size: 11,
                           color: AppColors.colorSecondary,

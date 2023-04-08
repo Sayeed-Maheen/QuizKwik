@@ -11,13 +11,13 @@ class WinnerCardModel extends StatelessWidget {
     return Container(
       height: 140.h,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/winnerCard.png"),
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 36),
+        padding: const EdgeInsets.symmetric(horizontal: 36),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

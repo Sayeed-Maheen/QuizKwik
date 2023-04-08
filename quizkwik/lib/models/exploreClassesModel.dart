@@ -39,7 +39,7 @@ class ExploreClassesModel extends StatelessWidget {
               Container(
                 height: 57.5.h,
                 width: 144.w,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/class6.png"),
                   ),
@@ -72,7 +72,7 @@ class ExploreClassesModel extends StatelessWidget {
               Container(
                 height: 57.5.h,
                 width: 144.w,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/class7.png"),
                   ),
@@ -111,7 +111,7 @@ class ExploreClassesModel extends StatelessWidget {
               Container(
                 height: 57.5.h,
                 width: 144.w,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/class8.png"),
                   ),
@@ -144,7 +144,7 @@ class ExploreClassesModel extends StatelessWidget {
               Container(
                 height: 57.5.h,
                 width: 144.w,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("assets/images/class9.png"),
                   ),

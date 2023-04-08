@@ -32,8 +32,8 @@ class _ForgotPasswordOtpPopupModelState
               Container(
                 height: 110.h,
                 width: double.infinity,
-                padding: EdgeInsets.only(top: 20),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.only(top: 20),
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(24),
                   ),
@@ -43,7 +43,7 @@ class _ForgotPasswordOtpPopupModelState
               ),
               Container(
                 padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(0),
                       bottomRight: Radius.circular(100),
@@ -62,12 +62,12 @@ class _ForgotPasswordOtpPopupModelState
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
                       'Your password was changed successfully',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         color: AppColors.colorBlackMidEmp,
                         fontWeight: FontWeight.w400,
                       ),
@@ -77,7 +77,7 @@ class _ForgotPasswordOtpPopupModelState
                       padding: const EdgeInsets.symmetric(horizontal: 52),
                       child: MyButton(
                         onPressed: () {
-                          Get.offAll(MyBottomNav());
+                          Get.offAll(const MyBottomNav());
                         },
                         text: "Back to Home",
                       ),
@@ -95,8 +95,6 @@ class _ForgotPasswordOtpPopupModelState
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: MyButton(onPressed: _showSimpleDialog, text: 'Reset Now'),
-    );
+    return MyButton(onPressed: _showSimpleDialog, text: 'Reset Now');
   }
 }

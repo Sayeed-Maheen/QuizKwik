@@ -30,7 +30,7 @@ class BrowseSmartModel extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(BrowseCategoriesScreen());
+                  Get.to(const BrowseCategoriesScreen());
                 },
                 child: Image.asset(
                   "assets/images/seeMore.png",
@@ -51,7 +51,7 @@ class BrowseSmartModel extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(MathScreen());
+                  Get.to(const MathScreen());
                 },
                 child: Image.asset(
                   "assets/images/math.png",
@@ -85,7 +85,7 @@ class BrowseSmartModel extends StatelessWidget {
             Container(
                 height: 91.h,
                 width: 142.w,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
                       "assets/images/sports.png",

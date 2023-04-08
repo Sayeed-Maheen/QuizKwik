@@ -39,7 +39,7 @@ class _OtpModelState extends State<OtpModel> {
           ),
         ),
         SizedBox(height: 20.h),
-        OtpPopupModel(),
+        const OtpPopupModel(),
       ],
     );
   }
@@ -49,7 +49,7 @@ class _OtpModelState extends State<OtpModel> {
     return Container(
       height: 55.h,
       width: 55.w,
-      margin: EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
           color: AppColors.colorWhiteHighEmp,
           borderRadius: BorderRadius.circular(50)),
@@ -89,18 +89,18 @@ class _OtpModelState extends State<OtpModel> {
           keyboardType: TextInputType.number,
           maxLength: 1,
           decoration: InputDecoration(
-            counter: Offstage(),
-            contentPadding: EdgeInsets.fromLTRB(18, 15, 16, 15),
+            counter: const Offstage(),
+            contentPadding: const EdgeInsets.fromLTRB(18, 15, 16, 15),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(50),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: AppColors.colorWhiteLowEmp,
                 width: 1,
               ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(50),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: AppColors.colorSuccess,
                 width: 1,
               ),

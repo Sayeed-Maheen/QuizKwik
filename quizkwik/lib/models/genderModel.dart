@@ -35,15 +35,15 @@ class _GenderModelState extends State<GenderModel> {
         hintText: 'Gender',
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(56),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColors.colorWhiteLowEmp,
             width: 1,
           ),
         ),
-        contentPadding: EdgeInsets.fromLTRB(16, 16, 16, 15),
+        contentPadding: const EdgeInsets.fromLTRB(16, 16, 16, 15),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(56),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColors.colorWhiteLowEmp,
             width: 1,
           ),
