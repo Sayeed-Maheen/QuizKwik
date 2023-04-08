@@ -1,4 +1,4 @@
-package com.example.quizkwik
+package com.netrocreative.quizkwik
 
 import io.flutter.embedding.android.FlutterActivity
 
