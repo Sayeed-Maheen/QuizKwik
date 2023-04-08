@@ -43,7 +43,7 @@ class _ForgotPasswordOtpModelState extends State<ForgotPasswordOtpModel> {
         SizedBox(height: 16.h),
         MyButton(
             onPressed: () {
-              Get.off(ResetPasswordScreen());
+              Get.off(const ResetPasswordScreen());
             },
             text: "Submit")
       ],
@@ -55,7 +55,7 @@ class _ForgotPasswordOtpModelState extends State<ForgotPasswordOtpModel> {
     return Container(
       height: 55.h,
       width: 55.w,
-      margin: EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
           color: AppColors.colorWhiteHighEmp,
           borderRadius: BorderRadius.circular(50)),
@@ -95,18 +95,18 @@ class _ForgotPasswordOtpModelState extends State<ForgotPasswordOtpModel> {
           keyboardType: TextInputType.number,
           maxLength: 1,
           decoration: InputDecoration(
-            counter: Offstage(),
-            contentPadding: EdgeInsets.fromLTRB(18, 15, 16, 15),
+            counter: const Offstage(),
+            contentPadding: const EdgeInsets.fromLTRB(18, 15, 16, 15),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(50),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: AppColors.colorWhiteLowEmp,
                 width: 1,
               ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(50),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: AppColors.colorSuccess,
                 width: 1,
               ),

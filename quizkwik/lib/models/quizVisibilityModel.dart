@@ -19,7 +19,7 @@ class _QuizVisibilityModelState extends State<QuizVisibilityModel> {
   void _showBottomSheet2(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(16),
           topRight: Radius.circular(16),
@@ -34,7 +34,7 @@ class _QuizVisibilityModelState extends State<QuizVisibilityModel> {
         ];
 
         // Create a ListView of the options
-        return Container(
+        return SizedBox(
           height: 250.h,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +53,8 @@ class _QuizVisibilityModelState extends State<QuizVisibilityModel> {
                     ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.close, color: AppColors.colorBlackHighEmp),
+                    icon: const Icon(Icons.close,
+                        color: AppColors.colorBlackHighEmp),
                     onPressed: () {
                       Get.back();
                     },
@@ -79,7 +80,7 @@ class _QuizVisibilityModelState extends State<QuizVisibilityModel> {
                           Navigator.pop(context);
                         },
                         child: Container(
-                          margin: EdgeInsets.only(bottom: 10),
+                          margin: const EdgeInsets.only(bottom: 10),
                           height: 50.h,
                           width: double.infinity,
                           decoration: BoxDecoration(
@@ -156,7 +157,7 @@ class _QuizVisibilityModelState extends State<QuizVisibilityModel> {
                         : AppColors.colorBlackHighEmp,
                   ),
                 ),
-                Icon(Icons.arrow_drop_down_sharp,
+                const Icon(Icons.arrow_drop_down_sharp,
                     color: AppColors.colorBlackHighEmp)
               ],
             ),

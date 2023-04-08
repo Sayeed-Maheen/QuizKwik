@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quizkwik/widgets/appColors.dart';
 
 class JoinQuizScreenDropdownModel extends StatefulWidget {
+  const JoinQuizScreenDropdownModel({super.key});
+
   @override
   _JoinQuizScreenDropdownModelState createState() =>
       _JoinQuizScreenDropdownModelState();
@@ -29,7 +31,7 @@ class _JoinQuizScreenDropdownModelState
     return Container(
       width: 150.w,
       height: 35.h,
-      margin: EdgeInsets.only(top: 12),
+      margin: const EdgeInsets.only(top: 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
@@ -59,8 +61,8 @@ class _JoinQuizScreenDropdownModelState
             height: 0,
             color: Colors.transparent,
           ),
-          icon: Padding(
-            padding: const EdgeInsets.only(left: 8.0),
+          icon: const Padding(
+            padding: EdgeInsets.only(left: 8.0),
             child: Icon(Icons.arrow_drop_down),
           ),
         ),

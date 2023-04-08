@@ -32,7 +32,8 @@ class _NotificationModelState extends State<NotificationModel> {
                 itemCount: items == null ? 0 : items.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -40,7 +41,7 @@ class _NotificationModelState extends State<NotificationModel> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              margin: EdgeInsets.only(right: 8),
+                              margin: const EdgeInsets.only(right: 8),
                               width: 65.w,
                               height: 60.h,
                               child: Image(
@@ -50,14 +51,15 @@ class _NotificationModelState extends State<NotificationModel> {
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.only(bottom: 8),
+                              padding: const EdgeInsets.only(bottom: 8),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(height: 4.h),
                                   Padding(
-                                    padding: EdgeInsets.only(left: 8, right: 8),
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8),
                                     child: Text(
                                       items[index].title.toString(),
                                       style: TextStyle(
@@ -67,7 +69,7 @@ class _NotificationModelState extends State<NotificationModel> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(
+                                    padding: const EdgeInsets.only(
                                         left: 8, right: 8, bottom: 8),
                                     child: Text(
                                       items[index].subtitle.toString(),
@@ -91,7 +93,7 @@ class _NotificationModelState extends State<NotificationModel> {
                                             ),
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.only(
+                                            padding: const EdgeInsets.only(
                                                 left: 4, right: 12),
                                             child: Text(
                                               items[index].amount.toString(),
@@ -106,11 +108,11 @@ class _NotificationModelState extends State<NotificationModel> {
                                       ),
                                       Row(
                                         children: [
-                                          Icon(Icons.alarm_on,
+                                          const Icon(Icons.alarm_on,
                                               size: 16,
                                               color: AppColors.colorDisabled),
                                           Padding(
-                                            padding: EdgeInsets.only(
+                                            padding: const EdgeInsets.only(
                                                 left: 2, right: 8),
                                             child: Text(
                                                 items[index].time.toString()),
@@ -126,11 +128,11 @@ class _NotificationModelState extends State<NotificationModel> {
                         ),
                         PlayButton(
                             onPressed: () {},
-                            child: Icon(
+                            child: const Icon(
                               Icons.play_arrow,
                               color: AppColors.colorWhiteHighEmp,
                             )),
-                        Icon(
+                        const Icon(
                           Icons.close,
                           color: AppColors.colorError,
                         )
@@ -139,7 +141,7 @@ class _NotificationModelState extends State<NotificationModel> {
                   );
                 });
           } else {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }

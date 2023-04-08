@@ -19,7 +19,7 @@ class _QuizCategoryModelState extends State<QuizCategoryModel> {
   void _showBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(16),
           topRight: Radius.circular(16),
@@ -38,7 +38,7 @@ class _QuizCategoryModelState extends State<QuizCategoryModel> {
         ];
 
         // Create a ListView of the options
-        return Container(
+        return SizedBox(
           height: 300.h,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +57,8 @@ class _QuizCategoryModelState extends State<QuizCategoryModel> {
                     ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.close, color: AppColors.colorBlackHighEmp),
+                    icon: const Icon(Icons.close,
+                        color: AppColors.colorBlackHighEmp),
                     onPressed: () {
                       Get.back();
                     },
@@ -69,7 +70,8 @@ class _QuizCategoryModelState extends State<QuizCategoryModel> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2, // Number of columns
                       childAspectRatio: 3, // Width/height ratio of grid items
                       crossAxisSpacing: 8,
@@ -161,7 +163,7 @@ class _QuizCategoryModelState extends State<QuizCategoryModel> {
                         : AppColors.colorBlackHighEmp,
                   ),
                 ),
-                Icon(Icons.arrow_drop_down_sharp,
+                const Icon(Icons.arrow_drop_down_sharp,
                     color: AppColors.colorBlackHighEmp)
               ],
             ),

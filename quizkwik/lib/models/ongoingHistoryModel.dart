@@ -32,9 +32,10 @@ class _OngoingHistoryModelState extends State<OngoingHistoryModel> {
                 itemCount: items == null ? 0 : items.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    margin: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                    margin:
+                        const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                           color: Colors.deepPurple[50],
                           borderRadius: BorderRadius.circular(
@@ -47,7 +48,7 @@ class _OngoingHistoryModelState extends State<OngoingHistoryModel> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
-                                margin: EdgeInsets.only(right: 8),
+                                margin: const EdgeInsets.only(right: 8),
                                 width: 65.w,
                                 height: 60.h,
                                 child: Image(
@@ -57,15 +58,15 @@ class _OngoingHistoryModelState extends State<OngoingHistoryModel> {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.only(bottom: 8),
+                                padding: const EdgeInsets.only(bottom: 8),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     SizedBox(height: 4.h),
                                     Padding(
-                                      padding:
-                                          EdgeInsets.only(left: 8, right: 8),
+                                      padding: const EdgeInsets.only(
+                                          left: 8, right: 8),
                                       child: Text(
                                         items[index].title.toString(),
                                         style: TextStyle(
@@ -75,7 +76,7 @@ class _OngoingHistoryModelState extends State<OngoingHistoryModel> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(
+                                      padding: const EdgeInsets.only(
                                           left: 8, right: 8, bottom: 8),
                                       child: Text(
                                         items[index].subtitle.toString(),
@@ -99,7 +100,7 @@ class _OngoingHistoryModelState extends State<OngoingHistoryModel> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.only(
+                                              padding: const EdgeInsets.only(
                                                   left: 4, right: 12),
                                               child: Text(
                                                 items[index].amount.toString(),
@@ -114,11 +115,11 @@ class _OngoingHistoryModelState extends State<OngoingHistoryModel> {
                                         ),
                                         Row(
                                           children: [
-                                            Icon(Icons.alarm_on,
+                                            const Icon(Icons.alarm_on,
                                                 size: 16,
                                                 color: AppColors.colorDisabled),
                                             Padding(
-                                              padding: EdgeInsets.only(
+                                              padding: const EdgeInsets.only(
                                                   left: 2, right: 8),
                                               child: Text(
                                                   items[index].time.toString()),
@@ -134,7 +135,7 @@ class _OngoingHistoryModelState extends State<OngoingHistoryModel> {
                           ),
                           PlayButton(
                               onPressed: () {},
-                              child: Icon(
+                              child: const Icon(
                                 Icons.play_arrow,
                                 color: AppColors.colorWhiteHighEmp,
                               ))
@@ -144,7 +145,7 @@ class _OngoingHistoryModelState extends State<OngoingHistoryModel> {
                   );
                 });
           } else {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }

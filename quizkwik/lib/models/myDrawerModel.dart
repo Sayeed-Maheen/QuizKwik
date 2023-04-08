@@ -17,7 +17,7 @@ class MyDrawerModel extends StatelessWidget {
         child: Container(
           color: AppColors.colorWhiteHighEmp,
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -51,26 +51,28 @@ class MyDrawerModel extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12)),
                       width: 300.w,
                       child: TextFormField(
-                        style: TextStyle(color: AppColors.colorPrimaryLighter),
+                        style: const TextStyle(
+                            color: AppColors.colorPrimaryLighter),
                         decoration: InputDecoration(
                           hintText: 'Math, Science, anything...',
                           hintStyle: TextStyle(
                               color: AppColors.colorPrimaryLighter,
                               fontWeight: FontWeight.w400,
                               fontSize: 12.sp),
-                          suffixIcon:
-                              Icon(Icons.search, color: AppColors.colorPrimary),
-                          contentPadding: EdgeInsets.fromLTRB(16, 20, -6, 15),
+                          suffixIcon: const Icon(Icons.search,
+                              color: AppColors.colorPrimary),
+                          contentPadding:
+                              const EdgeInsets.fromLTRB(16, 20, -6, 15),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: AppColors.colorWhiteLowEmp,
                               width: 1,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: AppColors.colorWhiteLowEmp,
                               width: 1,
                             ),
@@ -84,72 +86,69 @@ class MyDrawerModel extends StatelessWidget {
                   // Profile settings
                   GestureDetector(
                     onTap: () {
-                      Get.to(ProfileSettingsScreen());
+                      Get.to(const ProfileSettingsScreen());
                     },
-                    child: Container(
-                      child: Row(
-                        children: [
-                          Icon(Icons.settings, color: AppColors.colorPrimary),
-                          SizedBox(width: 8.w),
-                          Text(
-                            "Profile Settings",
-                            style: TextStyle(
-                                fontSize: 16.sp,
-                                color: AppColors.colorBlackHighEmp,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.settings,
+                            color: AppColors.colorPrimary),
+                        SizedBox(width: 8.w),
+                        Text(
+                          "Profile Settings",
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              color: AppColors.colorBlackHighEmp,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(height: 20.h),
-                  Divider(height: 2),
+                  const Divider(height: 2),
                   SizedBox(height: 20.h),
 
                   // Notification
                   GestureDetector(
                     onTap: () {
-                      Get.to(NotificationScreen());
+                      Get.to(const NotificationScreen());
                     },
-                    child: Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(Icons.notifications,
-                                  color: AppColors.colorPrimary),
-                              SizedBox(width: 8.w),
-                              Text(
-                                "Notification",
-                                style: TextStyle(
-                                    fontSize: 16.sp,
-                                    color: AppColors.colorBlackHighEmp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ],
-                          ),
-                          CircleAvatar(
-                            radius: 10,
-                            backgroundColor: AppColors.colorAlert,
-                            child: Text(
-                              "8",
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            const Icon(Icons.notifications,
+                                color: AppColors.colorPrimary),
+                            SizedBox(width: 8.w),
+                            Text(
+                              "Notification",
                               style: TextStyle(
-                                  fontSize: 10.sp,
-                                  color: AppColors.colorWhiteHighEmp,
+                                  fontSize: 16.sp,
+                                  color: AppColors.colorBlackHighEmp,
                                   fontWeight: FontWeight.w600),
                             ),
+                          ],
+                        ),
+                        CircleAvatar(
+                          radius: 10,
+                          backgroundColor: AppColors.colorAlert,
+                          child: Text(
+                            "8",
+                            style: TextStyle(
+                                fontSize: 10.sp,
+                                color: AppColors.colorWhiteHighEmp,
+                                fontWeight: FontWeight.w600),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(height: 20.h),
-                  Divider(height: 2),
+                  const Divider(height: 2),
                   SizedBox(height: 20.h),
                   Row(
                     children: [
-                      Icon(Icons.diamond, color: AppColors.colorPrimary),
+                      const Icon(Icons.diamond, color: AppColors.colorPrimary),
                       SizedBox(width: 8.w),
                       Text(
                         "Earn Points",
@@ -161,11 +160,11 @@ class MyDrawerModel extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 20.h),
-                  Divider(height: 2),
+                  const Divider(height: 2),
                   SizedBox(height: 20.h),
                   Row(
                     children: [
-                      Icon(Icons.redeem, color: AppColors.colorPrimary),
+                      const Icon(Icons.redeem, color: AppColors.colorPrimary),
                       SizedBox(width: 8.w),
                       Text(
                         "Redeem Points",
@@ -177,11 +176,12 @@ class MyDrawerModel extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 20.h),
-                  Divider(height: 2),
+                  const Divider(height: 2),
                   SizedBox(height: 20.h),
                   Row(
                     children: [
-                      Icon(Icons.emoji_events, color: AppColors.colorPrimary),
+                      const Icon(Icons.emoji_events,
+                          color: AppColors.colorPrimary),
                       SizedBox(width: 8.w),
                       Text(
                         "Leader Board",
@@ -193,11 +193,12 @@ class MyDrawerModel extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 20.h),
-                  Divider(height: 2),
+                  const Divider(height: 2),
                   SizedBox(height: 20.h),
                   Row(
                     children: [
-                      Icon(Icons.military_tech, color: AppColors.colorPrimary),
+                      const Icon(Icons.military_tech,
+                          color: AppColors.colorPrimary),
                       SizedBox(width: 8.w),
                       Text(
                         "Achievements",
@@ -209,34 +210,32 @@ class MyDrawerModel extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 20.h),
-                  Divider(height: 2),
+                  const Divider(height: 2),
                   SizedBox(height: 20.h),
                   GestureDetector(
                     onTap: () {
-                      Get.offAll(PrivacyPolicyScreen());
+                      Get.offAll(const PrivacyPolicyScreen());
                     },
-                    child: Container(
-                      child: Row(
-                        children: [
-                          Icon(Icons.policy, color: AppColors.colorPrimary),
-                          SizedBox(width: 8.w),
-                          Text(
-                            "Privacy & Policy",
-                            style: TextStyle(
-                                fontSize: 16.sp,
-                                color: AppColors.colorBlackHighEmp,
-                                fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.policy, color: AppColors.colorPrimary),
+                        SizedBox(width: 8.w),
+                        Text(
+                          "Privacy & Policy",
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              color: AppColors.colorBlackHighEmp,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(height: 20.h),
-                  Divider(height: 2),
+                  const Divider(height: 2),
                   SizedBox(height: 20.h),
                   Row(
                     children: [
-                      Icon(Icons.logout, color: AppColors.colorPrimary),
+                      const Icon(Icons.logout, color: AppColors.colorPrimary),
                       SizedBox(width: 8.w),
                       Text(
                         "Log Out",

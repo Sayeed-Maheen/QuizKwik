@@ -7,10 +7,10 @@ class ProfileScreenBadgeModel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: 7,
       shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4, crossAxisSpacing: 24, mainAxisSpacing: 24),
       itemBuilder: (BuildContext context, int index) {
         List<String> images = [

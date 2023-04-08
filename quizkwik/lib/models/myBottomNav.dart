@@ -20,24 +20,24 @@ class _MyBottomNavState extends State<MyBottomNav> {
   List<Widget> _buildScreen() {
     return [
       HomeScreen(),
-      HistoryScreen(),
-      AddScreen(),
+      const HistoryScreen(),
+      const AddScreen(),
       Container(),
-      ProfileScreen(),
+      const ProfileScreen(),
     ];
   }
 
   List<PersistentBottomNavBarItem> _navBarItem() {
     return [
       PersistentBottomNavBarItem(
-          icon: Icon(
+          icon: const Icon(
             Icons.home_rounded,
           ),
           title: "Home",
           activeColorPrimary: AppColors.colorPrimary,
           inactiveColorPrimary: AppColors.colorBlackLowEmp),
       PersistentBottomNavBarItem(
-          icon: Icon(
+          icon: const Icon(
             Icons.history,
           ),
           title: "History",
@@ -46,11 +46,11 @@ class _MyBottomNavState extends State<MyBottomNav> {
       PersistentBottomNavBarItem(
           icon: Container(
             decoration: BoxDecoration(
-                boxShadow: <BoxShadow>[
+                boxShadow: const <BoxShadow>[
                   BoxShadow(
                       color: AppColors.colorPrimaryLightest, blurRadius: 3),
                 ],
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   colors: [
                     AppColors.colorBlueGradientStart,
                     AppColors.colorBlueGradientEnd
@@ -59,7 +59,7 @@ class _MyBottomNavState extends State<MyBottomNav> {
                   end: Alignment.bottomCenter,
                 ),
                 borderRadius: BorderRadius.circular(100)),
-            child: CircleAvatar(
+            child: const CircleAvatar(
               radius: 40,
               backgroundColor: Colors.transparent,
               child: Icon(
@@ -72,14 +72,14 @@ class _MyBottomNavState extends State<MyBottomNav> {
           activeColorPrimary: Colors.transparent,
           inactiveColorPrimary: AppColors.colorBlackLowEmp),
       PersistentBottomNavBarItem(
-          icon: Icon(
+          icon: const Icon(
             Icons.emoji_events,
           ),
           title: "Leader Board",
           activeColorPrimary: AppColors.colorPrimary,
           inactiveColorPrimary: AppColors.colorBlackLowEmp),
       PersistentBottomNavBarItem(
-          icon: Icon(
+          icon: const Icon(
             Icons.person,
           ),
           title: "Profile",
@@ -102,10 +102,10 @@ class _MyBottomNavState extends State<MyBottomNav> {
             color: Colors.grey.withOpacity(0.3),
             spreadRadius: 3,
             blurRadius: 10,
-            offset: Offset(0, 3), // changes position of shadow
+            offset: const Offset(0, 3), // changes position of shadow
           ),
         ],
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(50),
           topRight: Radius.circular(50),
           bottomLeft: Radius.zero,

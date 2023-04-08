@@ -51,28 +51,28 @@ class _ProfileSettingsScreenModelState
           ),
           SizedBox(height: 8.h),
           Center(
-            child: Container(
+            child: SizedBox(
               width: 300.w,
               child: TextFormField(
                 controller: nameController,
-                style: TextStyle(color: AppColors.colorBlackHighEmp),
+                style: const TextStyle(color: AppColors.colorBlackHighEmp),
                 decoration: InputDecoration(
                   hintText: 'Name',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                     color: AppColors.colorBlackLowEmp,
                     fontWeight: FontWeight.w300,
                   ),
-                  contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 15),
+                  contentPadding: const EdgeInsets.fromLTRB(16, 20, 16, 15),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorWhiteLowEmp,
                       width: 1,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorWhiteLowEmp,
                       width: 1,
                     ),
@@ -92,7 +92,7 @@ class _ProfileSettingsScreenModelState
           ),
           SizedBox(height: 8.h),
           Center(
-            child: Container(
+            child: SizedBox(
               width: 300.w,
               child: TextFormField(
                 controller: emailController,
@@ -106,37 +106,37 @@ class _ProfileSettingsScreenModelState
                     return "Enter valid Email";
                   }
                 },
-                style: TextStyle(color: AppColors.colorBlackHighEmp),
+                style: const TextStyle(color: AppColors.colorBlackHighEmp),
                 decoration: InputDecoration(
                   hintText: 'mail@example.com',
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       color: AppColors.colorBlackLowEmp,
                       fontWeight: FontWeight.w300),
-                  contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 15),
+                  contentPadding: const EdgeInsets.fromLTRB(16, 20, 16, 15),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorWhiteLowEmp,
                       width: 1,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorWhiteLowEmp,
                       width: 1,
                     ),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorError,
                       width: 1,
                     ),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorError,
                       width: 1,
                     ),
@@ -154,7 +154,7 @@ class _ProfileSettingsScreenModelState
                 color: AppColors.colorBlackHighEmp),
           ),
           SizedBox(height: 8.h),
-          GenderModel(),
+          const GenderModel(),
           SizedBox(height: 12.h),
           Text(
             'Birth date',
@@ -167,22 +167,22 @@ class _ProfileSettingsScreenModelState
           TextField(
             controller: dateinput, //editing controller of this TextField
             decoration: InputDecoration(
-                contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 15),
+                contentPadding: const EdgeInsets.fromLTRB(16, 20, 16, 15),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(56),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: AppColors.colorWhiteLowEmp,
                     width: 1,
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(56),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: AppColors.colorWhiteLowEmp,
                     width: 1,
                   ),
                 ),
-                suffixIcon: Icon(
+                suffixIcon: const Icon(
                   Icons.event,
                   size: 24,
                   color: AppColors.colorPrimary,
@@ -228,7 +228,7 @@ class _ProfileSettingsScreenModelState
           ),
           SizedBox(height: 8.h),
           Center(
-            child: Container(
+            child: SizedBox(
               width: 300.w,
               child: TextFormField(
                 controller: passwordController,
@@ -239,7 +239,7 @@ class _ProfileSettingsScreenModelState
                     return "Password length should be more than 6 characters";
                   }
                 },
-                style: TextStyle(color: AppColors.colorBlackHighEmp),
+                style: const TextStyle(color: AppColors.colorBlackHighEmp),
                 obscureText: obscureText,
                 decoration: InputDecoration(
                   hintText: 'Password',
@@ -254,15 +254,15 @@ class _ProfileSettingsScreenModelState
                       });
                     },
                     child: obscureText
-                        ? Icon(Icons.visibility_off,
+                        ? const Icon(Icons.visibility_off,
                             color: AppColors.colorPrimary, size: 20)
-                        : Icon(Icons.visibility_outlined,
+                        : const Icon(Icons.visibility_outlined,
                             color: AppColors.colorPrimary, size: 20),
                   ),
-                  contentPadding: EdgeInsets.fromLTRB(16, 20, -6, 15),
+                  contentPadding: const EdgeInsets.fromLTRB(16, 20, -6, 15),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorWhiteLowEmp,
                       width: 1,
                     ),
@@ -270,18 +270,18 @@ class _ProfileSettingsScreenModelState
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
                     borderSide:
-                        BorderSide(color: AppColors.colorWhiteLowEmp, width: 1),
+                        const BorderSide(color: AppColors.colorWhiteLowEmp, width: 1),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorError,
                       width: 1,
                     ),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorError,
                       width: 1,
                     ),
@@ -300,7 +300,7 @@ class _ProfileSettingsScreenModelState
           ),
           SizedBox(height: 8.h),
           Center(
-            child: Container(
+            child: SizedBox(
               width: 300.w,
               child: TextFormField(
                 controller: passwordController2,
@@ -311,7 +311,7 @@ class _ProfileSettingsScreenModelState
                     return "Password length should be more than 6 characters";
                   }
                 },
-                style: TextStyle(color: AppColors.colorBlackHighEmp),
+                style: const TextStyle(color: AppColors.colorBlackHighEmp),
                 obscureText: visibleText,
                 decoration: InputDecoration(
                   hintText: 'Password',
@@ -326,15 +326,15 @@ class _ProfileSettingsScreenModelState
                       });
                     },
                     child: visibleText
-                        ? Icon(Icons.visibility_off,
+                        ? const Icon(Icons.visibility_off,
                             color: AppColors.colorPrimary, size: 20)
-                        : Icon(Icons.visibility_outlined,
+                        : const Icon(Icons.visibility_outlined,
                             color: AppColors.colorPrimary, size: 20),
                   ),
-                  contentPadding: EdgeInsets.fromLTRB(16, 20, -6, 15),
+                  contentPadding: const EdgeInsets.fromLTRB(16, 20, -6, 15),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorWhiteLowEmp,
                       width: 1,
                     ),
@@ -342,18 +342,18 @@ class _ProfileSettingsScreenModelState
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
                     borderSide:
-                        BorderSide(color: AppColors.colorWhiteLowEmp, width: 1),
+                        const BorderSide(color: AppColors.colorWhiteLowEmp, width: 1),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorError,
                       width: 1,
                     ),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorError,
                       width: 1,
                     ),
@@ -372,7 +372,7 @@ class _ProfileSettingsScreenModelState
           ),
           SizedBox(height: 8.h),
           Center(
-            child: Container(
+            child: SizedBox(
               width: 300.w,
               child: TextFormField(
                 controller: passwordController3,
@@ -383,7 +383,7 @@ class _ProfileSettingsScreenModelState
                     return "Password length should be more than 6 characters";
                   }
                 },
-                style: TextStyle(color: AppColors.colorBlackHighEmp),
+                style: const TextStyle(color: AppColors.colorBlackHighEmp),
                 obscureText: obscureText2,
                 decoration: InputDecoration(
                   hintText: 'Password',
@@ -398,15 +398,15 @@ class _ProfileSettingsScreenModelState
                       });
                     },
                     child: obscureText2
-                        ? Icon(Icons.visibility_off,
+                        ? const Icon(Icons.visibility_off,
                             color: AppColors.colorPrimary, size: 20)
-                        : Icon(Icons.visibility_outlined,
+                        : const Icon(Icons.visibility_outlined,
                             color: AppColors.colorPrimary, size: 20),
                   ),
-                  contentPadding: EdgeInsets.fromLTRB(16, 20, -6, 15),
+                  contentPadding: const EdgeInsets.fromLTRB(16, 20, -6, 15),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorWhiteLowEmp,
                       width: 1,
                     ),
@@ -414,18 +414,18 @@ class _ProfileSettingsScreenModelState
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
                     borderSide:
-                        BorderSide(color: AppColors.colorWhiteLowEmp, width: 1),
+                        const BorderSide(color: AppColors.colorWhiteLowEmp, width: 1),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorError,
                       width: 1,
                     ),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(56),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: AppColors.colorError,
                       width: 1,
                     ),

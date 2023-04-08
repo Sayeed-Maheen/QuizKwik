@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quizkwik/widgets/appColors.dart';
 
 class MathScreenDropdownModel extends StatefulWidget {
+  const MathScreenDropdownModel({super.key});
+
   @override
   _MathScreenDropdownModelState createState() =>
       _MathScreenDropdownModelState();
@@ -28,7 +30,7 @@ class _MathScreenDropdownModelState extends State<MathScreenDropdownModel> {
   Widget build(BuildContext context) {
     return Container(
       width: 168.w,
-      margin: EdgeInsets.symmetric(vertical: 12),
+      margin: const EdgeInsets.symmetric(vertical: 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         border: Border.all(
@@ -55,8 +57,8 @@ class _MathScreenDropdownModelState extends State<MathScreenDropdownModel> {
             height: 0,
             color: Colors.transparent,
           ),
-          icon: Padding(
-            padding: const EdgeInsets.only(left: 8.0),
+          icon: const Padding(
+            padding: EdgeInsets.only(left: 8.0),
             child: Icon(Icons.arrow_drop_down),
           ),
         ),

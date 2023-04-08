@@ -5,6 +5,8 @@ import 'package:quizkwik/screens/createQuizScreen.dart';
 import 'package:quizkwik/screens/joinQuizScreen.dart';
 
 class HomeScreenQuizModel extends StatelessWidget {
+  const HomeScreenQuizModel({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,13 +16,13 @@ class HomeScreenQuizModel extends StatelessWidget {
         children: [
           GestureDetector(
               onTap: () {
-                Get.to(CreateQuizScreen());
+                Get.to(const CreateQuizScreen());
               },
               child: Image.asset('assets/images/createQuiz.png',
                   height: 140.h, width: 104.w)),
           GestureDetector(
               onTap: () {
-                Get.to(JoinQuizScreen());
+                Get.to(const JoinQuizScreen());
               },
               child: Image.asset('assets/images/joinQuiz.png',
                   height: 140.h, width: 104.w)),

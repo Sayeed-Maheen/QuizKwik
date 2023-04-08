@@ -30,8 +30,8 @@ class _OtpPopupModelState extends State<OtpPopupModel> {
               Container(
                 height: 110.h,
                 width: double.infinity,
-                padding: EdgeInsets.only(top: 20),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.only(top: 20),
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(24),
                   ),
@@ -41,7 +41,7 @@ class _OtpPopupModelState extends State<OtpPopupModel> {
               ),
               Container(
                 padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(0),
                       bottomRight: Radius.circular(100),
@@ -60,8 +60,8 @@ class _OtpPopupModelState extends State<OtpPopupModel> {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    SizedBox(height: 8),
-                    Text(
+                    const SizedBox(height: 8),
+                    const Text(
                       'Your account was created successfully',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -75,7 +75,7 @@ class _OtpPopupModelState extends State<OtpPopupModel> {
                       padding: const EdgeInsets.symmetric(horizontal: 52),
                       child: MyButton(
                         onPressed: () {
-                          Get.offAll(() => MyBottomNav());
+                          Get.offAll(() => const MyBottomNav());
                         },
                         text: 'Let’s Explore',
                       ),
@@ -93,8 +93,6 @@ class _OtpPopupModelState extends State<OtpPopupModel> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: MyButton(onPressed: _showSimpleDialog, text: 'Next'),
-    );
+    return MyButton(onPressed: _showSimpleDialog, text: 'Next');
   }
 }
