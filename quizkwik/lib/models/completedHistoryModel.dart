@@ -30,24 +30,29 @@ class _CompletedHistoryModelState extends State<CompletedHistoryModel> {
             child: FutureBuilder(
               future: ReadJsonData(),
               builder: (context, data) {
+                // If there is an error while reading data, display an error message
                 if (data.hasError) {
                   return Center(child: Text("${data.error}"));
-                } else if (data.hasData) {
+                }
+                // If data is successfully retrieved from the JSON file
+                else if (data.hasData) {
+                  // Cast the retrieved data as a list of OngoingHistoryDataModel objects
                   var items = data.data as List<OngoingHistoryDataModel>;
+                  // Display the list of items using a ListView.builder
                   return ListView.builder(
                       padding: const EdgeInsets.only(bottom: 80),
                       itemCount: items == null ? 0 : items.length,
                       itemBuilder: (context, index) {
+                        // Return a container for each item in the list
                         return Container(
                           margin: const EdgeInsets.only(
                               left: 16, right: 16, bottom: 16),
                           child: Container(
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
-                                color: Colors.deepPurple[50],
-                                borderRadius: BorderRadius.circular(
-                                  16,
-                                )),
+                              color: Colors.deepPurple[50],
+                              borderRadius: BorderRadius.circular(16),
+                            ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -176,10 +181,17 @@ class _CompletedHistoryModelState extends State<CompletedHistoryModel> {
     );
   }
 
+  // This function reads a JSON file called 'ongoingHistory.json' from the app's 'assets' directory
+  // and returns a list of 'OngoingHistoryDataModel'.
   Future<List<OngoingHistoryDataModel>> ReadJsonData() async {
+    // Load the JSON file as a string
     final jsondata =
         await rootBundle.loadString('assets/jsonFiles/ongoingHistory.json');
+
+    // Decode the JSON data into a list of dynamic objects
     final list = json.decode(jsondata) as List<dynamic>;
+
+    // Map each dynamic object to an 'OngoingHistoryDataModel' object and return the list
     return list.map((e) => OngoingHistoryDataModel.fromJson(e)).toList();
   }
 }

@@ -17,7 +17,7 @@ class BrowseSmartModel extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.h), // adds 16 units of height
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -30,7 +30,8 @@ class BrowseSmartModel extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(const BrowseCategoriesScreen());
+                  Get.to(
+                      const BrowseCategoriesScreen()); // navigates to BrowseCategoriesScreen on tap
                 },
                 child: Image.asset(
                   "assets/images/seeMore.png",
@@ -40,7 +41,7 @@ class BrowseSmartModel extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.h), // adds 16 units of height
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -51,7 +52,7 @@ class BrowseSmartModel extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(const MathScreen());
+                  Get.to(const MathScreen()); // navigates to MathScreen on tap
                 },
                 child: Image.asset(
                   "assets/images/math.png",
@@ -93,7 +94,7 @@ class BrowseSmartModel extends StatelessWidget {
                   ),
                 ))
           ]),
-          SizedBox(height: 16.h),
+          SizedBox(height: 16.h), // adds 16 units of height
         ],
       ),
     ));
