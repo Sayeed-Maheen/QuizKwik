@@ -36,6 +36,9 @@ class ScrapCodes extends StatelessWidget {
           elevation: 0,
         ),
         SizedBox(width: 8.w), SizedBox(height: 24.h),
+
+
+
       ],
     );
   }

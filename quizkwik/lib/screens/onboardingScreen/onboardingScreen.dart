@@ -48,7 +48,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         ? Scaffold(
             body: Container(
               height: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("assets/images/onboardingBG.png"),
                       fit: BoxFit.cover)),
@@ -62,7 +62,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     },
                     itemCount: contents.length,
                     itemBuilder: (_, i) {
-                      return Container(
+                      return SizedBox(
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height,
                         child: Column(
@@ -136,36 +136,34 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                   highlightColor: Colors.transparent,
                                   onPressed: () {
                                     _controller.nextPage(
-                                      duration: Duration(milliseconds: 100),
+                                      duration: const Duration(milliseconds: 100),
                                       curve: Curves.bounceIn,
                                     );
                                   },
-                                  child: Icon(Icons.arrow_forward,
+                                  child: const Icon(Icons.arrow_forward,
                                       color: AppColors.colorWhiteHighEmp),
                                 ),
                               ),
                             ),
                             SizedBox(height: 38.h),
-                            Container(
-                                child: Image.asset(
+                            Image.asset(
                               contents[i].image,
                               height: 353.h,
                               width: double.infinity,
-                            )),
+                            ),
                           ],
                         ),
                       );
                     }),
                 Positioned(
                   bottom: 30,
-                  child: Container(
-                      child: Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
-                      contents.length,
-                      (index) => buildDot(index, context),
+                  contents.length,
+                  (index) => buildDot(index, context),
                     ),
-                  )),
+                  ),
                 ),
               ]),
             ),
@@ -176,7 +174,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Container buildDot(int index, BuildContext context) {
     return Container(
         height: currentIndex == index ? 7.h : 3.h,
-        margin: EdgeInsets.all(3),
+        margin: const EdgeInsets.all(3),
         width: currentIndex == index ? 24.w : 24.w,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
