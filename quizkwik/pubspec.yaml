@@ -46,6 +46,8 @@ dependencies:
   getwidget: ^3.0.1
   intl: ^0.18.0
   dotted_border: ^2.0.0+3
+  share_plus: ^6.3.2
+  flutter_fortune_wheel: ^1.2.0
 
 
 
