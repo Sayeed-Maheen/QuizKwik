@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:quizkwik/screens/createQuizScreen.dart';
+import 'package:quizkwik/screens/createQuizScreen/createQuizScreen.dart';
 import 'package:quizkwik/screens/joinQuizScreen.dart';
 
 class HomeScreenQuizModel extends StatelessWidget {
