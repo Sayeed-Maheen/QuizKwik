@@ -2,6 +2,9 @@ import 'dart:async'; // Required for Timer class
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart'; // Required for responsive design
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:quizkwik/screens/spinWheelScreen.dart';
 
 import '../widgets/appColors.dart'; // Custom colors
 
@@ -94,14 +97,20 @@ class _AdCarouselModelState extends State<AdCarouselModel> {
                   // A container with an image that fills its space.
                   Padding(
                     padding: const EdgeInsets.only(right: 16, left: 16),
-                    child: SizedBox(
-                      height: 160.h,
-                      width: double.infinity,
-                      child: Center(
-                        child: Image.asset(
-                          // The image to display for the current page.
-                          images[index % images.length],
-                          fit: BoxFit.fill,
+                    child: GestureDetector(
+                      onTap:(){
+
+                        Get.to(const SpinWheel());
+                      },
+                      child: SizedBox(
+                        height: 160.h,
+                        width: double.infinity,
+                        child: Center(
+                          child: Image.asset(
+                            // The image to display for the current page.
+                            images[index % images.length],
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
                     ),

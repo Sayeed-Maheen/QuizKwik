@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:quizkwik/screens/addScreen.dart';
+import 'package:quizkwik/screens/createQuizScreen/createQuizScreen.dart';
 import 'package:quizkwik/screens/historyScreen.dart';
 import 'package:quizkwik/screens/homeScreen.dart';
 
@@ -19,9 +19,9 @@ class _MyBottomNavState extends State<MyBottomNav> {
   final controller = PersistentTabController(initialIndex: 0);
   List<Widget> _buildScreen() {
     return [
-      HomeScreen(),
+      const HomeScreen(),
       const HistoryScreen(),
-      const AddScreen(),
+      const CreateQuizScreen(),
       Container(),
       const ProfileScreen(),
     ];
