@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:quizkwik/models/awaitsForYouModel.dart';
+import 'package:quizkwik/models/spinAndWinModel.dart';
 import 'package:quizkwik/models/watchVideoModel.dart';
 
 import '../models/myBottomNav.dart';
@@ -83,7 +85,7 @@ class _EarnPointsScreenState extends State<EarnPointsScreen>
                   child: SingleChildScrollView(
                     child: Container(
                       margin: const EdgeInsets.only(top: 100),
-                      height: 572.h,
+                      height: 600.h,
                       decoration: BoxDecoration(
                           color: AppColors.colorWhiteHighEmp,
                           borderRadius: BorderRadius.circular(24)),
@@ -115,12 +117,15 @@ class _EarnPointsScreenState extends State<EarnPointsScreen>
                           Expanded(
                             child: TabBarView(
                               physics: const BouncingScrollPhysics(),
-                              children: [
-                                const WatchVideoModel(),
-                                Container(),
-                                Container(),
-                              ],
                               controller: _tabController,
+                              children: const [
+                                WatchVideoModel(),
+                                SpinAndWinModel(),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 16),
+                                  child: AwaitForYouModel(),
+                                ),
+                              ],
                             ),
                           ),
                         ],

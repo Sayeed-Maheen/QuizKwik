@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quizkwik/widgets/iconAndTextButton.dart';
+import 'package:timer_count_down/timer_count_down.dart';
 
 import '../widgets/appColors.dart';
 
@@ -95,6 +96,23 @@ class _WatchVideoModelState extends State<WatchVideoModel> {
                 const Icon(Icons.info,
                     color: AppColors.colorWhiteHighEmp, size: 16)
               ],
+            ),
+          ),
+          Visibility(
+            visible: _counter == 0,
+            child: Countdown(
+              seconds: 60,
+              build: (BuildContext context, double time) => Text(
+                "Next videos in: " + time.toString(),
+                style: TextStyle(
+                    fontSize: 10.sp,
+                    color: AppColors.colorError,
+                    fontWeight: FontWeight.w400),
+              ),
+              interval: const Duration(milliseconds: 500),
+              onFinished: () {
+                // do something when the timer finishes
+              },
             ),
           ),
           Padding(

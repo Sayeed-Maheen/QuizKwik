@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart'; // Required for responsive design
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:quizkwik/screens/spinWheelScreen.dart';
+import 'package:quizkwik/models/spinAndWinModel.dart';
 
 import '../widgets/appColors.dart'; // Custom colors
 
@@ -100,7 +100,7 @@ class _AdCarouselModelState extends State<AdCarouselModel> {
                     child: GestureDetector(
                       onTap:(){
 
-                        Get.to(const SpinWheel());
+                        Get.to(const SpinAndWinModel());
                       },
                       child: SizedBox(
                         height: 160.h,
