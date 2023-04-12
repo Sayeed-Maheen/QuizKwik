@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:quizkwik/screens/drawerScreens/notificationScreen.dart';
 import 'package:quizkwik/screens/drawerScreens/profileSettingsScreen.dart';
+import 'package:quizkwik/screens/earnPointsScreen.dart';
 
 import '../screens/drawerScreens/privacyPolicyScreen.dart';
 import '../widgets/appColors.dart';
@@ -146,18 +147,24 @@ class MyDrawerModel extends StatelessWidget {
                   SizedBox(height: 20.h),
                   const Divider(height: 2),
                   SizedBox(height: 20.h),
-                  Row(
-                    children: [
-                      const Icon(Icons.diamond, color: AppColors.colorPrimary),
-                      SizedBox(width: 8.w),
-                      Text(
-                        "Earn Points",
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            color: AppColors.colorBlackHighEmp,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(const EarnPointsScreen());
+                    },
+                    child: Row(
+                      children: [
+                        const Icon(Icons.diamond,
+                            color: AppColors.colorPrimary),
+                        SizedBox(width: 8.w),
+                        Text(
+                          "Earn Points",
+                          style: TextStyle(
+                              fontSize: 16.sp,
+                              color: AppColors.colorBlackHighEmp,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: 20.h),
                   const Divider(height: 2),
