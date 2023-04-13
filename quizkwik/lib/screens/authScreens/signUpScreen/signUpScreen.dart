@@ -30,7 +30,7 @@ class _SignUpScreenState extends State<SignUpScreen>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 700),
+      duration: const Duration(milliseconds: 700),
     );
     _textAnimation = Tween<double>(begin: _textOpacity, end: 0.0)
         .animate(_animationController);
@@ -61,19 +61,23 @@ class _SignUpScreenState extends State<SignUpScreen>
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image:
                   DecorationImage(image: AssetImage("assets/images/bg.png"))),
-          child: SingleChildScrollView(
-            controller: _scrollController,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: 120.h),
-                FadeTransition(
-                  opacity: _textAnimation ??
-                      AlwaysStoppedAnimation<double>(_textOpacity),
-                  child: Container(
+          child: NotificationListener<OverscrollIndicatorNotification>(
+            onNotification: (overScroll) {
+              overScroll.disallowGlow();
+              return true;
+            },
+            child: SingleChildScrollView(
+              controller: _scrollController,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: 120.h),
+                  FadeTransition(
+                    opacity: _textAnimation ??
+                        AlwaysStoppedAnimation<double>(_textOpacity),
                     child: Column(
                       children: [
                         Center(
@@ -99,143 +103,146 @@ class _SignUpScreenState extends State<SignUpScreen>
                       ],
                     ),
                   ),
-                ),
-                SizedBox(height: 24.h),
-                MyContainer(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-                    child: SignUpFormModel(),
+                  SizedBox(height: 24.h),
+                  const MyContainer(
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                      child: SignUpFormModel(),
+                    ),
                   ),
-                ),
-                SizedBox(height: 16.h),
-                MyContainer(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-                    child: Column(
-                      children: [
-                        Text(
-                          "Or Continue With",
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.colorBlackLowEmp,
+                  SizedBox(height: 16.h),
+                  MyContainer(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 24),
+                      child: Column(
+                        children: [
+                          Text(
+                            "Or Continue With",
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.colorBlackLowEmp,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 12.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                Get.offAll(MyBottomNav());
-                              },
-                              child: Container(
-                                height: 40.h,
-                                width: 114.w,
-                                decoration: BoxDecoration(
-                                    color: AppColors.colorWhiteHighEmp,
-                                    border: Border.all(
-                                        color: AppColors.colorWhiteLowEmp),
-                                    borderRadius: BorderRadius.circular(100)),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      height: 20.h,
-                                      width: 20.w,
-                                      child: Image.asset(
-                                          'assets/images/google.png'),
-                                    ),
-                                    SizedBox(width: 12.w),
-                                    Text(
-                                      "Google",
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                        color: AppColors.colorBlackLowEmp,
-                                        fontWeight: FontWeight.w400,
+                          SizedBox(height: 12.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Get.offAll(const MyBottomNav());
+                                },
+                                child: Container(
+                                  height: 40.h,
+                                  width: 114.w,
+                                  decoration: BoxDecoration(
+                                      color: AppColors.colorWhiteHighEmp,
+                                      border: Border.all(
+                                          color: AppColors.colorWhiteLowEmp),
+                                      borderRadius: BorderRadius.circular(100)),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        height: 20.h,
+                                        width: 20.w,
+                                        child: Image.asset(
+                                            'assets/images/google.png'),
                                       ),
-                                    ),
-                                  ],
+                                      SizedBox(width: 12.w),
+                                      Text(
+                                        "Google",
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                          color: AppColors.colorBlackLowEmp,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(width: 11.w),
-                            GestureDetector(
-                              onTap: () {
-                                Get.offAll(MyBottomNav());
-                              },
-                              child: Container(
-                                height: 40.h,
-                                width: 114.w,
-                                padding: EdgeInsets.symmetric(horizontal: 10),
-                                decoration: BoxDecoration(
-                                    color: AppColors.colorWhiteHighEmp,
-                                    border: Border.all(
-                                        color: AppColors.colorWhiteLowEmp),
-                                    borderRadius: BorderRadius.circular(100)),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      height: 20.h,
-                                      width: 20.w,
-                                      child: Image.asset(
-                                          'assets/images/facebook.png'),
-                                    ),
-                                    SizedBox(width: 12.w),
-                                    Text(
-                                      "Facebook",
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                        color: AppColors.colorBlackLowEmp,
-                                        fontWeight: FontWeight.w400,
+                              SizedBox(width: 11.w),
+                              GestureDetector(
+                                onTap: () {
+                                  Get.offAll(const MyBottomNav());
+                                },
+                                child: Container(
+                                  height: 40.h,
+                                  width: 114.w,
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10),
+                                  decoration: BoxDecoration(
+                                      color: AppColors.colorWhiteHighEmp,
+                                      border: Border.all(
+                                          color: AppColors.colorWhiteLowEmp),
+                                      borderRadius: BorderRadius.circular(100)),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        height: 20.h,
+                                        width: 20.w,
+                                        child: Image.asset(
+                                            'assets/images/facebook.png'),
                                       ),
-                                    ),
-                                  ],
+                                      SizedBox(width: 12.w),
+                                      Text(
+                                        "Facebook",
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                          color: AppColors.colorBlackLowEmp,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 12.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Already Have an Account?",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                color: AppColors.colorBlackHighEmp,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Get.offAll(SignInScreen());
-                              },
-                              style: TextButton.styleFrom(
-                                  padding: EdgeInsets.all(5),
-                                  minimumSize: Size(50, 20),
-                                  tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                  alignment: Alignment.centerLeft),
-                              child: Text(
-                                "Sign In",
+                            ],
+                          ),
+                          SizedBox(height: 12.h),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Already Have an Account?",
                                 style: TextStyle(
                                   fontSize: 14.sp,
-                                  color: AppColors.colorPrimary,
+                                  color: AppColors.colorBlackHighEmp,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                            )
-                          ],
-                        ),
-                      ],
+                              TextButton(
+                                onPressed: () {
+                                  Get.offAll(SignInScreen());
+                                },
+                                style: TextButton.styleFrom(
+                                    padding: const EdgeInsets.all(5),
+                                    minimumSize: const Size(50, 20),
+                                    tapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                    alignment: Alignment.centerLeft),
+                                child: Text(
+                                  "Sign In",
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    color: AppColors.colorPrimary,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(height: 16.h),
-              ],
+                  SizedBox(height: 16.h),
+                ],
+              ),
             ),
           ),
         ),

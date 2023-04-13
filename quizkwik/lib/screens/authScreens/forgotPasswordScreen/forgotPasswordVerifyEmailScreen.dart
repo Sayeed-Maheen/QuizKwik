@@ -15,7 +15,7 @@ class ForgotPasswordVerifyEmailScreen extends StatelessWidget {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(image: AssetImage("assets/images/bg.png"))),
         child: SingleChildScrollView(
           child: Column(
@@ -46,10 +46,11 @@ class ForgotPasswordVerifyEmailScreen extends StatelessWidget {
               SizedBox(height: 24.h),
               MyContainer(
                 child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 24),
                     child: Column(
                       children: [
-                        ForgotPasswordOtpModel(),
+                        const ForgotPasswordOtpModel(),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

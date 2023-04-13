@@ -29,7 +29,7 @@ class _SignInScreenState extends State<SignInScreen>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 700),
+      duration: const Duration(milliseconds: 700),
     );
     _textAnimation = Tween<double>(begin: _textOpacity, end: 0.0)
         .animate(_animationController);
@@ -60,7 +60,7 @@ class _SignInScreenState extends State<SignInScreen>
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image:
                   DecorationImage(image: AssetImage("assets/images/bg.png"))),
           child: SingleChildScrollView(
@@ -71,35 +71,33 @@ class _SignInScreenState extends State<SignInScreen>
                 FadeTransition(
                   opacity: _textAnimation ??
                       AlwaysStoppedAnimation<double>(_textOpacity),
-                  child: Container(
-                    child: Column(
-                      children: [
-                        Center(
-                          child: Text(
-                            "Welcome Back",
-                            style: TextStyle(
-                                fontSize: 24.sp,
-                                color: AppColors.colorBlackHighEmp,
-                                fontWeight: FontWeight.w700),
-                          ),
+                  child: Column(
+                    children: [
+                      Center(
+                        child: Text(
+                          "Welcome Back",
+                          style: TextStyle(
+                              fontSize: 24.sp,
+                              color: AppColors.colorBlackHighEmp,
+                              fontWeight: FontWeight.w700),
                         ),
-                        SizedBox(height: 4.h),
-                        Center(
-                          child: Text(
-                            "To your favorite quiz place. Learn, earn,\n compete.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 14.sp,
-                                color: AppColors.colorBlackHighEmp,
-                                fontWeight: FontWeight.w300),
-                          ),
+                      ),
+                      SizedBox(height: 4.h),
+                      Center(
+                        child: Text(
+                          "To your favorite quiz place. Learn, earn,\n compete.",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 14.sp,
+                              color: AppColors.colorBlackHighEmp,
+                              fontWeight: FontWeight.w300),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 24.h),
-                MyContainer(
+                const MyContainer(
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                     child: SignInFormModel(),
@@ -108,7 +106,8 @@ class _SignInScreenState extends State<SignInScreen>
                 SizedBox(height: 16.h),
                 MyContainer(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 24),
                     child: Column(
                       children: [
                         Text(
@@ -125,7 +124,7 @@ class _SignInScreenState extends State<SignInScreen>
                           children: [
                             GestureDetector(
                               onTap: () {
-                                Get.offAll(MyBottomNav());
+                                Get.offAll(const MyBottomNav());
                               },
                               child: Container(
                                 height: 40.h,
@@ -160,12 +159,13 @@ class _SignInScreenState extends State<SignInScreen>
                             SizedBox(width: 11.w),
                             GestureDetector(
                               onTap: () {
-                                Get.offAll(MyBottomNav());
+                                Get.offAll(const MyBottomNav());
                               },
                               child: Container(
                                 height: 40.h,
                                 width: 114.w,
-                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 10),
                                 decoration: BoxDecoration(
                                     color: AppColors.colorWhiteHighEmp,
                                     border: Border.all(
@@ -174,7 +174,7 @@ class _SignInScreenState extends State<SignInScreen>
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       height: 20.h,
                                       width: 20.w,
                                       child: Image.asset(
@@ -209,11 +209,11 @@ class _SignInScreenState extends State<SignInScreen>
                             ),
                             TextButton(
                               onPressed: () {
-                                Get.to(() => SignUpScreen());
+                                Get.to(() => const SignUpScreen());
                               },
                               style: TextButton.styleFrom(
-                                  padding: EdgeInsets.all(5),
-                                  minimumSize: Size(50, 20),
+                                  padding: const EdgeInsets.all(5),
+                                  minimumSize: const Size(50, 20),
                                   tapTargetSize:
                                       MaterialTapTargetSize.shrinkWrap,
                                   alignment: Alignment.centerLeft),

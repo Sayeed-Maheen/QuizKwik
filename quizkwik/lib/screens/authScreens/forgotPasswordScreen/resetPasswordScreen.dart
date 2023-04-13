@@ -25,7 +25,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(image: AssetImage("assets/images/bg.png"))),
         child: SingleChildScrollView(
           child: Form(
@@ -57,7 +57,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 SizedBox(height: 24.h),
                 MyContainer(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 24),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -70,7 +71,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         ),
                         SizedBox(height: 8.h),
                         Center(
-                          child: Container(
+                          child: SizedBox(
                             width: 300.w,
                             child: TextFormField(
                               controller: passwordController,
@@ -81,8 +82,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                                   return "Password length should be more than 6 characters";
                                 }
                               },
-                              style:
-                                  TextStyle(color: AppColors.colorBlackHighEmp),
+                              style: const TextStyle(
+                                  color: AppColors.colorBlackHighEmp),
                               obscureText: obscureText,
                               decoration: InputDecoration(
                                 hintText: 'Password',
@@ -97,38 +98,38 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                                     });
                                   },
                                   child: obscureText
-                                      ? Icon(Icons.visibility_off,
+                                      ? const Icon(Icons.visibility_off,
                                           color: AppColors.colorPrimary,
                                           size: 20)
-                                      : Icon(Icons.visibility_outlined,
+                                      : const Icon(Icons.visibility_outlined,
                                           color: AppColors.colorPrimary,
                                           size: 20),
                                 ),
                                 contentPadding:
-                                    EdgeInsets.fromLTRB(16, 20, -6, 15),
+                                    const EdgeInsets.fromLTRB(16, 20, -6, 15),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(56),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: AppColors.colorWhiteLowEmp,
                                     width: 1,
                                   ),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(56),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: AppColors.colorWhiteLowEmp,
                                       width: 1),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(56),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: AppColors.colorError,
                                     width: 1,
                                   ),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(56),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: AppColors.colorError,
                                     width: 1,
                                   ),
@@ -147,7 +148,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         ),
                         SizedBox(height: 8.h),
                         Center(
-                          child: Container(
+                          child: SizedBox(
                             width: 300.w,
                             child: TextFormField(
                               controller: passwordController2,
@@ -158,8 +159,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                                   return "Password length should be more than 6 characters";
                                 }
                               },
-                              style:
-                                  TextStyle(color: AppColors.colorBlackHighEmp),
+                              style: const TextStyle(
+                                  color: AppColors.colorBlackHighEmp),
                               obscureText: visibleText,
                               decoration: InputDecoration(
                                 hintText: 'Password',
@@ -174,38 +175,38 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                                     });
                                   },
                                   child: visibleText
-                                      ? Icon(Icons.visibility_off,
+                                      ? const Icon(Icons.visibility_off,
                                           color: AppColors.colorPrimary,
                                           size: 20)
-                                      : Icon(Icons.visibility_outlined,
+                                      : const Icon(Icons.visibility_outlined,
                                           color: AppColors.colorPrimary,
                                           size: 20),
                                 ),
                                 contentPadding:
-                                    EdgeInsets.fromLTRB(16, 20, -6, 15),
+                                    const EdgeInsets.fromLTRB(16, 20, -6, 15),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(56),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: AppColors.colorWhiteLowEmp,
                                     width: 1,
                                   ),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(56),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: AppColors.colorWhiteLowEmp,
                                       width: 1),
                                 ),
                                 errorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(56),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: AppColors.colorError,
                                     width: 1,
                                   ),
                                 ),
                                 focusedErrorBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(56),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: AppColors.colorError,
                                     width: 1,
                                   ),
@@ -215,7 +216,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                           ),
                         ),
                         SizedBox(height: 16.h),
-                        ForgotPasswordOtpPopupModel()
+                        const ForgotPasswordOtpPopupModel()
                       ],
                     ),
                   ),

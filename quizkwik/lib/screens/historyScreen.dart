@@ -111,12 +111,12 @@ class _HistoryScreenState extends State<HistoryScreen>
                       Expanded(
                         child: TabBarView(
                           physics: const BouncingScrollPhysics(),
-                          children: [
-                            const OngoingHistoryModel(),
-                            const CompletedHistoryModel(),
-                            const CreatedHistoryModel(),
-                          ],
                           controller: _tabController,
+                          children: const [
+                            OngoingHistoryModel(),
+                            CompletedHistoryModel(),
+                            CreatedHistoryModel(),
+                          ],
                         ),
                       ),
                     ],

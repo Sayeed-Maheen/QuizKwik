@@ -21,7 +21,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(image: AssetImage("assets/images/bg.png"))),
         child: SingleChildScrollView(
           child: Column(
@@ -49,7 +49,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 ),
               ),
               SizedBox(height: 24.h),
-              MyContainer(
+              const MyContainer(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                   child: ForgotPasswordModel(),
