@@ -130,51 +130,57 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Expanded(
-            child: ListView(
-              scrollDirection: Axis.vertical,
-              children: [
-                const HomeScreenQuizModel(),
-                SizedBox(height: 8.h),
-                const DailyQuizCarouselModel(),
-                SizedBox(height: 16.h),
-                const ExploreClassesModel(),
-                SizedBox(height: 16.h),
-                const WinnerCardModel(),
-                SizedBox(height: 6.h),
-                const BrowseSmartModel(),
-                const AdCarouselModel(),
-                SizedBox(height: 16.h),
-                MyContainer(
-                    child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 16.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Awaits for you",
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                color: AppColors.colorBlackHighEmp,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          Image.asset(
-                            "assets/images/seeMore.png",
-                            height: 32.h,
-                            width: 40.w,
-                          )
-                        ],
-                      ),
-                      SizedBox(height: 16.h),
-                      const AwaitForYouModel(),
-                      SizedBox(height: 16.h),
-                    ],
-                  ),
-                )),
-                SizedBox(height: 120.h),
-              ],
+            child: NotificationListener<OverscrollIndicatorNotification>(
+              onNotification: (overScroll){
+                overScroll.disallowGlow();
+                return true;
+              },
+              child: ListView(
+                scrollDirection: Axis.vertical,
+                children: [
+                  const HomeScreenQuizModel(),
+                  SizedBox(height: 8.h),
+                  const DailyQuizCarouselModel(),
+                  SizedBox(height: 16.h),
+                  const ExploreClassesModel(),
+                  SizedBox(height: 16.h),
+                  const WinnerCardModel(),
+                  SizedBox(height: 6.h),
+                  const BrowseSmartModel(),
+                  const AdCarouselModel(),
+                  SizedBox(height: 16.h),
+                  MyContainer(
+                      child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 16.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Awaits for you",
+                              style: TextStyle(
+                                  fontSize: 20.sp,
+                                  color: AppColors.colorBlackHighEmp,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Image.asset(
+                              "assets/images/seeMore.png",
+                              height: 32.h,
+                              width: 40.w,
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 16.h),
+                        const AwaitForYouModel(),
+                        SizedBox(height: 16.h),
+                      ],
+                    ),
+                  )),
+                  SizedBox(height: 120.h),
+                ],
+              ),
             ),
           ),
         ],

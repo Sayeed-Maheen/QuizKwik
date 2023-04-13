@@ -16,8 +16,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3)).then((value) {
-      Get.off(() => OnBoardingScreen());
+    Future.delayed(const Duration(seconds: 3)).then((value) {
+      Get.off(() => const OnBoardingScreen());
     });
   }
 
@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Container(
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/splashBG.jpeg"))),
         width: double.infinity,

@@ -96,6 +96,27 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             SizedBox(height: 24.h),
                             Visibility(
                               visible: currentIndex == contents.length - 1,
+                              replacement: Container(
+                                height: 52.h,
+                                width: 58.w,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  color: AppColors.colorBlackHighEmp,
+                                ),
+                                child: MaterialButton(
+                                  splashColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onPressed: () {
+                                    _controller.nextPage(
+                                      duration:
+                                          const Duration(milliseconds: 100),
+                                      curve: Curves.bounceIn,
+                                    );
+                                  },
+                                  child: const Icon(Icons.arrow_forward,
+                                      color: AppColors.colorWhiteHighEmp),
+                                ),
+                              ),
                               child: Container(
                                 height: 50.h,
                                 width: 100.w,
@@ -124,26 +145,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                   ),
                                 ),
                               ),
-                              replacement: Container(
-                                height: 52.h,
-                                width: 58.w,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(100),
-                                  color: AppColors.colorBlackHighEmp,
-                                ),
-                                child: MaterialButton(
-                                  splashColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onPressed: () {
-                                    _controller.nextPage(
-                                      duration: const Duration(milliseconds: 100),
-                                      curve: Curves.bounceIn,
-                                    );
-                                  },
-                                  child: const Icon(Icons.arrow_forward,
-                                      color: AppColors.colorWhiteHighEmp),
-                                ),
-                              ),
                             ),
                             SizedBox(height: 38.h),
                             Image.asset(
@@ -160,8 +161,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
-                  contents.length,
-                  (index) => buildDot(index, context),
+                      contents.length,
+                      (index) => buildDot(index, context),
                     ),
                   ),
                 ),

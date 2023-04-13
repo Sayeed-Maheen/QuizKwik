@@ -13,66 +13,64 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Get.offAll(MyBottomNav());
+        Get.offAll(const MyBottomNav());
         return false;
       },
       child: Scaffold(
-        body: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(children: [
-                Container(
-                  height: 100.h,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(children: [
+              Container(
+                height: 100.h,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      AppColors.colorBlueGradientStart,
+                      AppColors.colorBlueGradientEnd
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 30, bottom: 50),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            Get.offAll(const MyBottomNav());
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: AppColors.colorWhiteHighEmp,
+                          )),
+                      SizedBox(width: 8.w),
+                      Text(
+                        'Notification',
+                        style: TextStyle(
+                            fontSize: 20.sp,
+                            color: AppColors.colorWhiteHighEmp,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                child: Container(
+                  margin: const EdgeInsets.only(top: 90),
+                  height: 614.h,
+                  width: double.infinity,
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        AppColors.colorBlueGradientStart,
-                        AppColors.colorBlueGradientEnd
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 30, bottom: 50),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Get.offAll(MyBottomNav());
-                            },
-                            icon: Icon(
-                              Icons.arrow_back,
-                              color: AppColors.colorWhiteHighEmp,
-                            )),
-                        SizedBox(width: 8.w),
-                        Text(
-                          'Notification',
-                          style: TextStyle(
-                              fontSize: 20.sp,
-                              color: AppColors.colorWhiteHighEmp,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ),
+                      color: AppColors.colorWhiteHighEmp,
+                      borderRadius: BorderRadius.circular(24)),
+                  child: const NotificationModel(),
                 ),
-                Positioned(
-                  child: Container(
-                    margin: EdgeInsets.only(top: 90),
-                    height: 614.h,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: AppColors.colorWhiteHighEmp,
-                        borderRadius: BorderRadius.circular(24)),
-                    child: NotificationModel(),
-                  ),
-                ),
-              ]),
-            ],
-          ),
+              ),
+            ]),
+          ],
         ),
       ),
     );

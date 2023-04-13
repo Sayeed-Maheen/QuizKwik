@@ -12,62 +12,66 @@ class PrivacyPolicyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Get.offAll(MyBottomNav());
+        Get.offAll(const MyBottomNav());
         return false;
       },
       child: Scaffold(
-        body: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(children: [
-                Container(
-                  height: 100.h,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        AppColors.colorBlueGradientStart,
-                        AppColors.colorBlueGradientEnd
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 30, bottom: 50),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Get.offAll(MyBottomNav());
-                            },
-                            icon: Icon(
-                              Icons.arrow_back,
-                              color: AppColors.colorWhiteHighEmp,
-                            )),
-                        SizedBox(width: 8.w),
-                        Text(
-                          'Privacy Policy',
-                          style: TextStyle(
-                              fontSize: 20.sp,
-                              color: AppColors.colorWhiteHighEmp,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(children: [
+              Container(
+                height: 100.h,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      AppColors.colorBlueGradientStart,
+                      AppColors.colorBlueGradientEnd
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
                   ),
                 ),
-                Positioned(
-                  child: Container(
-                      margin: EdgeInsets.only(top: 100),
-                      height: 600.h,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: AppColors.colorWhiteHighEmp,
-                          borderRadius: BorderRadius.circular(24)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 30, bottom: 50),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            Get.offAll(const MyBottomNav());
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: AppColors.colorWhiteHighEmp,
+                          )),
+                      SizedBox(width: 8.w),
+                      Text(
+                        'Privacy Policy',
+                        style: TextStyle(
+                            fontSize: 20.sp,
+                            color: AppColors.colorWhiteHighEmp,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                child: Container(
+                    margin: const EdgeInsets.only(top: 100),
+                    height: 600.h,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: AppColors.colorWhiteHighEmp,
+                        borderRadius: BorderRadius.circular(24)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: NotificationListener<OverscrollIndicatorNotification>(
+                        onNotification: (overScroll){
+                          overScroll.disallowGlow();
+                          return true;
+                        },
                         child: SingleChildScrollView(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -441,7 +445,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                                         fontSize: 12.sp,
                                         color: AppColors.colorBlackHighEmp,
                                       ),
-                                      children: [
+                                      children: const [
                                         TextSpan(
                                           text:
                                               "If you have any questions or concerns, please contact us at\n",
@@ -452,8 +456,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                                         TextSpan(
                                           text: "privacy@quizkwik.com",
                                           style: TextStyle(
-                                            decoration:
-                                                TextDecoration.underline,
+                                            decoration: TextDecoration.underline,
                                             fontWeight: FontWeight.w400,
                                           ),
                                         ),
@@ -475,11 +478,11 @@ class PrivacyPolicyScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                      )),
-                ),
-              ]),
-            ],
-          ),
+                      ),
+                    )),
+              ),
+            ]),
+          ],
         ),
       ),
     );

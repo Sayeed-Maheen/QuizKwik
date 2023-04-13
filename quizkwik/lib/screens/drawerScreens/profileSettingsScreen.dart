@@ -13,7 +13,7 @@ class ProfileSettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Get.offAll(MyBottomNav());
+        Get.offAll(const MyBottomNav());
         return false;
       },
       child: Scaffold(
@@ -21,9 +21,9 @@ class ProfileSettingsScreen extends StatelessWidget {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              Get.offAll(MyBottomNav());
+              Get.offAll(const MyBottomNav());
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back,
               color: AppColors.colorBlackHighEmp,
             ),
@@ -36,7 +36,7 @@ class ProfileSettingsScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
                   AppColors.colorAppbarGradientStart,
@@ -49,7 +49,11 @@ class ProfileSettingsScreen extends StatelessWidget {
           ),
           elevation: 0,
         ),
-        body: Container(
+        body: NotificationListener<OverscrollIndicatorNotification>(
+          onNotification: (overScroll){
+            overScroll.disallowGlow();
+            return true;
+          },
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -71,7 +75,7 @@ class ProfileSettingsScreen extends StatelessWidget {
                             border: Border.all(
                                 width: 1, color: AppColors.colorWhiteHighEmp),
                             color: AppColors.colorPrimary),
-                        child: Icon(
+                        child: const Icon(
                           Icons.camera_alt,
                           color: AppColors.colorWhiteHighEmp,
                         ),
@@ -80,7 +84,7 @@ class ProfileSettingsScreen extends StatelessWidget {
                   ]),
                 ),
                 SizedBox(height: 20.h),
-                ProfileSettingsScreenModel(),
+                const ProfileSettingsScreenModel(),
                 SizedBox(height: 20.h),
               ],
             ),
