@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Expanded(
             child: NotificationListener<OverscrollIndicatorNotification>(
-              onNotification: (overScroll){
+              onNotification: (overScroll) {
                 overScroll.disallowGlow();
                 return true;
               },

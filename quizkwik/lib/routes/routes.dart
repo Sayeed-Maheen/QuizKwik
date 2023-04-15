@@ -39,26 +39,31 @@ class RoutesClass {
   static String profileSettingsScreen = "/profileSettingsScreen";
   static String getProfileSettingsScreenRoute() => profileSettingsScreen;
   static String historyScreen = "/historyScreen";
-  static String getHistoryScreenRoute() => profileScreen;
+  static String getHistoryScreenRoute() => historyScreen;
   static String privacyPolicyScreen = "/privacyPolicyScreen";
   static String getPrivacyPolicyScreenRoute() => privacyPolicyScreen;
 
   // ---- Routes ----
   static List<GetPage> routes = [
-    GetPage(name: splashScreen, page: () => SplashScreen()),
-    GetPage(name: onBoardingScreen, page: () => OnBoardingScreen()),
+    GetPage(name: splashScreen, page: () => const SplashScreen()),
+    GetPage(name: onBoardingScreen, page: () => const OnBoardingScreen()),
     GetPage(name: signInScreen, page: () => SignInScreen()),
-    GetPage(name: signInScreen, page: () => SignUpScreen()),
-    GetPage(name: signInScreen, page: () => VerifyEmailScreen()),
-    GetPage(name: forgotPasswordScreen, page: () => ForgotPasswordScreen()),
+    GetPage(name: signInScreen, page: () => const SignUpScreen()),
+    GetPage(name: signInScreen, page: () => const VerifyEmailScreen()),
+    GetPage(
+        name: forgotPasswordScreen, page: () => const ForgotPasswordScreen()),
     GetPage(
         name: forgotPasswordVerifyEmailScreen,
-        page: () => ForgotPasswordVerifyEmailScreen()),
-    GetPage(name: resetPasswordScreen, page: () => ResetPasswordScreen()),
-    GetPage(name: myDrawerModel, page: () => MyDrawerModel()),
-    GetPage(name: profileScreen, page: () => ProfileScreen()),
-    GetPage(name: profileSettingsScreen, page: () => ProfileSettingsScreen()),
-    GetPage(name: historyScreen, page: () => HistoryScreen()),
-    GetPage(name: privacyPolicyScreen, page: () => PrivacyPolicyScreen()),
+        page: () => const ForgotPasswordVerifyEmailScreen()),
+    GetPage(name: resetPasswordScreen, page: () => const ResetPasswordScreen()),
+    GetPage(
+      name: myDrawerModel,
+      page: () => const MyDrawerModel(),
+    ),
+    GetPage(name: profileScreen, page: () => const ProfileScreen()),
+    GetPage(
+        name: profileSettingsScreen, page: () => const ProfileSettingsScreen()),
+    GetPage(name: historyScreen, page: () => const HistoryScreen()),
+    GetPage(name: privacyPolicyScreen, page: () => const PrivacyPolicyScreen()),
   ];
 }

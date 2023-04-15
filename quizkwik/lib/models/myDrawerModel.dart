@@ -6,6 +6,8 @@ import 'package:quizkwik/screens/drawerScreens/profileSettingsScreen.dart';
 import 'package:quizkwik/screens/earnPointsScreen.dart';
 
 import '../screens/drawerScreens/privacyPolicyScreen.dart';
+import '../screens/leaderboardScreen.dart';
+import '../screens/redeemPointsScreen.dart';
 import '../widgets/appColors.dart';
 
 class MyDrawerModel extends StatelessWidget {
@@ -174,35 +176,46 @@ class MyDrawerModel extends StatelessWidget {
                     SizedBox(height: 20.h),
                     const Divider(height: 2),
                     SizedBox(height: 20.h),
-                    Row(
-                      children: [
-                        const Icon(Icons.redeem, color: AppColors.colorPrimary),
-                        SizedBox(width: 8.w),
-                        Text(
-                          "Redeem Points",
-                          style: TextStyle(
-                              fontSize: 16.sp,
-                              color: AppColors.colorBlackHighEmp,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(const RedeemPointsScreen());
+                      },
+                      child: Row(
+                        children: [
+                          const Icon(Icons.redeem,
+                              color: AppColors.colorPrimary),
+                          SizedBox(width: 8.w),
+                          Text(
+                            "Redeem Points",
+                            style: TextStyle(
+                                fontSize: 16.sp,
+                                color: AppColors.colorBlackHighEmp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 20.h),
                     const Divider(height: 2),
                     SizedBox(height: 20.h),
-                    Row(
-                      children: [
-                        const Icon(Icons.emoji_events,
-                            color: AppColors.colorPrimary),
-                        SizedBox(width: 8.w),
-                        Text(
-                          "Leader Board",
-                          style: TextStyle(
-                              fontSize: 16.sp,
-                              color: AppColors.colorBlackHighEmp,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
+                    GestureDetector(
+onTap: () {
+  Get.to(const LeaderboardScreen());
+},
+                      child: Row(
+                        children: [
+                          const Icon(Icons.emoji_events,
+                              color: AppColors.colorPrimary),
+                          SizedBox(width: 8.w),
+                          Text(
+                            "Leader Board",
+                            style: TextStyle(
+                                fontSize: 16.sp,
+                                color: AppColors.colorBlackHighEmp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 20.h),
                     const Divider(height: 2),

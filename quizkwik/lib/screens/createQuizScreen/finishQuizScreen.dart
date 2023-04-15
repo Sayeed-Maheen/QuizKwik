@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:quizkwik/screens/createQuizScreen/questionAnswerScreen.dart';
 import 'package:quizkwik/widgets/playQuizButton.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -175,7 +176,11 @@ class FinishQuizScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    PlayQuizButton(onPressed: () {}, text: "Play Quiz"),
+                    PlayQuizButton(
+                        onPressed: () {
+                          Get.to(const QuestionAnswerScreen());
+                        },
+                        text: "Play Quiz"),
                     Padding(
                       padding: const EdgeInsets.only(right: 24),
                       child: GestureDetector(
