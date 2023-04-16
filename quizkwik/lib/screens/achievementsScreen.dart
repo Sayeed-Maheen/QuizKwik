@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:quizkwik/models/leaderboardScreenModel.dart';
+import 'package:quizkwik/models/completedHistoryModel.dart';
 import 'package:quizkwik/models/myBottomNav.dart';
+import 'package:quizkwik/models/ongoingHistoryModel.dart';
 
+import '../models/allBadgesModel.dart';
+import '../models/createdHistoryModel.dart';
+import '../models/statsModel.dart';
 import '../widgets/appColors.dart';
 
-class LeaderboardScreen extends StatefulWidget {
-  const LeaderboardScreen({Key? key}) : super(key: key);
+class AchievementsScreen extends StatefulWidget {
+  const AchievementsScreen({Key? key}) : super(key: key);
 
   @override
-  State<LeaderboardScreen> createState() => _LeaderboardScreenState();
+  State<AchievementsScreen> createState() => _AchievementsScreenState();
 }
 
-class _LeaderboardScreenState extends State<LeaderboardScreen>
+class _AchievementsScreenState extends State<AchievementsScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
   void initState() {
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
     super.initState();
   }
 
@@ -63,7 +67,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
                         )),
                     SizedBox(width: 8.w),
                     Text(
-                      'Leader Board',
+                      'Achievements',
                       style: TextStyle(
                           fontSize: 20.sp,
                           color: AppColors.colorWhiteHighEmp,
@@ -77,7 +81,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
               child: SingleChildScrollView(
                 child: Container(
                   margin: const EdgeInsets.only(top: 100),
-                  height: 605.h,
+                  height: 572.h,
                   decoration: BoxDecoration(
                       color: AppColors.colorWhiteHighEmp,
                       borderRadius: BorderRadius.circular(24)),
@@ -98,9 +102,8 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
                           labelStyle: const TextStyle(),
                           labelColor: AppColors.colorWhiteHighEmp,
                           tabs: const [
-                            Tab(text: 'Today'),
-                            Tab(text: 'This Week'),
-                            Tab(text: 'All Time')
+                            Tab(text: 'Stats'),
+                            Tab(text: 'All Badges'),
                           ],
                           controller: _tabController,
                           indicatorSize: TabBarIndicatorSize.tab,
@@ -113,16 +116,11 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 8.0),
-                              child: LeaderboardScreenModel(),
+                              child: StatsModel(),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: 8.0),
-                              child: LeaderboardScreenModel(),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(top: 8.0),
-                              child: LeaderboardScreenModel(),
-                            ),
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: AllBadgesModel()),
                           ],
                         ),
                       ),

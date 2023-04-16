@@ -5,6 +5,7 @@ import 'package:quizkwik/screens/drawerScreens/notificationScreen.dart';
 import 'package:quizkwik/screens/drawerScreens/profileSettingsScreen.dart';
 import 'package:quizkwik/screens/earnPointsScreen.dart';
 
+import '../screens/achievementsScreen.dart';
 import '../screens/drawerScreens/privacyPolicyScreen.dart';
 import '../screens/leaderboardScreen.dart';
 import '../screens/redeemPointsScreen.dart';
@@ -199,9 +200,9 @@ class MyDrawerModel extends StatelessWidget {
                     const Divider(height: 2),
                     SizedBox(height: 20.h),
                     GestureDetector(
-onTap: () {
-  Get.to(const LeaderboardScreen());
-},
+                      onTap: () {
+                        Get.to(const LeaderboardScreen());
+                      },
                       child: Row(
                         children: [
                           const Icon(Icons.emoji_events,
@@ -220,19 +221,24 @@ onTap: () {
                     SizedBox(height: 20.h),
                     const Divider(height: 2),
                     SizedBox(height: 20.h),
-                    Row(
-                      children: [
-                        const Icon(Icons.military_tech,
-                            color: AppColors.colorPrimary),
-                        SizedBox(width: 8.w),
-                        Text(
-                          "Achievements",
-                          style: TextStyle(
-                              fontSize: 16.sp,
-                              color: AppColors.colorBlackHighEmp,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(const AchievementsScreen());
+                      },
+                      child: Row(
+                        children: [
+                          const Icon(Icons.military_tech,
+                              color: AppColors.colorPrimary),
+                          SizedBox(width: 8.w),
+                          Text(
+                            "Achievements",
+                            style: TextStyle(
+                                fontSize: 16.sp,
+                                color: AppColors.colorBlackHighEmp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 20.h),
                     const Divider(height: 2),
