@@ -6,8 +6,8 @@ import 'package:quizkwik/models/myBottomNav.dart';
 import 'package:quizkwik/models/ongoingHistoryModel.dart';
 import 'package:quizkwik/models/redeemPointsAllModel.dart';
 
-import '../models/createdHistoryModel.dart';
-import '../widgets/appColors.dart';
+import '../../models/createdHistoryModel.dart';
+import '../../widgets/appColors.dart';
 
 class RedeemPointsScreen extends StatefulWidget {
   const RedeemPointsScreen({Key? key}) : super(key: key);
@@ -118,60 +118,62 @@ class _RedeemPointsScreenState extends State<RedeemPointsScreen>
                 ),
               ),
             ),
-            Positioned(
-              child: SingleChildScrollView(
-                child: Container(
-                  margin: const EdgeInsets.only(top: 100),
-                  height: 605.h,
-                  decoration: BoxDecoration(
-                      color: AppColors.colorWhiteHighEmp,
-                      borderRadius: BorderRadius.circular(24)),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 44.h,
-                        margin: const EdgeInsets.symmetric(horizontal: 24),
-                        child: TabBar(
-                          indicator: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(0),
-                                  bottomRight: Radius.circular(24),
-                                  topLeft: Radius.circular(0),
-                                  bottomLeft: Radius.circular(24)),
-                              color: AppColors.colorPrimary),
-                          unselectedLabelColor: AppColors.colorBlackHighEmp,
-                          labelStyle: const TextStyle(),
-                          labelColor: AppColors.colorWhiteHighEmp,
-                          tabs: const [
-                            Tab(text: 'All'),
-                            Tab(text: 'Subscription'),
-                            Tab(text: 'Gift Cards')
-                          ],
-                          controller: _tabController,
-                          indicatorSize: TabBarIndicatorSize.tab,
+            Padding(
+              padding: const EdgeInsets.only(top: 100),
+              child: Positioned(
+                child: SingleChildScrollView(
+                  child: Container(
+                    height: 605.h,
+                    decoration: BoxDecoration(
+                        color: AppColors.colorWhiteHighEmp,
+                        borderRadius: BorderRadius.circular(24)),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 44.h,
+                          margin: const EdgeInsets.symmetric(horizontal: 24),
+                          child: TabBar(
+                            indicator: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(0),
+                                    bottomRight: Radius.circular(24),
+                                    topLeft: Radius.circular(0),
+                                    bottomLeft: Radius.circular(24)),
+                                color: AppColors.colorPrimary),
+                            unselectedLabelColor: AppColors.colorBlackHighEmp,
+                            labelStyle: const TextStyle(),
+                            labelColor: AppColors.colorWhiteHighEmp,
+                            tabs: const [
+                              Tab(text: 'All'),
+                              Tab(text: 'Subscription'),
+                              Tab(text: 'Gift Cards')
+                            ],
+                            controller: _tabController,
+                            indicatorSize: TabBarIndicatorSize.tab,
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: TabBarView(
-                          physics: const BouncingScrollPhysics(),
-                          controller: _tabController,
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(top: 8.0),
-                              child: RedeemPointsAllModel(),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(top: 8.0),
-                              child: RedeemPointsAllModel(),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(top: 8.0),
-                              child: RedeemPointsAllModel(),
-                            ),
-                          ],
+                        Expanded(
+                          child: TabBarView(
+                            physics: const BouncingScrollPhysics(),
+                            controller: _tabController,
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: RedeemPointsAllModel(),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: RedeemPointsAllModel(),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: RedeemPointsAllModel(),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

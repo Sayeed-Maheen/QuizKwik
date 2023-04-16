@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:quizkwik/screens/drawerScreens/achievementsScreen.dart';
 import 'package:quizkwik/screens/createQuizScreen/createQuizScreen.dart';
 import 'package:quizkwik/screens/joinQuizScreen.dart';
 
@@ -27,7 +28,9 @@ class HomeScreenQuizModel extends StatelessWidget {
               child: Image.asset('assets/images/joinQuiz.png',
                   height: 140.h, width: 104.w)),
           GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(const AchievementsScreen());
+              },
               child: Image.asset('assets/images/achievements.png',
                   height: 140.h, width: 104.w)),
         ],

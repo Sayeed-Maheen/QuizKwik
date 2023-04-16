@@ -38,7 +38,7 @@ class _StatsModelState extends State<StatsModel> {
                   ),
                   color: AppColors.colorWhiteHighEmp,
                 ),
-                child: Image.asset("assets/images/Badge1.png",
+                child: Image.asset("assets/images/badge1.png",
                     height: 102.h, width: 102.w),
               ),
               Container(
@@ -136,7 +136,7 @@ class _StatsModelState extends State<StatsModel> {
                   ),
                   color: AppColors.colorWhiteHighEmp,
                 ),
-                child: Image.asset("assets/images/Badge2.png",
+                child: Image.asset("assets/images/badge2.png",
                     height: 102.h, width: 102.w),
               ),
               Container(
@@ -234,7 +234,7 @@ class _StatsModelState extends State<StatsModel> {
                   ),
                   color: AppColors.colorWhiteHighEmp,
                 ),
-                child: Image.asset("assets/images/Badge3.png",
+                child: Image.asset("assets/images/badge3.png",
                     height: 102.h, width: 102.w),
               ),
               Container(
@@ -332,7 +332,7 @@ class _StatsModelState extends State<StatsModel> {
                   ),
                   color: AppColors.colorWhiteHighEmp,
                 ),
-                child: Image.asset("assets/images/Badge4.png",
+                child: Image.asset("assets/images/badge4.png",
                     height: 102.h, width: 102.w),
               ),
               Container(
@@ -430,7 +430,7 @@ class _StatsModelState extends State<StatsModel> {
                   ),
                   color: AppColors.colorWhiteHighEmp,
                 ),
-                child: Image.asset("assets/images/Badge5.png",
+                child: Image.asset("assets/images/badge5.png",
                     height: 102.h, width: 102.w),
               ),
               Container(
