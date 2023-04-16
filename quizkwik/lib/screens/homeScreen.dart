@@ -21,14 +21,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _globalKey,
+
       backgroundColor: AppColors.colorWhiteHighEmp,
-      drawer: const MyDrawerModel(),
+
       body: Column(
         children: [
           Container(
@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        _globalKey.currentState!.openDrawer();
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const MyDrawerModel()));
                       },
                       child: Padding(
                         padding:
@@ -189,19 +189,4 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-Route _createRoute() {
-  return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) =>
-          const MyBottomNav(),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(-.5, 0.0);
-        const end = Offset.zero;
-        const curve = Curves.easeIn;
-        var tween =
-            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-        return SlideTransition(
-          position: animation.drive(tween),
-          child: child,
-        );
-      });
-}
+

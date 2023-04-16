@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:quizkwik/models/awaitsForYouModel.dart';
-import 'package:quizkwik/models/spinAndWinModel.dart';
-import 'package:quizkwik/models/watchVideoModel.dart';
+import 'package:quizkwik/models/leaderboardScreenModel.dart';
+import 'package:quizkwik/models/myBottomNav.dart';
 
-import '../models/myBottomNav.dart';
-import '../widgets/appColors.dart';
+import '../../widgets/appColors.dart';
 
-class EarnPointsScreen extends StatefulWidget {
-  const EarnPointsScreen({Key? key}) : super(key: key);
+class LeaderboardScreen extends StatefulWidget {
+  const LeaderboardScreen({Key? key}) : super(key: key);
 
   @override
-  State<EarnPointsScreen> createState() => _EarnPointsScreenState();
+  State<LeaderboardScreen> createState() => _LeaderboardScreenState();
 }
 
-class _EarnPointsScreenState extends State<EarnPointsScreen>
+class _LeaderboardScreenState extends State<LeaderboardScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+
   @override
   void initState() {
     _tabController = TabController(length: 3, vsync: this);
@@ -42,50 +40,50 @@ class _EarnPointsScreenState extends State<EarnPointsScreen>
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              children: [
-                Container(
-                  height: 100.h,
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        AppColors.colorBlueGradientStart,
-                        AppColors.colorBlueGradientEnd
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 30, bottom: 50),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        IconButton(
-                            onPressed: () {
-                              Get.offAll(const MyBottomNav());
-                            },
-                            icon: const Icon(
-                              Icons.arrow_back,
-                              color: AppColors.colorWhiteHighEmp,
-                            )),
-                        SizedBox(width: 8.w),
-                        Text(
-                          'Earn Points',
-                          style: TextStyle(
-                              fontSize: 20.sp,
-                              color: AppColors.colorWhiteHighEmp,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
+            Stack(children: [
+              Container(
+                height: 100.h,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      AppColors.colorBlueGradientStart,
+                      AppColors.colorBlueGradientEnd
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
                   ),
                 ),
-                Positioned(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 30, bottom: 50),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      IconButton(
+                          onPressed: () {
+                            Get.offAll(const MyBottomNav());
+                          },
+                          icon: const Icon(
+                            Icons.arrow_back,
+                            color: AppColors.colorWhiteHighEmp,
+                          )),
+                      SizedBox(width: 8.w),
+                      Text(
+                        'Leader Board',
+                        style: TextStyle(
+                            fontSize: 20.sp,
+                            color: AppColors.colorWhiteHighEmp,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 100),
+                child: Positioned(
                   child: SingleChildScrollView(
                     child: Container(
-                      margin: const EdgeInsets.only(top: 100),
-                      height: 600.h,
+                      height: 605.h,
                       decoration: BoxDecoration(
                           color: AppColors.colorWhiteHighEmp,
                           borderRadius: BorderRadius.circular(24)),
@@ -106,9 +104,9 @@ class _EarnPointsScreenState extends State<EarnPointsScreen>
                               labelStyle: const TextStyle(),
                               labelColor: AppColors.colorWhiteHighEmp,
                               tabs: const [
-                                Tab(text: 'Watch Video'),
-                                Tab(text: 'Spin & Win'),
-                                Tab(text: 'Shop & Earn')
+                                Tab(text: 'Today'),
+                                Tab(text: 'This Week'),
+                                Tab(text: 'All Time')
                               ],
                               controller: _tabController,
                               indicatorSize: TabBarIndicatorSize.tab,
@@ -119,11 +117,17 @@ class _EarnPointsScreenState extends State<EarnPointsScreen>
                               physics: const BouncingScrollPhysics(),
                               controller: _tabController,
                               children: const [
-                                WatchVideoModel(),
-                                SpinAndWinModel(),
                                 Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 16),
-                                  child: AwaitForYouModel(),
+                                  padding: EdgeInsets.only(top: 8.0),
+                                  child: LeaderboardScreenModel(),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 8.0),
+                                  child: LeaderboardScreenModel(),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 8.0),
+                                  child: LeaderboardScreenModel(),
                                 ),
                               ],
                             ),
@@ -133,8 +137,8 @@ class _EarnPointsScreenState extends State<EarnPointsScreen>
                     ),
                   ),
                 ),
-              ],
-            )
+              ),
+            ]),
           ],
         ),
       ),
