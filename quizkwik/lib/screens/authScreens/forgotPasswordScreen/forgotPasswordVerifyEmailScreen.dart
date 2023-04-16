@@ -4,6 +4,7 @@ import 'package:quizkwik/models/forgotPasswordOtpModel.dart';
 
 import '../../../../widgets/appColors.dart';
 import '../../../../widgets/myContainer.dart';
+import '../../../widgets/constant.dart';
 
 class ForgotPasswordVerifyEmailScreen extends StatelessWidget {
   const ForgotPasswordVerifyEmailScreen({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class ForgotPasswordVerifyEmailScreen extends StatelessWidget {
               SizedBox(height: 200.h),
               Center(
                 child: Text(
-                  "Verify your email address",
+                  verifyEmail,
                   style: TextStyle(
                       fontSize: 24.sp,
                       color: AppColors.colorBlackHighEmp,
@@ -35,7 +36,7 @@ class ForgotPasswordVerifyEmailScreen extends StatelessWidget {
               SizedBox(height: 8.h),
               Center(
                 child: Text(
-                  "Enter 6 digit verification sent to your email\n account",
+                  enterCode,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 14.sp,

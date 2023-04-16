@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:quizkwik/screens/authScreens/signUpScreen/verifyEmailScreen.dart';
 
 import '../widgets/appColors.dart';
+import '../widgets/constant.dart';
 import '../widgets/myButton.dart';
 
 class SignUpFormModel extends StatefulWidget {
@@ -289,7 +290,7 @@ class _SignUpFormModelState extends State<SignUpFormModel> {
                   Get.off(() => const VerifyEmailScreen());
                 }
               },
-              text: "Sign Up")
+              text: signUp)
         ],
       ),
     );

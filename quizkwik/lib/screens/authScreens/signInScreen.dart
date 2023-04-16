@@ -7,9 +7,10 @@ import 'package:quizkwik/widgets/myContainer.dart';
 
 import '../../models/myBottomNav.dart';
 import '../../widgets/appColors.dart';
+import '../../widgets/constant.dart';
 
 class SignInScreen extends StatefulWidget {
-  SignInScreen({Key? key}) : super(key: key);
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -75,7 +76,7 @@ class _SignInScreenState extends State<SignInScreen>
                     children: [
                       Center(
                         child: Text(
-                          "Welcome Back",
+                          welcome,
                           style: TextStyle(
                               fontSize: 24.sp,
                               color: AppColors.colorBlackHighEmp,
@@ -85,7 +86,7 @@ class _SignInScreenState extends State<SignInScreen>
                       SizedBox(height: 4.h),
                       Center(
                         child: Text(
-                          "To your favorite quiz place. Learn, earn,\n compete.",
+                          quizPlace,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 14.sp,
@@ -111,7 +112,7 @@ class _SignInScreenState extends State<SignInScreen>
                     child: Column(
                       children: [
                         Text(
-                          "Or Continue With",
+                          continueWith,
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
@@ -200,7 +201,7 @@ class _SignInScreenState extends State<SignInScreen>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Don't Have an Account?",
+                              dontHaveAccount,
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 color: AppColors.colorBlackHighEmp,
@@ -218,7 +219,7 @@ class _SignInScreenState extends State<SignInScreen>
                                       MaterialTapTargetSize.shrinkWrap,
                                   alignment: Alignment.centerLeft),
                               child: Text(
-                                "Sign up",
+                                signUp,
                                 style: TextStyle(
                                   fontSize: 14.sp,
                                   color: AppColors.colorPrimary,

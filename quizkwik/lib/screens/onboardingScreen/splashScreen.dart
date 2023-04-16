@@ -5,6 +5,8 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:quizkwik/screens/onboardingScreen/onboardingScreen.dart';
 import 'package:quizkwik/widgets/appColors.dart';
 
+import '../../widgets/constant.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -36,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Image.asset('assets/images/QuizKwik.png', height: 40.h, width: 142.w),
           SizedBox(height: 8.h),
           Text(
-            "WORLD'S BEST QUIZ APP",
+            bestApp,
             style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w300,

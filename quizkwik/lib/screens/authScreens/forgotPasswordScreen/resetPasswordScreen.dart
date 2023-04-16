@@ -4,6 +4,7 @@ import 'package:quizkwik/models/forgotPasswordOtpPopupModel.dart';
 import 'package:quizkwik/widgets/myContainer.dart';
 
 import '../../../widgets/appColors.dart';
+import '../../../widgets/constant.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({Key? key}) : super(key: key);
@@ -46,7 +47,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 SizedBox(height: 8.h),
                 Center(
                   child: Text(
-                    "Enter 6 digit verification sent to your email\n account",
+                    enterCode,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 14.sp,

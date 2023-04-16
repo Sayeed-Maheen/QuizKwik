@@ -4,6 +4,7 @@ import 'package:quizkwik/models/forgotPasswordModel.dart';
 import 'package:quizkwik/widgets/myContainer.dart';
 
 import '../../../widgets/appColors.dart';
+import '../../../widgets/constant.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               SizedBox(height: 200.h),
               Center(
                 child: Text(
-                  "Forgot Password?",
+                  forgotPassword,
                   style: TextStyle(
                       fontSize: 24.sp,
                       color: AppColors.colorBlackHighEmp,
@@ -40,7 +41,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               SizedBox(height: 4.h),
               Center(
                 child: Text(
-                  "Lets recover your password, its simple.",
+                  recoverPassword,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 14.sp,

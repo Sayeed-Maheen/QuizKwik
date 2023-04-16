@@ -7,6 +7,7 @@ import 'package:quizkwik/widgets/myContainer.dart';
 import '../../../models/myBottomNav.dart';
 import '../../../models/signUpFormModel.dart';
 import '../../../widgets/appColors.dart';
+import '../../../widgets/constant.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -82,7 +83,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                       children: [
                         Center(
                           child: Text(
-                            "Sign Up to QuizKwik",
+                            signUptoQuizKwik,
                             style: TextStyle(
                                 fontSize: 24.sp,
                                 color: AppColors.colorBlackHighEmp,
@@ -92,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                         SizedBox(height: 8.h),
                         Center(
                           child: Text(
-                            "Your favorite quiz place. Learn, earn,\n compete.",
+                            quizPlace2,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 14.sp,
@@ -119,7 +120,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                       child: Column(
                         children: [
                           Text(
-                            "Or Continue With",
+                            continueWith,
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
@@ -145,7 +146,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Container(
+                                      SizedBox(
                                         height: 20.h,
                                         width: 20.w,
                                         child: Image.asset(
@@ -208,7 +209,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                "Already Have an Account?",
+                                alreadyHaveAccount,
                                 style: TextStyle(
                                   fontSize: 14.sp,
                                   color: AppColors.colorBlackHighEmp,
@@ -217,7 +218,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                               ),
                               TextButton(
                                 onPressed: () {
-                                  Get.offAll(SignInScreen());
+                                  Get.offAll(const SignInScreen());
                                 },
                                 style: TextButton.styleFrom(
                                     padding: const EdgeInsets.all(5),
@@ -226,7 +227,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                                         MaterialTapTargetSize.shrinkWrap,
                                     alignment: Alignment.centerLeft),
                                 child: Text(
-                                  "Sign In",
+                                  signIn,
                                   style: TextStyle(
                                     fontSize: 14.sp,
                                     color: AppColors.colorPrimary,

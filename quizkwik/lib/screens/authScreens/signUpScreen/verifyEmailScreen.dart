@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quizkwik/models/otpModel.dart';
 
 import '../../../widgets/appColors.dart';
+import '../../../widgets/constant.dart';
 import '../../../widgets/myContainer.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
@@ -30,7 +31,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 SizedBox(height: 200.h),
                 Center(
                   child: Text(
-                    "Verify your email address",
+                    verifyEmail,
                     style: TextStyle(
                         fontSize: 24.sp,
                         color: AppColors.colorBlackHighEmp,
@@ -40,7 +41,7 @@ class VerifyEmailScreen extends StatelessWidget {
                 SizedBox(height: 8.h),
                 Center(
                   child: Text(
-                    "Enter 6 digit verification sent to your email\n account",
+                    enterCode,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 14.sp,

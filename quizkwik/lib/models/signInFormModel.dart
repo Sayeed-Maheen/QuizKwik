@@ -6,6 +6,7 @@ import 'package:quizkwik/models/rememberMeModel.dart';
 
 import '../screens/authScreens/forgotPasswordScreen/forgotPasswordScreen.dart';
 import '../widgets/appColors.dart';
+import '../widgets/constant.dart';
 import '../widgets/myButton.dart';
 
 class SignInFormModel extends StatefulWidget {
@@ -173,7 +174,7 @@ class _SignInFormModelState extends State<SignInFormModel> {
                   Get.to(() => const ForgotPasswordScreen());
                 },
                 child: Text(
-                  'Forgot password?',
+                  forgotPassword,
                   style: TextStyle(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w600,
@@ -191,7 +192,7 @@ class _SignInFormModelState extends State<SignInFormModel> {
                       MaterialPageRoute(builder: (context) => const MyBottomNav()));
                 }
               },
-              text: "Sign In")
+              text: signIn)
         ],
       ),
     );

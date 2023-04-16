@@ -14,11 +14,11 @@ class ProfileScreenBadgeModel extends StatelessWidget {
           crossAxisCount: 4, crossAxisSpacing: 24, mainAxisSpacing: 24),
       itemBuilder: (BuildContext context, int index) {
         List<String> images = [
-          'assets/images/Badge1.png',
-          'assets/images/Badge2.png',
-          'assets/images/Badge3.png',
-          'assets/images/Badge4.png',
-          'assets/images/Badge5.png',
+          'assets/images/badge1.png',
+          'assets/images/badge2.png',
+          'assets/images/badge3.png',
+          'assets/images/badge4.png',
+          'assets/images/badge5.png',
           'assets/images/badge6.png',
           'assets/images/badge7.png',
         ];
