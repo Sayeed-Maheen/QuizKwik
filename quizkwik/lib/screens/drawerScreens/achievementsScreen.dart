@@ -57,8 +57,8 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                     end: Alignment.bottomCenter,
                   ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 30, bottom: 50),
+                child: Container(
+                  margin: const EdgeInsets.only(top: 50, bottom: 50),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
