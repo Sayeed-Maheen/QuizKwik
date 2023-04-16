@@ -55,14 +55,19 @@ class _HistoryScreenState extends State<HistoryScreen>
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    IconButton(
+                    Container(
+                      color: Colors.red, // Add a color to make it easier to see
+                      child: IconButton(
                         onPressed: () {
                           Get.offAll(const MyBottomNav());
                         },
                         icon: const Icon(
                           Icons.arrow_back,
                           color: AppColors.colorWhiteHighEmp,
-                        )),
+                        ),
+                      ),
+                    ),
+
                     SizedBox(width: 8.w),
                     Text(
                       'History',
