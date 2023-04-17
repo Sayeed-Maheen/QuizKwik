@@ -70,62 +70,60 @@ class _LeaderboardScreen2State extends State<LeaderboardScreen2>
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 90),
-                child: Positioned(
-                  child: SingleChildScrollView(
-                    child: Container(
-                      height: 573.h,
-                      decoration: BoxDecoration(
-                          color: AppColors.colorWhiteHighEmp,
-                          borderRadius: BorderRadius.circular(24)),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 44.h,
-                            margin: const EdgeInsets.symmetric(horizontal: 24),
-                            child: TabBar(
-                              indicator: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(0),
-                                      bottomRight: Radius.circular(24),
-                                      topLeft: Radius.circular(0),
-                                      bottomLeft: Radius.circular(24)),
-                                  color: AppColors.colorPrimary),
-                              unselectedLabelColor: AppColors.colorBlackHighEmp,
-                              labelStyle: const TextStyle(),
-                              labelColor: AppColors.colorWhiteHighEmp,
-                              tabs: const [
-                                Tab(text: 'Today'),
-                                Tab(text: 'This Week'),
-                                Tab(text: 'All Time')
-                              ],
-                              controller: _tabController,
-                              indicatorSize: TabBarIndicatorSize.tab,
-                            ),
+              Positioned(
+                child: SingleChildScrollView(
+                  child: Container(
+                    margin: EdgeInsets.only(top: 90),
+                    height: 573.h,
+                    decoration: BoxDecoration(
+                        color: AppColors.colorWhiteHighEmp,
+                        borderRadius: BorderRadius.circular(24)),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 44.h,
+                          margin: const EdgeInsets.symmetric(horizontal: 24),
+                          child: TabBar(
+                            indicator: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(0),
+                                    bottomRight: Radius.circular(24),
+                                    topLeft: Radius.circular(0),
+                                    bottomLeft: Radius.circular(24)),
+                                color: AppColors.colorPrimary),
+                            unselectedLabelColor: AppColors.colorBlackHighEmp,
+                            labelStyle: const TextStyle(),
+                            labelColor: AppColors.colorWhiteHighEmp,
+                            tabs: const [
+                              Tab(text: 'Today'),
+                              Tab(text: 'This Week'),
+                              Tab(text: 'All Time')
+                            ],
+                            controller: _tabController,
+                            indicatorSize: TabBarIndicatorSize.tab,
                           ),
-                          Expanded(
-                            child: TabBarView(
-                              physics: const BouncingScrollPhysics(),
-                              controller: _tabController,
-                              children: const [
-                                Padding(
-                                  padding: EdgeInsets.only(top: 8.0),
-                                  child: LeaderboardScreenModel(),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(top: 8.0),
-                                  child: LeaderboardScreenModel(),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(top: 8.0),
-                                  child: LeaderboardScreenModel(),
-                                ),
-                              ],
-                            ),
+                        ),
+                        Expanded(
+                          child: TabBarView(
+                            physics: const BouncingScrollPhysics(),
+                            controller: _tabController,
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: LeaderboardScreenModel(),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: LeaderboardScreenModel(),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: LeaderboardScreenModel(),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

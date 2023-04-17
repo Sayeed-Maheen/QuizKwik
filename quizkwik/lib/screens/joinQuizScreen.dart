@@ -51,83 +51,82 @@ class _JoinQuizScreenState extends State<JoinQuizScreen>
                   end: Alignment.bottomCenter,
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 35, bottom: 35),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          Get.offAll(const MyBottomNav());
-                        },
-                        icon: const Icon(
-                          Icons.arrow_back,
-                          color: AppColors.colorWhiteHighEmp,
-                        )),
-                    SizedBox(width: 8.w),
-                    Text(
-                      'Join Quiz',
-                      style: TextStyle(
-                          fontSize: 20.sp,
-                          color: AppColors.colorWhiteHighEmp,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ),
+
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 90),
-              child: Positioned(
-                child: SingleChildScrollView(
-                  child: Container(
-                    height: 600.h,
-                    decoration: BoxDecoration(
-                        color: AppColors.colorWhiteHighEmp,
-                        borderRadius: BorderRadius.circular(24)),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 44.h,
-                          margin: const EdgeInsets.symmetric(horizontal: 24),
-                          child: TabBar(
-                            indicator: const BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(0),
-                                    bottomRight: Radius.circular(24),
-                                    topLeft: Radius.circular(0),
-                                    bottomLeft: Radius.circular(24)),
-                                color: AppColors.colorPrimary),
-                            unselectedLabelColor: AppColors.colorBlackHighEmp,
-                            labelStyle: const TextStyle(),
-                            labelColor: AppColors.colorWhiteHighEmp,
-                            tabs: const [
-                              Tab(text: 'Public'),
-                              Tab(text: 'Friends'),
-                              Tab(text: 'Join by ID')
-                            ],
-                            controller: _tabController,
-                            indicatorSize: TabBarIndicatorSize.tab,
-                          ),
+            Positioned(
+              child: SingleChildScrollView(
+                child: Container(
+            margin: const EdgeInsets.only(top: 90),
+                  height: 600.h,
+                  decoration: BoxDecoration(
+                      color: AppColors.colorWhiteHighEmp,
+                      borderRadius: BorderRadius.circular(24)),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 44.h,
+                        margin: const EdgeInsets.symmetric(horizontal: 24),
+                        child: TabBar(
+                          indicator: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(0),
+                                  bottomRight: Radius.circular(24),
+                                  topLeft: Radius.circular(0),
+                                  bottomLeft: Radius.circular(24)),
+                              color: AppColors.colorPrimary),
+                          unselectedLabelColor: AppColors.colorBlackHighEmp,
+                          labelStyle: const TextStyle(),
+                          labelColor: AppColors.colorWhiteHighEmp,
+                          tabs: const [
+                            Tab(text: 'Public'),
+                            Tab(text: 'Friends'),
+                            Tab(text: 'Join by ID')
+                          ],
+                          controller: _tabController,
+                          indicatorSize: TabBarIndicatorSize.tab,
                         ),
-                        Expanded(
-                          child: TabBarView(
-                            physics: const BouncingScrollPhysics(),
-                            controller: _tabController,
-                            children: const [
-                              JoinQuizModel(),
-                              CompletedHistoryModel(),
-                              JoinedByIdModel(),
-                            ],
-                          ),
+                      ),
+                      Expanded(
+                        child: TabBarView(
+                          physics: const BouncingScrollPhysics(),
+                          controller: _tabController,
+                          children: const [
+                            JoinQuizModel(),
+                            CompletedHistoryModel(),
+                            JoinedByIdModel(),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
             ),
+            Positioned(
+
+              top: 35,
+              child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Get.offAll(const MyBottomNav());
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      color: AppColors.colorWhiteHighEmp,
+                    )),
+                SizedBox(width: 8.w),
+                Text(
+                  'Join Quiz',
+                  style: TextStyle(
+                      fontSize: 20.sp,
+                      color: AppColors.colorWhiteHighEmp,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),)
           ]),
         ],
       ),

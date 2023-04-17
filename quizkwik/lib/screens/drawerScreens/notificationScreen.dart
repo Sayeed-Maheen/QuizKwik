@@ -33,44 +33,42 @@ class NotificationScreen extends StatelessWidget {
                     end: Alignment.bottomCenter,
                   ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 35, bottom: 35),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Get.offAll(const MyBottomNav());
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back,
-                            color: AppColors.colorWhiteHighEmp,
-                          )),
-                      SizedBox(width: 8.w),
-                      Text(
-                        'Notification',
-                        style: TextStyle(
-                            fontSize: 20.sp,
-                            color: AppColors.colorWhiteHighEmp,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
+              ),
+              Positioned(
+                child: Container(
+                  margin: const EdgeInsets.only(top: 90),
+                  height: 605.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: AppColors.colorWhiteHighEmp,
+                      borderRadius: BorderRadius.circular(25)),
+                  child: const NotificationModel(),
                 ),
               ),
-              Padding(
-                padding:const EdgeInsets.only(top: 90),
-                child: Positioned(
-                  child: Container(
-                    height: 605.h,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: AppColors.colorWhiteHighEmp,
-                        borderRadius: BorderRadius.circular(25)),
-                    child: const NotificationModel(),
-                  ),
+              Positioned(
+                top: 35,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Get.offAll(const MyBottomNav());
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: AppColors.colorWhiteHighEmp,
+                        )),
+                    SizedBox(width: 8.w),
+                    Text(
+                      'Notification',
+                      style: TextStyle(
+                          fontSize: 20.sp,
+                          color: AppColors.colorWhiteHighEmp,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
-              ),
+              )
             ]),
           ],
         ),

@@ -32,30 +32,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                     end: Alignment.bottomCenter,
                   ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 35, bottom: 35),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Get.offAll(const MyBottomNav());
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back,
-                            color: AppColors.colorWhiteHighEmp,
-                          )),
-                      SizedBox(width: 8.w),
-                      Text(
-                        'Privacy Policy',
-                        style: TextStyle(
-                            fontSize: 20.sp,
-                            color: AppColors.colorWhiteHighEmp,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
+
               ),
               Positioned(
                 child: Container(
@@ -481,6 +458,32 @@ class PrivacyPolicyScreen extends StatelessWidget {
                       ),
                     )),
               ),
+              Positioned(
+
+
+                top: 35,
+
+                child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        Get.offAll(const MyBottomNav());
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: AppColors.colorWhiteHighEmp,
+                      )),
+                  SizedBox(width: 8.w),
+                  Text(
+                    'Privacy Policy',
+                    style: TextStyle(
+                        fontSize: 20.sp,
+                        color: AppColors.colorWhiteHighEmp,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),)
             ]),
           ],
         ),

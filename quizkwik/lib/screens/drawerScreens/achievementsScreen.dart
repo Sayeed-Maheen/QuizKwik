@@ -54,85 +54,82 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                     end: Alignment.bottomCenter,
                   ),
                 ),
-                child: Container(
-                  margin: const EdgeInsets.only(top: 35, bottom: 35),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Get.offAll(const MyBottomNav());
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back,
-                            color: AppColors.colorWhiteHighEmp,
-                          )),
-                      SizedBox(width: 8.w),
-                      Text(
-                        'Achievements',
-                        style: TextStyle(
-                            fontSize: 20.sp,
-                            color: AppColors.colorWhiteHighEmp,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
+
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 90),
-                child: Positioned(
-                  child: SingleChildScrollView(
-                    child: Container(
-                      height: 572.h,
-                      decoration: BoxDecoration(
-                          color: AppColors.colorWhiteHighEmp,
-                          borderRadius: BorderRadius.circular(24)),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 44.h,
-                            margin: const EdgeInsets.symmetric(horizontal: 24),
-                            child: TabBar(
-                              indicator: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(0),
-                                      bottomRight: Radius.circular(24),
-                                      topLeft: Radius.circular(0),
-                                      bottomLeft: Radius.circular(24)),
-                                  color: AppColors.colorPrimary),
-                              unselectedLabelColor: AppColors.colorBlackHighEmp,
-                              labelStyle: const TextStyle(),
-                              labelColor: AppColors.colorWhiteHighEmp,
-                              tabs: const [
-                                Tab(text: 'Stats'),
-                                Tab(text: 'All Badges'),
-                              ],
-                              controller: _tabController,
-                              indicatorSize: TabBarIndicatorSize.tab,
-                            ),
+              Positioned(
+                child: SingleChildScrollView(
+                  child: Container(
+              margin: const EdgeInsets.only(top: 90),
+                    height: 572.h,
+                    decoration: BoxDecoration(
+                        color: AppColors.colorWhiteHighEmp,
+                        borderRadius: BorderRadius.circular(24)),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 44.h,
+                          margin: const EdgeInsets.symmetric(horizontal: 24),
+                          child: TabBar(
+                            indicator: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(0),
+                                    bottomRight: Radius.circular(24),
+                                    topLeft: Radius.circular(0),
+                                    bottomLeft: Radius.circular(24)),
+                                color: AppColors.colorPrimary),
+                            unselectedLabelColor: AppColors.colorBlackHighEmp,
+                            labelStyle: const TextStyle(),
+                            labelColor: AppColors.colorWhiteHighEmp,
+                            tabs: const [
+                              Tab(text: 'Stats'),
+                              Tab(text: 'All Badges'),
+                            ],
+                            controller: _tabController,
+                            indicatorSize: TabBarIndicatorSize.tab,
                           ),
-                          Expanded(
-                            child: TabBarView(
-                              physics: const BouncingScrollPhysics(),
-                              controller: _tabController,
-                              children: const [
-                                Padding(
+                        ),
+                        Expanded(
+                          child: TabBarView(
+                            physics: const BouncingScrollPhysics(),
+                            controller: _tabController,
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: StatsModel(),
+                              ),
+                              Padding(
                                   padding: EdgeInsets.only(top: 8.0),
-                                  child: StatsModel(),
-                                ),
-                                Padding(
-                                    padding: EdgeInsets.only(top: 8.0),
-                                    child: AllBadgesModel()),
-                              ],
-                            ),
+                                  child: AllBadgesModel()),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
+              Positioned(
+                top:35,child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        Get.offAll(const MyBottomNav());
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: AppColors.colorWhiteHighEmp,
+                      )),
+                  SizedBox(width: 8.w),
+                  Text(
+                    'Achievements',
+                    style: TextStyle(
+                        fontSize: 20.sp,
+                        color: AppColors.colorWhiteHighEmp,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),)
             ]),
           ],
         ),

@@ -53,130 +53,135 @@ class _RedeemPointsScreenState extends State<RedeemPointsScreen>
                     end: Alignment.bottomCenter,
                   ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 35, bottom: 35),
-                  child: Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                Get.offAll(const MyBottomNav());
-                              },
-                              icon: const Icon(
-                                Icons.arrow_back,
-                                color: AppColors.colorWhiteHighEmp,
-                              )),
-                          SizedBox(width: 8.w),
-                          Text(
-                            'Redeem Points',
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                color: AppColors.colorWhiteHighEmp,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 5, right: 16),
-                        child: Container(
-                          height: 30.h,
-                          width: 91.w,
-                          decoration: BoxDecoration(
-                            color: AppColors.colorWhiteHighEmp,
-                            borderRadius: BorderRadius.circular(48),
-                            boxShadow: const <BoxShadow>[
-                              BoxShadow(
-                                  color: AppColors.colorPrimaryLightest,
-                                  blurRadius: 3),
+
+              ),
+              Positioned(
+
+                child: SingleChildScrollView(
+                  child: Container(
+margin: EdgeInsets.only(top: 90),
+                    height: 605.h,
+                    decoration: BoxDecoration(
+                        color: AppColors.colorWhiteHighEmp,
+                        borderRadius: BorderRadius.circular(24)),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 44.h,
+                          margin: const EdgeInsets.symmetric(horizontal: 24),
+                          child: TabBar(
+                            indicator: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(0),
+                                    bottomRight: Radius.circular(24),
+                                    topLeft: Radius.circular(0),
+                                    bottomLeft: Radius.circular(24)),
+                                color: AppColors.colorPrimary),
+                            unselectedLabelColor: AppColors.colorBlackHighEmp,
+                            labelStyle: const TextStyle(),
+                            labelColor: AppColors.colorWhiteHighEmp,
+                            tabs: const [
+                              Tab(text: 'All'),
+                              Tab(text: 'Subscription'),
+                              Tab(text: 'Gift Cards')
                             ],
+                            controller: _tabController,
+                            indicatorSize: TabBarIndicatorSize.tab,
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                "assets/images/diamond.png",
-                                height: 10.h,
-                                width: 13.w,
+                        ),
+                        Expanded(
+                          child: TabBarView(
+                            physics: const BouncingScrollPhysics(),
+                            controller: _tabController,
+                            children: const [
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: RedeemPointsAllModel(),
                               ),
-                              SizedBox(width: 5.w),
-                              Text(
-                                "12000",
-                                style: TextStyle(
-                                    fontSize: 14.sp,
-                                    color: AppColors.colorPrimary,
-                                    fontWeight: FontWeight.w600),
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: RedeemPointsAllModel(),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: RedeemPointsAllModel(),
                               ),
                             ],
                           ),
                         ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 90),
-                child: Positioned(
-                  child: SingleChildScrollView(
-                    child: Container(
-                      height: 605.h,
-                      decoration: BoxDecoration(
-                          color: AppColors.colorWhiteHighEmp,
-                          borderRadius: BorderRadius.circular(24)),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 44.h,
-                            margin: const EdgeInsets.symmetric(horizontal: 24),
-                            child: TabBar(
-                              indicator: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(0),
-                                      bottomRight: Radius.circular(24),
-                                      topLeft: Radius.circular(0),
-                                      bottomLeft: Radius.circular(24)),
-                                  color: AppColors.colorPrimary),
-                              unselectedLabelColor: AppColors.colorBlackHighEmp,
-                              labelStyle: const TextStyle(),
-                              labelColor: AppColors.colorWhiteHighEmp,
-                              tabs: const [
-                                Tab(text: 'All'),
-                                Tab(text: 'Subscription'),
-                                Tab(text: 'Gift Cards')
-                              ],
-                              controller: _tabController,
-                              indicatorSize: TabBarIndicatorSize.tab,
-                            ),
-                          ),
-                          Expanded(
-                            child: TabBarView(
-                              physics: const BouncingScrollPhysics(),
-                              controller: _tabController,
-                              children: const [
-                                Padding(
-                                  padding: EdgeInsets.only(top: 8.0),
-                                  child: RedeemPointsAllModel(),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(top: 8.0),
-                                  child: RedeemPointsAllModel(),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(top: 8.0),
-                                  child: RedeemPointsAllModel(),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                      ],
                     ),
                   ),
                 ),
               ),
+              Positioned(
+                top: 35,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              Get.offAll(const MyBottomNav());
+                            },
+                            icon: const Icon(
+                              Icons.arrow_back,
+                              color: AppColors.colorWhiteHighEmp,
+                            )),
+                        SizedBox(width: 8.w),
+                        Text(
+                          'Redeem Points',
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: AppColors.colorWhiteHighEmp,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+
+                  ],
+                ),
+              ),
+              Positioned(
+                top: 35,
+                right: 0,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 5, right: 16),
+                  child: Container(
+                    height: 30.h,
+                    width: 91.w,
+                    decoration: BoxDecoration(
+                      color: AppColors.colorWhiteHighEmp,
+                      borderRadius: BorderRadius.circular(48),
+                      boxShadow: const <BoxShadow>[
+                        BoxShadow(
+                            color: AppColors.colorPrimaryLightest,
+                            blurRadius: 3),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/diamond.png",
+                          height: 10.h,
+                          width: 13.w,
+                        ),
+                        SizedBox(width: 5.w),
+                        Text(
+                          "12000",
+                          style: TextStyle(
+                              fontSize: 14.sp,
+                              color: AppColors.colorPrimary,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              )
             ]),
           ],
         ),

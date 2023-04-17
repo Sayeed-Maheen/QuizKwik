@@ -69,53 +69,51 @@ class _HistoryScreenState extends State<HistoryScreen>
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 90),
-              child: Positioned(
-                child: SingleChildScrollView(
-                  child: Container(
-                    height: 572.h,
-                    decoration: BoxDecoration(
-                        color: AppColors.colorWhiteHighEmp,
-                        borderRadius: BorderRadius.circular(24)),
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 44.h,
-                          margin: const EdgeInsets.symmetric(horizontal: 24),
-                          child: TabBar(
-                            indicator: const BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(0),
-                                    bottomRight: Radius.circular(24),
-                                    topLeft: Radius.circular(0),
-                                    bottomLeft: Radius.circular(24)),
-                                color: AppColors.colorPrimary),
-                            unselectedLabelColor: AppColors.colorBlackHighEmp,
-                            labelStyle: const TextStyle(),
-                            labelColor: AppColors.colorWhiteHighEmp,
-                            tabs: const [
-                              Tab(text: 'Ongoing'),
-                              Tab(text: 'Completed'),
-                              Tab(text: 'Created')
-                            ],
-                            controller: _tabController,
-                            indicatorSize: TabBarIndicatorSize.tab,
-                          ),
+            Positioned(
+              child: SingleChildScrollView(
+                child: Container(
+            margin:const EdgeInsets.only(top: 90),
+                  height: 572.h,
+                  decoration: BoxDecoration(
+                      color: AppColors.colorWhiteHighEmp,
+                      borderRadius: BorderRadius.circular(24)),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 44.h,
+                        margin: const EdgeInsets.symmetric(horizontal: 24),
+                        child: TabBar(
+                          indicator: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(0),
+                                  bottomRight: Radius.circular(24),
+                                  topLeft: Radius.circular(0),
+                                  bottomLeft: Radius.circular(24)),
+                              color: AppColors.colorPrimary),
+                          unselectedLabelColor: AppColors.colorBlackHighEmp,
+                          labelStyle: const TextStyle(),
+                          labelColor: AppColors.colorWhiteHighEmp,
+                          tabs: const [
+                            Tab(text: 'Ongoing'),
+                            Tab(text: 'Completed'),
+                            Tab(text: 'Created')
+                          ],
+                          controller: _tabController,
+                          indicatorSize: TabBarIndicatorSize.tab,
                         ),
-                        Expanded(
-                          child: TabBarView(
-                            physics: const BouncingScrollPhysics(),
-                            controller: _tabController,
-                            children: const [
-                              OngoingHistoryModel(),
-                              CompletedHistoryModel(),
-                              CreatedHistoryModel(),
-                            ],
-                          ),
+                      ),
+                      Expanded(
+                        child: TabBarView(
+                          physics: const BouncingScrollPhysics(),
+                          controller: _tabController,
+                          children: const [
+                            OngoingHistoryModel(),
+                            CompletedHistoryModel(),
+                            CreatedHistoryModel(),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
