@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:quizkwik/models/awaitsForYouModel.dart';
 import 'package:quizkwik/models/dailyQuizCarouselModel.dart';
 import 'package:quizkwik/models/exploreClassesModel.dart';
@@ -7,6 +9,7 @@ import 'package:quizkwik/models/homeScreenQuizModel.dart';
 import 'package:quizkwik/models/myBottomNav.dart';
 import 'package:quizkwik/models/myDrawerModel.dart';
 import 'package:quizkwik/models/winnerCardModel.dart';
+import 'package:quizkwik/screens/drawerScreens/redeemPointsScreen.dart';
 import 'package:quizkwik/widgets/appColors.dart';
 import 'package:quizkwik/widgets/myContainer.dart';
 
@@ -85,44 +88,49 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 45, right: 16),
-                  child: Container(
-                    height: 34.h,
-                    width: 91.w,
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [
-                          AppColors.colorBlueGradientStart,
-                          AppColors.colorBlueGradientEnd,
+                GestureDetector(
+                  onTap: () {
+                    Get.to(const RedeemPointsScreen());
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 45, right: 16),
+                    child: Container(
+                      height: 34.h,
+                      width: 91.w,
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [
+                            AppColors.colorBlueGradientStart,
+                            AppColors.colorBlueGradientEnd,
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        ),
+                        borderRadius: BorderRadius.circular(48),
+                        boxShadow: const <BoxShadow>[
+                          BoxShadow(
+                              color: AppColors.colorPrimaryLightest,
+                              blurRadius: 3),
                         ],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
                       ),
-                      borderRadius: BorderRadius.circular(48),
-                      boxShadow: const <BoxShadow>[
-                        BoxShadow(
-                            color: AppColors.colorPrimaryLightest,
-                            blurRadius: 3),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/images/diamond.png",
-                          height: 10.h,
-                          width: 13.w,
-                        ),
-                        SizedBox(width: 5.w),
-                        Text(
-                          "12000",
-                          style: TextStyle(
-                              fontSize: 14.sp,
-                              color: AppColors.colorWhiteHighEmp,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            "assets/images/diamond.png",
+                            height: 10.h,
+                            width: 13.w,
+                          ),
+                          SizedBox(width: 5.w),
+                          Text(
+                            "12000",
+                            style: TextStyle(
+                                fontSize: 14.sp,
+                                color: AppColors.colorWhiteHighEmp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 )

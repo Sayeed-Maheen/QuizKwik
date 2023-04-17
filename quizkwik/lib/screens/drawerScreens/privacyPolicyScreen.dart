@@ -33,7 +33,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 30, bottom: 50),
+                  padding: const EdgeInsets.only(top: 35, bottom: 35),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -59,7 +59,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
               ),
               Positioned(
                 child: Container(
-                    margin: const EdgeInsets.only(top: 100),
+                    margin: const EdgeInsets.only(top: 90),
                     height: 600.h,
                     width: double.infinity,
                     decoration: BoxDecoration(

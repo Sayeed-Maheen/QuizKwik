@@ -6,6 +6,7 @@ import 'package:quizkwik/models/joinQuizModel.dart';
 import 'package:quizkwik/models/myBottomNav.dart';
 
 import '../models/createdHistoryModel.dart';
+import '../models/joinedByIdModel.dart';
 import '../widgets/appColors.dart';
 
 class JoinQuizScreen extends StatefulWidget {
@@ -39,7 +40,7 @@ class _JoinQuizScreenState extends State<JoinQuizScreen>
         children: [
           Stack(children: [
             Container(
-              height: 115.h,
+              height: 100.h,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
@@ -51,7 +52,7 @@ class _JoinQuizScreenState extends State<JoinQuizScreen>
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(top: 30, bottom: 50),
+                padding: const EdgeInsets.only(top: 35, bottom: 35),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,51 +77,53 @@ class _JoinQuizScreenState extends State<JoinQuizScreen>
                 ),
               ),
             ),
-            Positioned(
-              child: SingleChildScrollView(
-                child: Container(
-                  margin: const EdgeInsets.only(top: 100),
-                  height: 590.h,
-                  decoration: BoxDecoration(
-                      color: AppColors.colorWhiteHighEmp,
-                      borderRadius: BorderRadius.circular(24)),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 44.h,
-                        margin: const EdgeInsets.symmetric(horizontal: 24),
-                        child: TabBar(
-                          indicator: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(0),
-                                  bottomRight: Radius.circular(24),
-                                  topLeft: Radius.circular(0),
-                                  bottomLeft: Radius.circular(24)),
-                              color: AppColors.colorPrimary),
-                          unselectedLabelColor: AppColors.colorBlackHighEmp,
-                          labelStyle: const TextStyle(),
-                          labelColor: AppColors.colorWhiteHighEmp,
-                          tabs: const [
-                            Tab(text: 'Public'),
-                            Tab(text: 'Friends'),
-                            Tab(text: 'Join by ID')
-                          ],
-                          controller: _tabController,
-                          indicatorSize: TabBarIndicatorSize.tab,
+            Padding(
+              padding: const EdgeInsets.only(top: 90),
+              child: Positioned(
+                child: SingleChildScrollView(
+                  child: Container(
+                    height: 600.h,
+                    decoration: BoxDecoration(
+                        color: AppColors.colorWhiteHighEmp,
+                        borderRadius: BorderRadius.circular(24)),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 44.h,
+                          margin: const EdgeInsets.symmetric(horizontal: 24),
+                          child: TabBar(
+                            indicator: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(0),
+                                    bottomRight: Radius.circular(24),
+                                    topLeft: Radius.circular(0),
+                                    bottomLeft: Radius.circular(24)),
+                                color: AppColors.colorPrimary),
+                            unselectedLabelColor: AppColors.colorBlackHighEmp,
+                            labelStyle: const TextStyle(),
+                            labelColor: AppColors.colorWhiteHighEmp,
+                            tabs: const [
+                              Tab(text: 'Public'),
+                              Tab(text: 'Friends'),
+                              Tab(text: 'Join by ID')
+                            ],
+                            controller: _tabController,
+                            indicatorSize: TabBarIndicatorSize.tab,
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: TabBarView(
-                          physics: const BouncingScrollPhysics(),
-                          controller: _tabController,
-                          children: const [
-                            JoinQuizModel(),
-                            CompletedHistoryModel(),
-                            CreatedHistoryModel(),
-                          ],
+                        Expanded(
+                          child: TabBarView(
+                            physics: const BouncingScrollPhysics(),
+                            controller: _tabController,
+                            children: const [
+                              JoinQuizModel(),
+                              CompletedHistoryModel(),
+                              JoinedByIdModel(),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -34,7 +34,7 @@ class NotificationScreen extends StatelessWidget {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 30, bottom: 50),
+                  padding: const EdgeInsets.only(top: 35, bottom: 35),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -58,15 +58,17 @@ class NotificationScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
-                child: Container(
-                  margin: const EdgeInsets.only(top: 90),
-                  height: 614.h,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: AppColors.colorWhiteHighEmp,
-                      borderRadius: BorderRadius.circular(24)),
-                  child: const NotificationModel(),
+              Padding(
+                padding:const EdgeInsets.only(top: 90),
+                child: Positioned(
+                  child: Container(
+                    height: 605.h,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: AppColors.colorWhiteHighEmp,
+                        borderRadius: BorderRadius.circular(25)),
+                    child: const NotificationModel(),
+                  ),
                 ),
               ),
             ]),

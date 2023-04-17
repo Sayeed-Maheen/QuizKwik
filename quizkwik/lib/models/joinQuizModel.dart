@@ -47,6 +47,7 @@ class _JoinQuizModelState extends State<JoinQuizModel> {
         child: Column(
           children: [
             JoinQuizScreenDropdownModel(),
+       
             Expanded(
               child: ListView.builder(
                 itemCount: _currentItemCount,
@@ -91,9 +92,9 @@ class _JoinQuizModelState extends State<JoinQuizModel> {
                   }
                   return Container(
                     margin:
-                        const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                    const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 16),
                       decoration: BoxDecoration(
                           color: Colors.deepPurple[50],
                           borderRadius: BorderRadius.circular(
@@ -203,7 +204,7 @@ class _JoinQuizModelState extends State<JoinQuizModel> {
                 },
               ),
             ),
-            const Expanded(child: JoinQuizBrowseModel()),
+
           ],
         ),
       ),

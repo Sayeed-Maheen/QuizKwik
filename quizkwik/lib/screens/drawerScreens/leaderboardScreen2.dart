@@ -6,14 +6,14 @@ import 'package:quizkwik/models/myBottomNav.dart';
 
 import '../../widgets/appColors.dart';
 
-class LeaderboardScreen extends StatefulWidget {
-  const LeaderboardScreen({Key? key}) : super(key: key);
+class LeaderboardScreen2 extends StatefulWidget {
+  const LeaderboardScreen2({Key? key}) : super(key: key);
 
   @override
-  State<LeaderboardScreen> createState() => _LeaderboardScreenState();
+  State<LeaderboardScreen2> createState() => _LeaderboardScreen2State();
 }
 
-class _LeaderboardScreenState extends State<LeaderboardScreen>
+class _LeaderboardScreen2State extends State<LeaderboardScreen2>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
@@ -54,19 +54,11 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 35, bottom: 35),
+                  padding: const EdgeInsets.only(top: 35, bottom: 35,left: 16),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      IconButton(
-                          onPressed: () {
-                            Get.offAll(const MyBottomNav());
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back,
-                            color: AppColors.colorWhiteHighEmp,
-                          )),
-                      SizedBox(width: 8.w),
+
                       Text(
                         'Leader Board',
                         style: TextStyle(
@@ -83,7 +75,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen>
                 child: Positioned(
                   child: SingleChildScrollView(
                     child: Container(
-                      height: 605.h,
+                      height: 573.h,
                       decoration: BoxDecoration(
                           color: AppColors.colorWhiteHighEmp,
                           borderRadius: BorderRadius.circular(24)),

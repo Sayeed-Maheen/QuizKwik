@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:quizkwik/models/awaitsForYouModel.dart';
@@ -58,7 +57,7 @@ class _EarnPointsScreenState extends State<EarnPointsScreen>
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 30, bottom: 50),
+                    padding: const EdgeInsets.only(top: 35, bottom: 35),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -83,9 +82,8 @@ class _EarnPointsScreenState extends State<EarnPointsScreen>
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 100),
+                  padding: const EdgeInsets.only(top: 90),
                   child: Positioned(
-
                     child: SingleChildScrollView(
                       child: Container(
                         height: 600.h,

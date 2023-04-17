@@ -18,15 +18,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.colorWhiteHighEmp,
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Get.offAll(const MyBottomNav());
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: AppColors.colorBlackHighEmp,
-          ),
-        ),
+
         title: Text(
           'Profile',
           style: TextStyle(

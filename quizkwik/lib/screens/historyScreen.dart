@@ -51,25 +51,13 @@ class _HistoryScreenState extends State<HistoryScreen>
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(top: 30, bottom: 50),
+                padding: const EdgeInsets.only(top: 35, bottom: 35,left: 16),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(
-                      color: Colors.red, // Add a color to make it easier to see
-                      child: IconButton(
-                        onPressed: () {
 
-                          Get.offAll(const MyBottomNav());
-                        },
-                        icon: const Icon(
-                          Icons.arrow_back,
-                          color: AppColors.colorWhiteHighEmp,
-                        ),
-                      ),
-                    ),
 
-                    SizedBox(width: 8.w),
+
                     Text(
                       'History',
                       style: TextStyle(
@@ -82,7 +70,7 @@ class _HistoryScreenState extends State<HistoryScreen>
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 100),
+              padding: const EdgeInsets.only(top: 90),
               child: Positioned(
                 child: SingleChildScrollView(
                   child: Container(

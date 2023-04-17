@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:quizkwik/models/completedHistoryModel.dart';
 import 'package:quizkwik/models/myBottomNav.dart';
-import 'package:quizkwik/models/ongoingHistoryModel.dart';
 
 import '../../models/allBadgesModel.dart';
-import '../../models/createdHistoryModel.dart';
 import '../../models/statsModel.dart';
 import '../../widgets/appColors.dart';
 
@@ -58,7 +55,7 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                   ),
                 ),
                 child: Container(
-                  margin: const EdgeInsets.only(top: 50, bottom: 50),
+                  margin: const EdgeInsets.only(top: 35, bottom: 35),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -83,7 +80,7 @@ class _AchievementsScreenState extends State<AchievementsScreen>
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 100),
+                padding: const EdgeInsets.only(top: 90),
                 child: Positioned(
                   child: SingleChildScrollView(
                     child: Container(

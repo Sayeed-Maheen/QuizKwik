@@ -3,21 +3,23 @@ import 'package:flutter/foundation.dart';
 class QuizQuestion {
   final String question;
   final List<String> options;
-  final int answerIndex; // add this field
+  final int answerIndex;
+  final String number; // add this field
   int? userAnswerIndex;
 
-  QuizQuestion({
-    required this.question,
-    required this.options,
-    required this.answerIndex,
-    this.userAnswerIndex,
-  });
+  QuizQuestion(
+      {required this.question,
+      required this.options,
+      required this.answerIndex,
+      this.userAnswerIndex,
+      required this.number});
 
   QuizQuestion copyWith({
     int? userAnswerIndex,
   }) {
     return QuizQuestion(
       question: question,
+      number: number,
       options: options,
       answerIndex: answerIndex,
       userAnswerIndex: userAnswerIndex ?? this.userAnswerIndex,
@@ -27,33 +29,33 @@ class QuizQuestion {
 
 final List<QuizQuestion> questions = [
   QuizQuestion(
-    question: "What is the capital of France?",
+    number: "1",
+    question: "“1+1” equals to what in binary?",
     answerIndex: 1,
-    options: ["Madrid", "Paris", "Rome", "Berlin"],
+    options: ["2", "10", "51", "100"],
   ),
   QuizQuestion(
-    question: "What is the largest country in the world?",
+    number: "2",
+    question: "“10*10” equals to what?",
     answerIndex: 2,
-    options: ["USA", "China", "Russia", "Canada"],
+    options: ["1", "10", "100", "1000"],
   ),
   QuizQuestion(
-    question: "What is the currency of Japan?",
+    number: "3",
+    question: "“1+1” equals to what in binary?",
     answerIndex: 1,
-    options: ["Yuan", "Yen", "Won", "Dollar"],
+    options: ["2", "10", "51", "100"],
   ),
   QuizQuestion(
-    question: "Who wrote the novel 'Pride and Prejudice'?",
+    number: "4",
+    question: "“10*10” equals to what?",
     answerIndex: 2,
-    options: [
-      "Charles Dickens",
-      "William Shakespeare",
-      "Jane Austen",
-      "George Orwell"
-    ],
+    options: ["1", "10", "100", "1000"],
   ),
   QuizQuestion(
-    question: "What is the largest planet in our solar system?",
+    number: "5",
+    question: "“10*10” equals to what?",
     answerIndex: 2,
-    options: ["Saturn", "Mars", "Jupiter", "Earth"],
+    options: ["1", "10", "100", "1000"],
   ),
 ];

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:quizkwik/screens/createQuizScreen/createQuizScreen.dart';
+import 'package:quizkwik/screens/drawerScreens/leaderboardScreen2.dart';
 import 'package:quizkwik/screens/historyScreen.dart';
 import 'package:quizkwik/screens/homeScreen.dart';
 import 'package:quizkwik/screens/drawerScreens/leaderboardScreen.dart';
@@ -23,7 +24,7 @@ class _MyBottomNavState extends State<MyBottomNav> {
       const HomeScreen(),
       const HistoryScreen(),
       const CreateQuizScreen(),
-      const LeaderboardScreen(),
+      const LeaderboardScreen2(),
       const ProfileScreen(),
     ];
   }

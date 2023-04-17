@@ -14,6 +14,9 @@ class LeaderboardScreenModel extends StatelessWidget {
           Image.asset("assets/images/list.png",
               height: 350.h, width: 330.w),
 
+
+          SizedBox(height: 50.h,)
+
         ],
       ),
     );

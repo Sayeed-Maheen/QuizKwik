@@ -352,6 +352,7 @@ class MyDrawerModel extends StatelessWidget {
                             ),
                           ),
                         ),
+                        SizedBox(height: 32.h),
                       ],
                     ),
                   ),

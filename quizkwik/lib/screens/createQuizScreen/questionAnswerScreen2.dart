@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:quizkwik/screens/createQuizScreen/scoreScreen2.dart';
 import 'package:quizkwik/widgets/myButton.dart';
 
 import '../../models/quizDataModel.dart';
 import '../../widgets/appColors.dart';
 import 'scoreScreen.dart';
 
-class QuestionAnswerScreen extends StatefulWidget {
-  const QuestionAnswerScreen({Key? key}) : super(key: key);
+class QuestionAnswerScreen2 extends StatefulWidget {
+  const QuestionAnswerScreen2({Key? key}) : super(key: key);
 
   @override
-  _QuestionAnswerScreenState createState() => _QuestionAnswerScreenState();
+  _QuestionAnswerScreen2State createState() => _QuestionAnswerScreen2State();
 }
 
-class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
+class _QuestionAnswerScreen2State extends State<QuestionAnswerScreen2> {
   int _currentPageIndex = 0;
   List<QuizQuestion> _questions = questions;
 
@@ -127,7 +128,7 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const ScoreScreen()));
+                                  builder: (context) => const ScoreScreen2()));
                         },
                         text: "Let’s Explore"),
                   ))
