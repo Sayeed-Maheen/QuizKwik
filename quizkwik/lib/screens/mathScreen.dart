@@ -34,34 +34,11 @@ class _MathScreenState extends State<MathScreen> {
                   end: Alignment.bottomCenter,
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 30, bottom: 50),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          Get.offAll(const MyBottomNav());
-                        },
-                        icon: const Icon(
-                          Icons.arrow_back,
-                          color: AppColors.colorWhiteHighEmp,
-                        )),
-                    SizedBox(width: 8.w),
-                    Text(
-                      'Math',
-                      style: TextStyle(
-                          fontSize: 20.sp,
-                          color: AppColors.colorWhiteHighEmp,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ),
+
             ),
             Positioned(
               child: Container(
-                margin: const EdgeInsets.only(top: 100),
+                margin: const EdgeInsets.only(top: 90),
                 height: 606.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -77,6 +54,30 @@ class _MathScreenState extends State<MathScreen> {
                 ),
               ),
             ),
+            Positioned(
+              top: 35,
+
+              child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Get.offAll(const MyBottomNav());
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      color: AppColors.colorWhiteHighEmp,
+                    )),
+                SizedBox(width: 8.w),
+                Text(
+                  'Math',
+                  style: TextStyle(
+                      fontSize: 20.sp,
+                      color: AppColors.colorWhiteHighEmp,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),)
           ]),
         ],
       ),

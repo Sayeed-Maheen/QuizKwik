@@ -55,7 +55,7 @@ class _JoinQuizModelState extends State<JoinQuizModel> {
                   if (index == _currentItemCount - 1 &&
                       _currentItemCount < _jsonList.length) {
                     return Center(
-                      child: InkWell(
+                      child: GestureDetector(
                         onTap: _loadMoreItems,
                         child: Container(
                             height: 29.h,
