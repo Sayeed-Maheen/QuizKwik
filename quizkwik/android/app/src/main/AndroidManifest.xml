@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.netrocreative.quizkwik">
    <application
-        android:label="quizkwik"
+        android:label="QuizKwik"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

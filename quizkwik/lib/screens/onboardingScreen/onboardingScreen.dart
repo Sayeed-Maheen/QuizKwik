@@ -15,7 +15,7 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   int currentIndex = 0;
-  bool _showPage = false;
+
 
   late PageController _controller;
 
@@ -31,21 +31,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     super.dispose();
   }
 
-  void _checkIfFirstTime() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool hasSeenPage = prefs.getBool('hasSeenPage') ?? false;
-    if (!hasSeenPage) {
-      setState(() {
-        _showPage = true;
-      });
-      prefs.setBool('hasSeenPage', true);
-    }
-  }
+
 
   @override
   Widget build(BuildContext context) {
-    return _showPage
-        ? Scaffold(
+    return  Scaffold(
             body: Container(
               height: double.infinity,
               decoration: const BoxDecoration(
@@ -169,7 +159,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ]),
             ),
           )
-        : SignInScreen();
+        ;
   }
 
   Container buildDot(int index, BuildContext context) {
