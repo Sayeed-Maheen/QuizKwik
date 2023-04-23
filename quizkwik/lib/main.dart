@@ -7,22 +7,14 @@ import 'package:quizkwik/widgets/appColors.dart';
 import 'package:quizkwik/widgets/customSwatch.dart';
 
 void main() {
-  runApp(MyApp());
+  SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  bool _isDarkMode = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _updateStatusBarColor();
-  }
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,41 +23,17 @@ class _MyAppState extends State<MyApp> {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return FutureBuilder(
-            future: _updateStatusBarColor(),
-            builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
-              return GetMaterialApp(
-                debugShowCheckedModeBanner: false,
-                theme: ThemeData(
-                  brightness: _isDarkMode ? Brightness.dark : Brightness.light,
-                  primarySwatch: createMaterialColor(AppColors.colorPrimary),
-                  fontFamily: "Barlow",
-                ),
-                initialRoute: RoutesClass.getSplashScreenRoute(),
-                getPages: RoutesClass.routes,
-                routes: const {},
-              );
-            });
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primarySwatch: createMaterialColor(AppColors.colorPrimary),
+            fontFamily: "Barlow",
+          ),
+          initialRoute: RoutesClass.getSplashScreenRoute(),
+          getPages: RoutesClass.routes,
+          routes: const {},
+        );
       },
     );
-  }
-
-  Future<void> _updateStatusBarColor() async {
-    await Future.delayed(
-        Duration.zero); // Wait for the next frame to allow the app to build
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: _isDarkMode ? Brightness.light : Brightness.dark,
-    ));
-  }
-
-  @override
-  void dispose() {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness:
-          Brightness.dark, // Reset status bar text color when the app is closed
-    ));
-    super.dispose();
   }
 }
