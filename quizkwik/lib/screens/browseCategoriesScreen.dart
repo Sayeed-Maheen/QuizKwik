@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:quizkwik/models/myBottomNav.dart';
-import 'package:quizkwik/screens/mathScreen.dart';
+import 'package:quizkwik/screens/demoQuizScreen.dart';
 
 import '../widgets/appColors.dart';
 
@@ -46,7 +46,6 @@ class _BrowseCategoriesScreenState extends State<BrowseCategoriesScreen> {
                           Icons.arrow_back,
                           color: AppColors.colorWhiteHighEmp,
                         )),
-                    SizedBox(width: 8.w),
                     Text(
                       'Browse Categories',
                       style: TextStyle(
@@ -72,14 +71,19 @@ class _BrowseCategoriesScreenState extends State<BrowseCategoriesScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Image.asset(
-                          "assets/images/science.png",
-                          height: 91.h,
-                          width: 158.w,
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(const DemoQuizScreen());
+                          },
+                          child: Image.asset(
+                            "assets/images/science.png",
+                            height: 91.h,
+                            width: 158.w,
+                          ),
                         ),
                         GestureDetector(
                           onTap: () {
-                            Get.to(const MathScreen());
+                            Get.to(const DemoQuizScreen());
                           },
                           child: Image.asset(
                             "assets/images/math.png",
@@ -93,15 +97,25 @@ class _BrowseCategoriesScreenState extends State<BrowseCategoriesScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Image.asset(
-                          "assets/images/history.png",
-                          height: 91.h,
-                          width: 158.w,
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(const DemoQuizScreen());
+                          },
+                          child: Image.asset(
+                            "assets/images/history.png",
+                            height: 91.h,
+                            width: 158.w,
+                          ),
                         ),
-                        Image.asset(
-                          "assets/images/music.png",
-                          height: 91.h,
-                          width: 158.w,
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(const DemoQuizScreen());
+                          },
+                          child: Image.asset(
+                            "assets/images/music.png",
+                            height: 91.h,
+                            width: 158.w,
+                          ),
                         )
                       ],
                     ),
@@ -109,21 +123,27 @@ class _BrowseCategoriesScreenState extends State<BrowseCategoriesScreen> {
                     Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Image.asset(
-                            "assets/images/movies.png",
-                            height: 91.h,
-                            width: 158.w,
-                          ),
-                          Container(
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(const DemoQuizScreen());
+                            },
+                            child: Image.asset(
+                              "assets/images/movies.png",
                               height: 91.h,
                               width: 158.w,
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                    "assets/images/sports.png",
-                                  ),
-                                ),
-                              ))
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(
+                                  const DemoQuizScreen()); // navigates to MathScreen on tap
+                            },
+                            child: Image.asset(
+                              "assets/images/sports.png",
+                              height: 91.h,
+                              width: 142.w,
+                            ),
+                          ),
                         ]),
                     SizedBox(height: 16.h),
                   ],

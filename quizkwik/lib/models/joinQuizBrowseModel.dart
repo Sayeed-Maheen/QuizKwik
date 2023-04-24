@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:quizkwik/screens/browseCategoriesScreen.dart';
-import 'package:quizkwik/screens/mathScreen.dart';
+import 'package:quizkwik/screens/demoQuizScreen.dart';
 import 'package:quizkwik/widgets/myContainer.dart';
 
 import '../widgets/appColors.dart';
@@ -51,7 +51,7 @@ class JoinQuizBrowseModel extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Get.to(const MathScreen());
+                  Get.to(const DemoQuizScreen());
                 },
                 child: Image.asset(
                   "assets/images/math.png",

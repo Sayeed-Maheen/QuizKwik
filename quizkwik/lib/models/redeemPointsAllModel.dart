@@ -80,12 +80,7 @@ class _RedeemPointsAllModelState extends State<RedeemPointsAllModel> {
                     child: MyButton(
                         onPressed: () {
                           Get.back();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Redeemed Successfully '),
-                              duration: Duration(seconds: 2),
-                            ),
-                          );
+                          _showSuccessfulPopup();
                         },
                         text: "Redeem Now"),
                   ))
@@ -162,12 +157,7 @@ class _RedeemPointsAllModelState extends State<RedeemPointsAllModel> {
                     child: MyButton(
                         onPressed: () {
                           Get.back();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Redeemed Successfully '),
-                              duration: Duration(seconds: 2),
-                            ),
-                          );
+                          _showSuccessfulPopup();
                         },
                         text: "Redeem Now"),
                   ))
@@ -244,12 +234,7 @@ class _RedeemPointsAllModelState extends State<RedeemPointsAllModel> {
                     child: MyButton(
                         onPressed: () {
                           Get.back();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Redeemed Successfully '),
-                              duration: Duration(seconds: 2),
-                            ),
-                          );
+                          _showSuccessfulPopup();
                         },
                         text: "Redeem Now"),
                   ))
@@ -326,12 +311,7 @@ class _RedeemPointsAllModelState extends State<RedeemPointsAllModel> {
                     child: MyButton(
                         onPressed: () {
                           Get.back();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Redeemed Successfully '),
-                              duration: Duration(seconds: 2),
-                            ),
-                          );
+                          _showSuccessfulPopup();
                         },
                         text: "Redeem Now"),
                   ))
@@ -408,12 +388,105 @@ class _RedeemPointsAllModelState extends State<RedeemPointsAllModel> {
                     child: MyButton(
                         onPressed: () {
                           Get.back();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Redeemed Successfully '),
-                              duration: Duration(seconds: 2),
-                            ),
-                          );
+                          _showSuccessfulPopup();
+                        },
+                        text: "Redeem Now"),
+                  ))
+            ],
+          ),
+        );
+      },
+    );
+  }
+  void _showSuccessfulPopup() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24),
+          ),
+          backgroundColor: AppColors.colorPopupBg,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                height: 110.h,
+                width: double.infinity,
+                padding: const EdgeInsets.only(top: 20),
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(24),
+                  ),
+                  color: AppColors.colorWhiteHighEmp,
+                ),
+                child: Image.asset("assets/images/badge7.png",
+                    height: 110.h, width: 122.w),
+              ),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.only(left:16, right: 16,top: 16),
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(0),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(0),
+                      bottomLeft: Radius.circular(0)),
+                  color: AppColors.colorWhiteHighEmp,
+                ),
+                child: Center(
+                  child: Text(
+                    "Dammn!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 36.sp,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.colorPrimary),
+                  ),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.only(left:16, right: 16,top: 16),
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(0),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(0),
+                      bottomLeft: Radius.circular(0)),
+                  color: AppColors.colorWhiteHighEmp,
+                ),
+                child: Center(
+                  child: Text(
+                    "Redeemed Successfully",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.colorBlackLowEmp),
+                  ),
+                ),
+              ),
+              Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(16),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(0),
+                        bottomRight: Radius.circular(100),
+                        topLeft: Radius.circular(0),
+                        bottomLeft: Radius.circular(24)),
+                    color: AppColors.colorWhiteHighEmp,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40, vertical: 10),
+                    child: MyButton(
+                        onPressed: () {
+                          Get.back();
+
                         },
                         text: "Redeem Now"),
                   ))
