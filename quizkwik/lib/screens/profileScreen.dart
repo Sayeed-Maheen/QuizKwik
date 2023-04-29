@@ -19,15 +19,14 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.dark,
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: Brightness.dark, // set statusBarBrightness to dark
+      ),
       child: Scaffold(
         backgroundColor: AppColors.colorWhiteHighEmp,
         appBar: AppBar(
-          systemOverlayStyle: const SystemUiOverlayStyle(
-            statusBarColor: Colors.transparent, // Status bar
-          ),
           title: Text(
             'Profile',
             style: TextStyle(
@@ -133,7 +132,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Text(
                         "6,049xp / 1 20,980xp",
                         style: TextStyle(
-                            color: AppColors.colorBlackHighEmp, fontSize: 10.sp),
+                            color: AppColors.colorBlackHighEmp,
+                            fontSize: 10.sp),
                       ),
                     ),
                     backgroundColor: Colors.white70,

@@ -30,6 +30,17 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
     });
   }
 
+  int _currentStep = 0;
+  final List<String> _steps = [
+    'Step 1',
+    'Step 2',
+    'Step 3',
+    'Step 4',
+    'Step 5',
+  ];
+
+
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -82,6 +93,31 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                         fontSize: 20.sp,
                                         color: AppColors.colorBlackHighEmp,
                                         fontWeight: FontWeight.w600)),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 12),
+                                child: Row(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.spaceEvenly,
+                                  children: _steps
+                                      .asMap()
+                                      .map((index, step) => MapEntry(
+                                    index,
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: _currentStep == index
+                                            ? AppColors.colorPrimary
+                                            : AppColors.colorWhiteLowEmp,
+                                        borderRadius:
+                                        BorderRadius.circular(5),
+                                      ),
+                                      width: 57.7.w,
+                                      height: 6.h,
+                                    ),
+                                  ))
+                                      .values
+                                      .toList(),
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(16),

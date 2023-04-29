@@ -19,6 +19,7 @@ class QuestionAnswerScreen extends StatefulWidget {
 class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
   int _currentPageIndex = 0;
   List<QuizQuestion> _questions = questions;
+  final controller = PageController(initialPage: 0);
 
   void _answerQuestion(int selectedOptionIndex) {
     setState(() {
@@ -139,6 +140,23 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
     );
   }
 
+  int _currentStep = 0;
+  final List<String> _steps = [
+    'Step 1',
+    'Step 2',
+    'Step 3',
+    'Step 4',
+    'Step 5',
+  ];
+
+
+
+  void _nextStep() {
+    setState(() {
+      _currentStep = (_currentStep + 1).clamp(0, _steps.length - 1);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -174,7 +192,6 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                               Icons.arrow_back,
                               color: AppColors.colorWhiteHighEmp,
                             )),
-
                         Text(
                           'Dummy quiz',
                           style: TextStyle(
@@ -189,7 +206,7 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                 Positioned(
                   child: Container(
                       margin: const EdgeInsets.only(top: 90),
-                      height: 390.h,
+                      height: 500.h,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           boxShadow: [
@@ -216,7 +233,32 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                                 style: TextStyle(
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w600)),
-                            SizedBox(height: 24.h),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 12),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: _steps
+                                    .asMap()
+                                    .map((index, step) => MapEntry(
+                                          index,
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              color: _currentStep == index
+                                                  ? AppColors.colorPrimary
+                                                  : AppColors.colorWhiteLowEmp,
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                            ),
+                                            width: 57.7.w,
+                                            height: 6.h,
+                                          ),
+                                        ))
+                                    .values
+                                    .toList(),
+                              ),
+                            ),
+                            SizedBox(height: 16.h),
                             Text(
                               _questions[_currentPageIndex].question,
                               style: TextStyle(
@@ -233,7 +275,8 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                               final isUserAnswer = _questions[_currentPageIndex]
                                           .userAnswerIndex !=
                                       null &&
-                                  _questions[_currentPageIndex].userAnswerIndex ==
+                                  _questions[_currentPageIndex]
+                                          .userAnswerIndex ==
                                       optionIndex;
                               final isCorrectAnswer =
                                   _questions[_currentPageIndex].answerIndex ==
@@ -310,7 +353,10 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                             }).toList(),
                             const SizedBox(height: 16),
                             MyButton(
-                              onPressed: _nextQuestion,
+                              onPressed: () {
+                                _nextQuestion();
+                                _nextStep();
+                              },
                               text: _currentPageIndex == _questions.length - 1
                                   ? "Finish"
                                   : "Next",

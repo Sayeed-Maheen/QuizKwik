@@ -139,6 +139,26 @@ class _QuestionAnswerScreen2State extends State<QuestionAnswerScreen2> {
       },
     );
   }
+  int _currentStep = 0;
+  final List<String> _steps = [
+    'Step 1',
+    'Step 2',
+    'Step 3',
+    'Step 4',
+    'Step 5',
+  ];
+
+  void _previousStep() {
+    setState(() {
+      _currentStep = (_currentStep - 1).clamp(0, _steps.length - 1);
+    });
+  }
+
+  void _nextStep() {
+    setState(() {
+      _currentStep = (_currentStep + 1).clamp(0, _steps.length - 1);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -216,7 +236,32 @@ class _QuestionAnswerScreen2State extends State<QuestionAnswerScreen2> {
                                 style: TextStyle(
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w600)),
-                            SizedBox(height: 24.h),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 12),
+                              child: Row(
+                                mainAxisAlignment:
+                                MainAxisAlignment.spaceEvenly,
+                                children: _steps
+                                    .asMap()
+                                    .map((index, step) => MapEntry(
+                                  index,
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: _currentStep == index
+                                          ? AppColors.colorPrimary
+                                          : AppColors.colorWhiteLowEmp,
+                                      borderRadius:
+                                      BorderRadius.circular(5),
+                                    ),
+                                    width: 57.7.w,
+                                    height: 6.h,
+                                  ),
+                                ))
+                                    .values
+                                    .toList(),
+                              ),
+                            ),
+                            SizedBox(height: 16.h),
                             Text(
                               _questions[_currentPageIndex].question,
                               style: TextStyle(
