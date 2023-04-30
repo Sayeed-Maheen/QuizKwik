@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 class QuizQuestion {
   final String question;
   final List<String> options;

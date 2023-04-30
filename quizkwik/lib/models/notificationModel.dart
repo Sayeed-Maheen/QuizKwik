@@ -27,7 +27,7 @@ class _NotificationModelState extends State<NotificationModel> {
     });
 
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text("Item removed"),
+      content: const Text("Item removed"),
       action: SnackBarAction(
         label: "UNDO",
         onPressed: () {
@@ -59,115 +59,123 @@ class _NotificationModelState extends State<NotificationModel> {
                 padding: const EdgeInsets.only(top: 6, bottom: 80),
                 itemCount: items == null ? 0 : items.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.only(right: 8),
-                              width: 65.w,
-                              height: 60.h,
-                              child: Image(
-                                image: AssetImage(items[index].image.toString()),
-                                fit: BoxFit.fill,
+                  return Dismissible(
+                    key: UniqueKey(),
+                    direction: DismissDirection.endToStart,
+                    background: Container(
+                      margin: const EdgeInsets.symmetric(vertical: 5),
+                      alignment: Alignment.centerRight,
+                      color: AppColors.colorError,
+                      child:  const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24.0),
+                        child:Icon(Icons.delete, color: AppColors.colorWhiteHighEmp,),
+                      ),
+                    ),
+                    onDismissed: (direction) {
+                      // Add code here to handle when the card is dismissed
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(right: 8),
+                                width: 65.w,
+                                height: 60.h,
+                                child: Image(
+                                  image: AssetImage(items[index].image.toString()),
+                                  fit: BoxFit.fill,
+                                ),
                               ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(bottom: 8),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 4.h),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 8, right: 8),
-                                    child: Text(
-                                      items[index].title.toString(),
-                                      style: TextStyle(
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.w600,
-                                        color: AppColors.colorBlackHighEmp,
+                              Container(
+                                padding: const EdgeInsets.only(bottom: 8),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 4.h),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8, right: 8),
+                                      child: Text(
+                                        items[index].title.toString(),
+                                        style: TextStyle(
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w600,
+                                          color: AppColors.colorBlackHighEmp,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 8, right: 8, bottom: 8),
-                                    child: Text(
-                                      items[index].subtitle.toString(),
-                                      style: TextStyle(
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: AppColors.colorDisabled,
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 8, right: 8, bottom: 8),
+                                      child: Text(
+                                        items[index].subtitle.toString(),
+                                        style: TextStyle(
+                                          fontSize: 12.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: AppColors.colorDisabled,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(left: 8.0),
-                                            child: Image.asset(
-                                              "assets/images/diamond.png",
-                                              height: 16.h,
-                                              width: 16.w,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(left: 4, right: 12),
-                                            child: Text(
-                                              items[index].amount.toString(),
-                                              style: TextStyle(
-                                                fontSize: 12.sp,
-                                                fontWeight: FontWeight.w400,
-                                                color: AppColors.colorBlackHighEmp,
+                                    Row(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 8.0),
+                                              child: Image.asset(
+                                                "assets/images/diamond.png",
+                                                height: 16.h,
+                                                width: 16.w,
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          const Icon(
-                                            Icons.alarm_on,
-                                            size: 16,
-                                            color: AppColors.colorDisabled,
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(left: 2, right: 8),
-                                            child: Text(items[index].time.toString()),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  )
-                                ],
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 4, right: 12),
+                                              child: Text(
+                                                items[index].amount.toString(),
+                                                style: TextStyle(
+                                                  fontSize: 12.sp,
+                                                  fontWeight: FontWeight.w400,
+                                                  color: AppColors.colorBlackHighEmp,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            const Icon(
+                                              Icons.alarm_on,
+                                              size: 16,
+                                              color: AppColors.colorDisabled,
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 2, right: 8),
+                                              child: Text(items[index].time.toString()),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
+                            ],
+                          ),
+                          PlayButton(
+                            onPressed: () {},
+                            child: const Icon(
+                              Icons.play_arrow,
+                              color: AppColors.colorWhiteHighEmp,
                             ),
-                          ],
-                        ),
-                        PlayButton(
-                          onPressed: () {},
-                          child: const Icon(
-                            Icons.play_arrow,
-                            color: AppColors.colorWhiteHighEmp,
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            removeItem(index);
-                          },
-                          child: const Icon(
-                            Icons.close,
-                            color: AppColors.colorError,
-                          ),
-                        ),
-                      ],
+
+                        ],
+                      ),
                     ),
                   );
                 },
