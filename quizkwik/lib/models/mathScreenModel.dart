@@ -3,6 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:quizkwik/screens/createQuizScreen/questionAnswerScreen2.dart';
 import 'package:quizkwik/widgets/appColors.dart';
 
 import '../jsonDataModel/ongoingHistoryJsonDataModel.dart';
@@ -139,7 +142,9 @@ class _MathScreenModelState extends State<MathScreenModel> {
                               ],
                             ),
                             PlayButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.to(const QuestionAnswerScreen2());
+                                },
                                 child: const Icon(
                                   Icons.play_arrow,
                                   color: AppColors.colorWhiteHighEmp,
