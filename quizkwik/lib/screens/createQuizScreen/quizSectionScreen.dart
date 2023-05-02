@@ -77,10 +77,9 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                 ],
               ),
             ),
-
             Expanded(
               child: NotificationListener<OverscrollIndicatorNotification>(
-                onNotification: (overScroll){
+                onNotification: (overScroll) {
                   overScroll.disallowGlow();
                   return true;
                 },
@@ -108,11 +107,14 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                             fontWeight: FontWeight.w600)),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-                                    child: Text('Question No. ${currentPage + 1}', style: TextStyle(
-                                        fontSize: 14.sp,
-                                        color: AppColors.colorBlackHighEmp,
-                                        fontWeight: FontWeight.w600)),
+                                    padding: const EdgeInsets.only(
+                                        left: 16, right: 16, bottom: 16),
+                                    child: Text(
+                                        'Question No. ${currentPage + 1}',
+                                        style: TextStyle(
+                                            fontSize: 14.sp,
+                                            color: AppColors.colorBlackHighEmp,
+                                            fontWeight: FontWeight.w600)),
                                   ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -121,7 +123,8 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                         .map((index, step) => MapEntry(
                                               index,
                                               Container(
-                                                margin: const EdgeInsets.only(right: 10),
+                                                margin: const EdgeInsets.only(
+                                                    right: 10),
                                                 decoration: BoxDecoration(
                                                   color: _currentStep == index
                                                       ? AppColors.colorPrimary
@@ -164,7 +167,8 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                             return null;
                                           },
                                           style: const TextStyle(
-                                              color: AppColors.colorBlackHighEmp),
+                                              color:
+                                                  AppColors.colorBlackHighEmp),
                                           decoration: InputDecoration(
                                             hintText: 'Question',
                                             hintStyle: const TextStyle(
@@ -176,7 +180,8 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                               borderRadius:
                                                   BorderRadius.circular(56),
                                               borderSide: const BorderSide(
-                                                color: AppColors.colorWhiteLowEmp,
+                                                color:
+                                                    AppColors.colorWhiteLowEmp,
                                                 width: 1,
                                               ),
                                             ),
@@ -184,8 +189,8 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                                 borderRadius:
                                                     BorderRadius.circular(56),
                                                 borderSide: const BorderSide(
-                                                  color:
-                                                      AppColors.colorWhiteLowEmp,
+                                                  color: AppColors
+                                                      .colorWhiteLowEmp,
                                                   width: 1,
                                                 )),
                                             errorBorder: OutlineInputBorder(
@@ -198,9 +203,12 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
                                                     borderRadius:
-                                                        BorderRadius.circular(56),
-                                                    borderSide: const BorderSide(
-                                                      color: AppColors.colorError,
+                                                        BorderRadius.circular(
+                                                            56),
+                                                    borderSide:
+                                                        const BorderSide(
+                                                      color:
+                                                          AppColors.colorError,
                                                       width: 1,
                                                     )),
                                           )),
@@ -219,8 +227,8 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                           child: Text("Add features",
                                               style: TextStyle(
                                                   fontSize: 10.sp,
-                                                  color:
-                                                      AppColors.colorBlackHighEmp,
+                                                  color: AppColors
+                                                      .colorBlackHighEmp,
                                                   fontWeight: FontWeight.w600)),
                                         ),
                                         const Icon(
@@ -269,8 +277,10 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsets.all(4),
-                                                      child: Text("Mp3, Wav, m4a",
+                                                          const EdgeInsets.all(
+                                                              4),
+                                                      child: Text(
+                                                          "Mp3, Wav, m4a",
                                                           style: TextStyle(
                                                               fontSize: 8.sp,
                                                               color: AppColors
@@ -315,12 +325,13 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                               return null;
                                             },
                                             style: const TextStyle(
-                                                color:
-                                                    AppColors.colorBlackHighEmp),
+                                                color: AppColors
+                                                    .colorBlackHighEmp),
                                             decoration: InputDecoration(
                                               hintText: 'Option 1',
                                               hintStyle: const TextStyle(
-                                                  color: AppColors.colorDisabled),
+                                                  color:
+                                                      AppColors.colorDisabled),
                                               contentPadding:
                                                   const EdgeInsets.fromLTRB(
                                                       16, 10, 16, 10),
@@ -328,8 +339,8 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                                 borderRadius:
                                                     BorderRadius.circular(56),
                                                 borderSide: const BorderSide(
-                                                  color:
-                                                      AppColors.colorWhiteLowEmp,
+                                                  color: AppColors
+                                                      .colorWhiteLowEmp,
                                                   width: 1,
                                                 ),
                                               ),
@@ -355,8 +366,8 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                                               56),
                                                       borderSide:
                                                           const BorderSide(
-                                                        color:
-                                                            AppColors.colorError,
+                                                        color: AppColors
+                                                            .colorError,
                                                         width: 1,
                                                       )),
                                             ))),
@@ -380,12 +391,13 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                               return null;
                                             },
                                             style: const TextStyle(
-                                                color:
-                                                    AppColors.colorBlackHighEmp),
+                                                color: AppColors
+                                                    .colorBlackHighEmp),
                                             decoration: InputDecoration(
                                               hintText: 'Option 2',
                                               hintStyle: const TextStyle(
-                                                  color: AppColors.colorDisabled),
+                                                  color:
+                                                      AppColors.colorDisabled),
                                               contentPadding:
                                                   const EdgeInsets.fromLTRB(
                                                       16, 10, 16, 10),
@@ -393,8 +405,8 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                                 borderRadius:
                                                     BorderRadius.circular(56),
                                                 borderSide: const BorderSide(
-                                                  color:
-                                                      AppColors.colorWhiteLowEmp,
+                                                  color: AppColors
+                                                      .colorWhiteLowEmp,
                                                   width: 1,
                                                 ),
                                               ),
@@ -420,8 +432,8 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                                               56),
                                                       borderSide:
                                                           const BorderSide(
-                                                        color:
-                                                            AppColors.colorError,
+                                                        color: AppColors
+                                                            .colorError,
                                                         width: 1,
                                                       )),
                                             ))),
@@ -445,12 +457,13 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                               return null;
                                             },
                                             style: const TextStyle(
-                                                color:
-                                                    AppColors.colorBlackHighEmp),
+                                                color: AppColors
+                                                    .colorBlackHighEmp),
                                             decoration: InputDecoration(
                                               hintText: 'Option 3',
                                               hintStyle: const TextStyle(
-                                                  color: AppColors.colorDisabled),
+                                                  color:
+                                                      AppColors.colorDisabled),
                                               contentPadding:
                                                   const EdgeInsets.fromLTRB(
                                                       16, 10, 16, 10),
@@ -484,8 +497,8 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                                               56),
                                                       borderSide:
                                                           const BorderSide(
-                                                        color:
-                                                            AppColors.colorError,
+                                                        color: AppColors
+                                                            .colorError,
                                                         width: 1,
                                                       )),
                                             ))),
@@ -509,12 +522,13 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                               return null;
                                             },
                                             style: const TextStyle(
-                                                color:
-                                                    AppColors.colorBlackHighEmp),
+                                                color: AppColors
+                                                    .colorBlackHighEmp),
                                             decoration: InputDecoration(
                                               hintText: 'Option 4',
                                               hintStyle: const TextStyle(
-                                                  color: AppColors.colorDisabled),
+                                                  color:
+                                                      AppColors.colorDisabled),
                                               contentPadding:
                                                   const EdgeInsets.fromLTRB(
                                                       16, 10, 16, 10),
@@ -548,8 +562,8 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                                               56),
                                                       borderSide:
                                                           const BorderSide(
-                                                        color:
-                                                            AppColors.colorError,
+                                                        color: AppColors
+                                                            .colorError,
                                                         width: 1,
                                                       )),
                                             ))),
@@ -582,12 +596,13 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                               return null;
                                             },
                                             style: const TextStyle(
-                                                color:
-                                                    AppColors.colorBlackHighEmp),
+                                                color: AppColors
+                                                    .colorBlackHighEmp),
                                             decoration: InputDecoration(
                                               hintText: 'Answer',
                                               hintStyle: const TextStyle(
-                                                  color: AppColors.colorDisabled),
+                                                  color:
+                                                      AppColors.colorDisabled),
                                               contentPadding:
                                                   const EdgeInsets.fromLTRB(
                                                       16, 10, 16, 10),
@@ -621,8 +636,8 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                                               56),
                                                       borderSide:
                                                           const BorderSide(
-                                                        color:
-                                                            AppColors.colorError,
+                                                        color: AppColors
+                                                            .colorError,
                                                         width: 1,
                                                       )),
                                             ))),

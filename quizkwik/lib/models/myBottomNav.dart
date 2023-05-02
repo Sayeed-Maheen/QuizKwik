@@ -7,6 +7,7 @@ import 'package:quizkwik/screens/historyScreen.dart';
 import 'package:quizkwik/screens/homeScreen.dart';
 import 'package:quizkwik/screens/drawerScreens/leaderboardScreen.dart';
 
+import '../screens/createQuizScreen/createQuizScreen2.dart';
 import '../screens/profileScreen.dart';
 import '../widgets/appColors.dart';
 
@@ -23,7 +24,7 @@ class _MyBottomNavState extends State<MyBottomNav> {
     return [
       const HomeScreen(),
       const HistoryScreen(),
-      const CreateQuizScreen(),
+      const CreateQuizScreen2(),
       const LeaderboardScreen2(),
       const ProfileScreen(),
     ];

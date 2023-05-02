@@ -2,8 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:quizkwik/models/joinQuizBrowseModel.dart';
 import 'package:quizkwik/models/joinQuizScreenDropdownModel.dart';
+import 'package:quizkwik/screens/createQuizScreen/questionAnswerScreen2.dart';
 import 'package:quizkwik/widgets/appColors.dart';
 
 import '../widgets/playButton.dart';
@@ -46,8 +49,7 @@ class _JoinQuizModelState extends State<JoinQuizModel> {
         height: double.infinity,
         child: Column(
           children: [
-            JoinQuizScreenDropdownModel(),
-       
+            const JoinQuizScreenDropdownModel(),
             Expanded(
               child: ListView.builder(
                 itemCount: _currentItemCount,
@@ -92,9 +94,10 @@ class _JoinQuizModelState extends State<JoinQuizModel> {
                   }
                   return Container(
                     margin:
-                    const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                        const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                     child: Container(
-                      padding: const EdgeInsets.only(left: 16,right: 16,top: 16,bottom: 16),
+                      padding: const EdgeInsets.only(
+                          left: 16, right: 16, top: 16, bottom: 16),
                       decoration: BoxDecoration(
                           color: Colors.deepPurple[50],
                           borderRadius: BorderRadius.circular(
@@ -192,7 +195,9 @@ class _JoinQuizModelState extends State<JoinQuizModel> {
                             ],
                           ),
                           PlayButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.to(const QuestionAnswerScreen2());
+                              },
                               child: const Icon(
                                 Icons.play_arrow,
                                 color: AppColors.colorWhiteHighEmp,
@@ -204,7 +209,6 @@ class _JoinQuizModelState extends State<JoinQuizModel> {
                 },
               ),
             ),
-
           ],
         ),
       ),
