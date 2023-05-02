@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:quizkwik/models/myBottomNav.dart';
 import 'package:quizkwik/screens/createQuizScreen/finishQuizScreen.dart';
 
 import '../../widgets/appColors.dart';
@@ -21,6 +20,14 @@ class QuizSectionScreen extends StatefulWidget {
 
 class _QuizSectionScreenState extends State<QuizSectionScreen> {
   final PageController pageController = PageController();
+  final _formfield = GlobalKey<FormState>();
+  final option1Controller = TextEditingController();
+  final option2Controller = TextEditingController();
+  final option3Controller = TextEditingController();
+  final option4Controller = TextEditingController();
+  final ansController = TextEditingController();
+  final quesNameController = TextEditingController();
+
   int currentPage = 0;
   bool _isItemVisible = false;
 
@@ -31,15 +38,13 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
   }
 
   int _currentStep = 0;
-  final List<String> _steps = [
-    'Step 1',
-    'Step 2',
-    'Step 3',
-    'Step 4',
-    'Step 5',
-  ];
+  late List<String> _steps;
 
-
+  @override
+  void initState() {
+    super.initState();
+    _steps = List.generate(widget.value, (index) => 'Step ${index + 1}');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,360 +77,566 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                 ],
               ),
             ),
+
             Expanded(
-              child: PageView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  controller: pageController,
-                  itemCount: widget.value,
-                  itemBuilder: (BuildContext context, int index) {
-                    return SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          SizedBox(height: 6.h),
-                          MyContainer(
+              child: NotificationListener<OverscrollIndicatorNotification>(
+                onNotification: (overScroll){
+                  overScroll.disallowGlow();
+                  return true;
+                },
+                child: PageView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    controller: pageController,
+                    itemCount: widget.value,
+                    itemBuilder: (BuildContext context, int index) {
+                      return SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            SizedBox(height: 6.h),
+                            MyContainer(
+                                child: Form(
+                              key: _formfield,
                               child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: Text("Set Questions",
-                                    style: TextStyle(
-                                        fontSize: 20.sp,
-                                        color: AppColors.colorBlackHighEmp,
-                                        fontWeight: FontWeight.w600)),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 12),
-                                child: Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
-                                  children: _steps
-                                      .asMap()
-                                      .map((index, step) => MapEntry(
-                                    index,
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: _currentStep == index
-                                            ? AppColors.colorPrimary
-                                            : AppColors.colorWhiteLowEmp,
-                                        borderRadius:
-                                        BorderRadius.circular(5),
-                                      ),
-                                      width: 57.7.w,
-                                      height: 6.h,
-                                    ),
-                                  ))
-                                      .values
-                                      .toList(),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(16),
-                                child: Text("Question Name",
-                                    style: TextStyle(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(16),
+                                    child: Text("Set Questions",
+                                        style: TextStyle(
+                                            fontSize: 20.sp,
+                                            color: AppColors.colorBlackHighEmp,
+                                            fontWeight: FontWeight.w600)),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                                    child: Text('Question No. ${currentPage + 1}', style: TextStyle(
                                         fontSize: 14.sp,
                                         color: AppColors.colorBlackHighEmp,
                                         fontWeight: FontWeight.w600)),
-                              ),
-                              Center(
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16),
-                                  child: TextFormField(
-                                      style: const TextStyle(
-                                          color: AppColors.colorBlackHighEmp),
-                                      decoration: InputDecoration(
-                                          hintText: 'Question',
-                                          hintStyle: const TextStyle(
-                                              color: AppColors.colorDisabled),
-                                          contentPadding:
-                                              const EdgeInsets.fromLTRB(
-                                                  16, 10, 16, 10),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(56),
-                                            borderSide: const BorderSide(
-                                              color: AppColors.colorWhiteLowEmp,
-                                              width: 1,
-                                            ),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: _steps
+                                        .asMap()
+                                        .map((index, step) => MapEntry(
+                                              index,
+                                              Container(
+                                                margin: const EdgeInsets.only(right: 10),
+                                                decoration: BoxDecoration(
+                                                  color: _currentStep == index
+                                                      ? AppColors.colorPrimary
+                                                      : AppColors
+                                                          .colorWhiteLowEmp,
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
+                                                ),
+                                                width: 55.w,
+                                                height: 6.h,
+                                              ),
+                                            ))
+                                        .values
+                                        .toList(),
+                                  ),
+                                  SizedBox(height: 16.h),
+                                  Padding(
+                                    padding: const EdgeInsets.all(16),
+                                    child: Text("Question Name",
+                                        style: TextStyle(
+                                            fontSize: 14.sp,
+                                            color: AppColors.colorBlackHighEmp,
+                                            fontWeight: FontWeight.w600)),
+                                  ),
+                                  Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 16),
+                                      child: TextFormField(
+                                          controller: quesNameController,
+                                          validator: (value) {
+                                            bool emailValid = RegExp(
+                                                    r"^WS{1,2}:\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:56789")
+                                                .hasMatch(value!);
+                                            if (value.isEmpty) {
+                                              return "Enter Question";
+                                            } else if (emailValid) {
+                                              return "Enter Question";
+                                            }
+                                            return null;
+                                          },
+                                          style: const TextStyle(
+                                              color: AppColors.colorBlackHighEmp),
+                                          decoration: InputDecoration(
+                                            hintText: 'Question',
+                                            hintStyle: const TextStyle(
+                                                color: AppColors.colorDisabled),
+                                            contentPadding:
+                                                const EdgeInsets.fromLTRB(
+                                                    16, 10, 16, 10),
+                                            enabledBorder: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(56),
                                               borderSide: const BorderSide(
-                                                color:
-                                                    AppColors.colorWhiteLowEmp,
+                                                color: AppColors.colorWhiteLowEmp,
                                                 width: 1,
-                                              )))),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: _toggleItem,
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 16,
-                                          top: 16,
-                                          right: 6,
-                                          bottom: 16),
-                                      child: Text("Add features",
-                                          style: TextStyle(
-                                              fontSize: 10.sp,
-                                              color:
-                                                  AppColors.colorBlackHighEmp,
-                                              fontWeight: FontWeight.w600)),
+                                              ),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(56),
+                                                borderSide: const BorderSide(
+                                                  color:
+                                                      AppColors.colorWhiteLowEmp,
+                                                  width: 1,
+                                                )),
+                                            errorBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(56),
+                                                borderSide: const BorderSide(
+                                                  color: AppColors.colorError,
+                                                  width: 1,
+                                                )),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(56),
+                                                    borderSide: const BorderSide(
+                                                      color: AppColors.colorError,
+                                                      width: 1,
+                                                    )),
+                                          )),
                                     ),
-                                    const Icon(
-                                      Icons.playlist_add,
-                                      size: 16,
-                                      color: AppColors.colorBlackHighEmp,
-                                    )
-                                  ],
-                                ),
-                              ),
-                              _isItemVisible
-                                  ? Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 16, right: 16, bottom: 16),
-                                      child: DottedBorder(
-                                        borderType: BorderType.RRect,
-                                        radius: const Radius.circular(12),
-                                        color: AppColors.colorPrimary,
-                                        child: ClipRRect(
-                                          borderRadius: const BorderRadius.all(
-                                              Radius.circular(12)),
-                                          child: SizedBox(
-                                            height: 128.h,
-                                            width: double.infinity,
-                                            child: Column(
-                                              children: [
-                                                Padding(
-                                                  padding: const EdgeInsets
-                                                          .symmetric(
-                                                      horizontal: 128,
-                                                      vertical: 20),
-                                                  child: Image.asset(
-                                                      "assets/images/audioIcon.png",
-                                                      height: 40.h,
-                                                      width: 40.w),
-                                                ),
-                                                Text(
-                                                  "Click to upload",
-                                                  style: TextStyle(
-                                                      fontSize: 14.sp,
-                                                      color: AppColors
-                                                          .colorBlackHighEmp,
-                                                      fontWeight:
-                                                          FontWeight.w400),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(4),
-                                                  child: Text("Mp3, Wav, m4a",
+                                  ),
+                                  GestureDetector(
+                                    onTap: _toggleItem,
+                                    child: Row(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 16,
+                                              top: 16,
+                                              right: 6,
+                                              bottom: 16),
+                                          child: Text("Add features",
+                                              style: TextStyle(
+                                                  fontSize: 10.sp,
+                                                  color:
+                                                      AppColors.colorBlackHighEmp,
+                                                  fontWeight: FontWeight.w600)),
+                                        ),
+                                        const Icon(
+                                          Icons.playlist_add,
+                                          size: 16,
+                                          color: AppColors.colorBlackHighEmp,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  _isItemVisible
+                                      ? Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 16, right: 16, bottom: 16),
+                                          child: DottedBorder(
+                                            borderType: BorderType.RRect,
+                                            radius: const Radius.circular(12),
+                                            color: AppColors.colorPrimary,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                      Radius.circular(12)),
+                                              child: SizedBox(
+                                                height: 128.h,
+                                                width: double.infinity,
+                                                child: Column(
+                                                  children: [
+                                                    Padding(
+                                                      padding: const EdgeInsets
+                                                              .symmetric(
+                                                          horizontal: 128,
+                                                          vertical: 20),
+                                                      child: Image.asset(
+                                                          "assets/images/audioIcon.png",
+                                                          height: 40.h,
+                                                          width: 40.w),
+                                                    ),
+                                                    Text(
+                                                      "Click to upload",
                                                       style: TextStyle(
-                                                          fontSize: 8.sp,
+                                                          fontSize: 14.sp,
                                                           color: AppColors
                                                               .colorBlackHighEmp,
                                                           fontWeight:
-                                                              FontWeight.w400)),
+                                                              FontWeight.w400),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(4),
+                                                      child: Text("Mp3, Wav, m4a",
+                                                          style: TextStyle(
+                                                              fontSize: 8.sp,
+                                                              color: AppColors
+                                                                  .colorBlackHighEmp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400)),
+                                                    ),
+                                                  ],
                                                 ),
-                                              ],
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ),
-                                    )
-                                  : const SizedBox.shrink(),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 16, right: 6, bottom: 16),
-                                child: Text(
-                                  "Question Answer",
-                                  style: TextStyle(
-                                      fontSize: 14.sp,
-                                      color: AppColors.colorBlackHighEmp,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                              ),
-                              Center(
-                                child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16),
-                                    child: TextFormField(
-                                        style: const TextStyle(
-                                            color: AppColors.colorBlackHighEmp),
-                                        decoration: InputDecoration(
-                                            hintText: 'Option 1',
-                                            hintStyle: const TextStyle(
-                                                color: AppColors.colorDisabled),
-                                            contentPadding:
-                                                const EdgeInsets.fromLTRB(
-                                                    16, 10, 16, 10),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(56),
-                                              borderSide: const BorderSide(
+                                        )
+                                      : const SizedBox.shrink(),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 16, right: 6, bottom: 16),
+                                    child: Text(
+                                      "Question Answer",
+                                      style: TextStyle(
+                                          fontSize: 14.sp,
+                                          color: AppColors.colorBlackHighEmp,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
+                                  Center(
+                                    child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        child: TextFormField(
+                                            controller: option1Controller,
+                                            validator: (value) {
+                                              bool emailValid = RegExp(
+                                                      r"^WS{1,2}:\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:56789")
+                                                  .hasMatch(value!);
+                                              if (value.isEmpty) {
+                                                return "Enter Option";
+                                              } else if (emailValid) {
+                                                return "Enter Option";
+                                              }
+                                              return null;
+                                            },
+                                            style: const TextStyle(
                                                 color:
-                                                    AppColors.colorWhiteLowEmp,
-                                                width: 1,
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
+                                                    AppColors.colorBlackHighEmp),
+                                            decoration: InputDecoration(
+                                              hintText: 'Option 1',
+                                              hintStyle: const TextStyle(
+                                                  color: AppColors.colorDisabled),
+                                              contentPadding:
+                                                  const EdgeInsets.fromLTRB(
+                                                      16, 10, 16, 10),
+                                              enabledBorder: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(56),
                                                 borderSide: const BorderSide(
-                                                  color: AppColors
-                                                      .colorWhiteLowEmp,
+                                                  color:
+                                                      AppColors.colorWhiteLowEmp,
                                                   width: 1,
-                                                ))))),
-                              ),
-                              SizedBox(height: 8.h),
-                              Center(
-                                child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16),
-                                    child: TextFormField(
-                                        style: const TextStyle(
-                                            color: AppColors.colorBlackHighEmp),
-                                        decoration: InputDecoration(
-                                            hintText: 'Option 2',
-                                            hintStyle: const TextStyle(
-                                                color: AppColors.colorDisabled),
-                                            contentPadding:
-                                                const EdgeInsets.fromLTRB(
-                                                    16, 10, 16, 10),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(56),
-                                              borderSide: const BorderSide(
+                                                ),
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors
+                                                        .colorWhiteLowEmp,
+                                                    width: 1,
+                                                  )),
+                                              errorBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors.colorError,
+                                                    width: 1,
+                                                  )),
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              56),
+                                                      borderSide:
+                                                          const BorderSide(
+                                                        color:
+                                                            AppColors.colorError,
+                                                        width: 1,
+                                                      )),
+                                            ))),
+                                  ),
+                                  SizedBox(height: 8.h),
+                                  Center(
+                                    child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        child: TextFormField(
+                                            controller: option2Controller,
+                                            validator: (value) {
+                                              bool emailValid = RegExp(
+                                                      r"^WS{1,2}:\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:56789")
+                                                  .hasMatch(value!);
+                                              if (value.isEmpty) {
+                                                return "Enter Option";
+                                              } else if (emailValid) {
+                                                return "Enter Option";
+                                              }
+                                              return null;
+                                            },
+                                            style: const TextStyle(
                                                 color:
-                                                    AppColors.colorWhiteLowEmp,
-                                                width: 1,
+                                                    AppColors.colorBlackHighEmp),
+                                            decoration: InputDecoration(
+                                              hintText: 'Option 2',
+                                              hintStyle: const TextStyle(
+                                                  color: AppColors.colorDisabled),
+                                              contentPadding:
+                                                  const EdgeInsets.fromLTRB(
+                                                      16, 10, 16, 10),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(56),
+                                                borderSide: const BorderSide(
+                                                  color:
+                                                      AppColors.colorWhiteLowEmp,
+                                                  width: 1,
+                                                ),
                                               ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(56),
-                                                borderSide: const BorderSide(
-                                                  color: AppColors
-                                                      .colorWhiteLowEmp,
-                                                  width: 1,
-                                                ))))),
+                                              focusedBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors
+                                                        .colorWhiteLowEmp,
+                                                    width: 1,
+                                                  )),
+                                              errorBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors.colorError,
+                                                    width: 1,
+                                                  )),
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              56),
+                                                      borderSide:
+                                                          const BorderSide(
+                                                        color:
+                                                            AppColors.colorError,
+                                                        width: 1,
+                                                      )),
+                                            ))),
+                                  ),
+                                  SizedBox(height: 8.h),
+                                  Center(
+                                    child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        child: TextFormField(
+                                            controller: option3Controller,
+                                            validator: (value) {
+                                              bool emailValid = RegExp(
+                                                      r"^WS{1,2}:\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:56789")
+                                                  .hasMatch(value!);
+                                              if (value.isEmpty) {
+                                                return "Enter Option";
+                                              } else if (emailValid) {
+                                                return "Enter Option";
+                                              }
+                                              return null;
+                                            },
+                                            style: const TextStyle(
+                                                color:
+                                                    AppColors.colorBlackHighEmp),
+                                            decoration: InputDecoration(
+                                              hintText: 'Option 3',
+                                              hintStyle: const TextStyle(
+                                                  color: AppColors.colorDisabled),
+                                              contentPadding:
+                                                  const EdgeInsets.fromLTRB(
+                                                      16, 10, 16, 10),
+                                              enabledBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors
+                                                        .colorWhiteLowEmp,
+                                                    width: 1,
+                                                  )),
+                                              focusedBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors
+                                                        .colorWhiteLowEmp,
+                                                    width: 1,
+                                                  )),
+                                              errorBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors.colorError,
+                                                    width: 1,
+                                                  )),
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              56),
+                                                      borderSide:
+                                                          const BorderSide(
+                                                        color:
+                                                            AppColors.colorError,
+                                                        width: 1,
+                                                      )),
+                                            ))),
+                                  ),
+                                  SizedBox(height: 8.h),
+                                  Center(
+                                    child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        child: TextFormField(
+                                            controller: option4Controller,
+                                            validator: (value) {
+                                              bool emailValid = RegExp(
+                                                      r"^WS{1,2}:\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:56789")
+                                                  .hasMatch(value!);
+                                              if (value.isEmpty) {
+                                                return "Enter Option";
+                                              } else if (emailValid) {
+                                                return "Enter Option";
+                                              }
+                                              return null;
+                                            },
+                                            style: const TextStyle(
+                                                color:
+                                                    AppColors.colorBlackHighEmp),
+                                            decoration: InputDecoration(
+                                              hintText: 'Option 4',
+                                              hintStyle: const TextStyle(
+                                                  color: AppColors.colorDisabled),
+                                              contentPadding:
+                                                  const EdgeInsets.fromLTRB(
+                                                      16, 10, 16, 10),
+                                              enabledBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors
+                                                        .colorWhiteLowEmp,
+                                                    width: 1,
+                                                  )),
+                                              focusedBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors
+                                                        .colorWhiteLowEmp,
+                                                    width: 1,
+                                                  )),
+                                              errorBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors.colorError,
+                                                    width: 1,
+                                                  )),
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              56),
+                                                      borderSide:
+                                                          const BorderSide(
+                                                        color:
+                                                            AppColors.colorError,
+                                                        width: 1,
+                                                      )),
+                                            ))),
+                                  ),
+                                  SizedBox(height: 16.h),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 16, right: 6, bottom: 16),
+                                    child: Text("Correct Answer",
+                                        style: TextStyle(
+                                            fontSize: 14.sp,
+                                            color: AppColors.colorBlackHighEmp,
+                                            fontWeight: FontWeight.w600)),
+                                  ),
+                                  Center(
+                                    child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        child: TextFormField(
+                                            controller: ansController,
+                                            validator: (value) {
+                                              bool emailValid = RegExp(
+                                                      r"^WS{1,2}:\/\/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:56789")
+                                                  .hasMatch(value!);
+                                              if (value.isEmpty) {
+                                                return "Enter Answer";
+                                              } else if (emailValid) {
+                                                return "Enter Answer";
+                                              }
+                                              return null;
+                                            },
+                                            style: const TextStyle(
+                                                color:
+                                                    AppColors.colorBlackHighEmp),
+                                            decoration: InputDecoration(
+                                              hintText: 'Answer',
+                                              hintStyle: const TextStyle(
+                                                  color: AppColors.colorDisabled),
+                                              contentPadding:
+                                                  const EdgeInsets.fromLTRB(
+                                                      16, 10, 16, 10),
+                                              enabledBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors
+                                                        .colorWhiteLowEmp,
+                                                    width: 1,
+                                                  )),
+                                              focusedBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors
+                                                        .colorWhiteLowEmp,
+                                                    width: 1,
+                                                  )),
+                                              errorBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(56),
+                                                  borderSide: const BorderSide(
+                                                    color: AppColors.colorError,
+                                                    width: 1,
+                                                  )),
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              56),
+                                                      borderSide:
+                                                          const BorderSide(
+                                                        color:
+                                                            AppColors.colorError,
+                                                        width: 1,
+                                                      )),
+                                            ))),
+                                  ),
+                                  SizedBox(height: 16.h),
+                                ],
                               ),
-                              SizedBox(height: 8.h),
-                              Center(
-                                child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16),
-                                    child: TextFormField(
-                                        style: const TextStyle(
-                                            color: AppColors.colorBlackHighEmp),
-                                        decoration: InputDecoration(
-                                            hintText: 'Option 3',
-                                            hintStyle: const TextStyle(
-                                                color: AppColors.colorDisabled),
-                                            contentPadding:
-                                                const EdgeInsets.fromLTRB(
-                                                    16, 10, 16, 10),
-                                            enabledBorder: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(56),
-                                                borderSide: const BorderSide(
-                                                  color: AppColors
-                                                      .colorWhiteLowEmp,
-                                                  width: 1,
-                                                )),
-                                            focusedBorder: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(56),
-                                                borderSide: const BorderSide(
-                                                  color: AppColors
-                                                      .colorWhiteLowEmp,
-                                                  width: 1,
-                                                ))))),
-                              ),
-                              SizedBox(height: 8.h),
-                              Center(
-                                child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16),
-                                    child: TextFormField(
-                                        style: const TextStyle(
-                                            color: AppColors.colorBlackHighEmp),
-                                        decoration: InputDecoration(
-                                            hintText: 'Option 4',
-                                            hintStyle: const TextStyle(
-                                                color: AppColors.colorDisabled),
-                                            contentPadding:
-                                                const EdgeInsets.fromLTRB(
-                                                    16, 10, 16, 10),
-                                            enabledBorder: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(56),
-                                                borderSide: const BorderSide(
-                                                  color: AppColors
-                                                      .colorWhiteLowEmp,
-                                                  width: 1,
-                                                )),
-                                            focusedBorder: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(56),
-                                                borderSide: const BorderSide(
-                                                  color: AppColors
-                                                      .colorWhiteLowEmp,
-                                                  width: 1,
-                                                ))))),
-                              ),
-                              SizedBox(height: 16.h),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 16, right: 6, bottom: 16),
-                                child: Text("Correct Answer",
-                                    style: TextStyle(
-                                        fontSize: 14.sp,
-                                        color: AppColors.colorBlackHighEmp,
-                                        fontWeight: FontWeight.w600)),
-                              ),
-                              Center(
-                                child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16),
-                                    child: TextFormField(
-                                        style: const TextStyle(
-                                            color: AppColors.colorBlackHighEmp),
-                                        decoration: InputDecoration(
-                                            hintText: 'Answer',
-                                            hintStyle: const TextStyle(
-                                                color: AppColors.colorDisabled),
-                                            contentPadding:
-                                                const EdgeInsets.fromLTRB(
-                                                    16, 10, 16, 10),
-                                            enabledBorder: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(56),
-                                                borderSide: const BorderSide(
-                                                  color: AppColors
-                                                      .colorWhiteLowEmp,
-                                                  width: 1,
-                                                )),
-                                            focusedBorder: OutlineInputBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(56),
-                                                borderSide: const BorderSide(
-                                                  color: AppColors
-                                                      .colorWhiteLowEmp,
-                                                  width: 1,
-                                                ))))),
-                              ),
-                              SizedBox(height: 16.h),
-                            ],
-                          )),
-                          SizedBox(height: 16.h),
-                        ],
-                      ),
-                    );
-                  }),
+                            )),
+                            SizedBox(height: 16.h),
+                          ],
+                        ),
+                      );
+                    }),
+              ),
             ),
           ]),
         ),
@@ -446,13 +657,25 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             child: MyButton(
               onPressed: () {
-                if (currentPage < widget.value - 1) {
-                  currentPage++;
-                  pageController.animateToPage(currentPage,
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.ease);
-                } else {
-                  Get.offAll(const FinishQuizScreen());
+                if (_formfield.currentState!.validate()) {
+                  quesNameController.clear();
+                  option1Controller.clear();
+                  option2Controller.clear();
+                  option3Controller.clear();
+                  option4Controller.clear();
+                  ansController.clear();
+                  if (currentPage < widget.value - 1) {
+                    currentPage++;
+                    pageController.animateToPage(currentPage,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.ease);
+                    // Increment the step
+                    setState(() {
+                      _currentStep++;
+                    });
+                  } else {
+                    Get.offAll(const FinishQuizScreen());
+                  }
                 }
               },
               text: "Next",

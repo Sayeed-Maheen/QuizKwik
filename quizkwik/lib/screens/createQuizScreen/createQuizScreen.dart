@@ -304,7 +304,10 @@ class _CreateQuizScreenState extends State<CreateQuizScreen> {
                                               fontWeight: FontWeight.w600),
                                         ),
                                       ),
-                                      const QuizCategoryModel(),
+                                      const QuizCategoryModel(
+
+
+                                      ),
                                       Padding(
                                         padding: const EdgeInsets.all(16),
                                         child: Text(
