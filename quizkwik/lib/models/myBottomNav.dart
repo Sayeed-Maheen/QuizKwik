@@ -62,10 +62,10 @@ class _MyBottomNavState extends State<MyBottomNav> {
                   end: Alignment.bottomCenter,
                 ),
                 borderRadius: BorderRadius.circular(100)),
-            child: const CircleAvatar(
-              radius: 40,
+            child: CircleAvatar(
+              radius: 37.r,
               backgroundColor: Colors.transparent,
-              child: Icon(
+              child: const Icon(
                 Icons.add,
                 size: 35,
                 color: AppColors.colorWhiteHighEmp,

@@ -51,6 +51,7 @@ dependencies:
   rxdart: ^0.27.7
   timer_count_down: ^2.2.2
   fluttertoast: ^8.2.1
+  image_picker: ^0.8.7+4
 
 
 

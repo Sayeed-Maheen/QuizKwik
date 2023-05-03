@@ -295,7 +295,7 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
               Positioned(
                 child: Container(
                   margin: const EdgeInsets.only(top: 90),
-                  height: 400.h,
+                  height: 410.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
                       boxShadow: [
@@ -334,7 +334,7 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                             Column(
                               children: _buildOptions(index),
                             ),
-                            SizedBox(height: 20.h),
+                            SizedBox(height: 16.h),
                             _isAnswered[index] &&
                                     _selectedOption[index] !=
                                         _questions[index]['correctAnswer']
@@ -344,33 +344,37 @@ class _QuestionAnswerScreenState extends State<QuestionAnswerScreen> {
                                   )
                                 : Container(),
                             const Spacer(),
-                            MyButton(
-                              onPressed: () {
-                                if (_isAnswered[index] ||
-                                    _selectedOption[index].isNotEmpty) {
-                                  if (index != _questions.length - 1) {
-                                    _pageController.nextPage(
-                                      duration:
-                                          const Duration(milliseconds: 500),
-                                      curve: Curves.ease,
-                                    );
-                                    setState(() {
-                                      _currentStep++;
-                                    });
+                            Padding(
+                              padding: const EdgeInsets.only(top: 12),
+                              child: MyButton(
+                                onPressed: () {
+                                  if (_isAnswered[index] ||
+                                      _selectedOption[index].isNotEmpty) {
+                                    if (index != _questions.length - 1) {
+                                      _pageController.nextPage(
+                                        duration:
+                                            const Duration(milliseconds: 500),
+                                        curve: Curves.ease,
+                                      );
+                                      setState(() {
+                                        _currentStep++;
+                                      });
+                                    } else {
+                                      // show results dialog or navigate to results screen
+                                    }
                                   } else {
-                                    // show results dialog or navigate to results screen
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content:
+                                            Text('Please select an option'),
+                                      ),
+                                    );
                                   }
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text('Please select an option'),
-                                    ),
-                                  );
-                                }
-                              },
-                              text: index == _questions.length - 1
-                                  ? 'Finish'
-                                  : 'Next',
+                                },
+                                text: index == _questions.length - 1
+                                    ? 'Finish'
+                                    : 'Next',
+                              ),
                             ),
                           ],
                         ),

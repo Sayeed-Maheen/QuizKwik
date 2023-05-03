@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:getwidget/components/progress_bar/gf_progress_bar.dart';
 import 'package:quizkwik/models/profileScreenBadgeModel.dart';
 import 'package:quizkwik/models/profileScreenCardModel.dart';
+import 'package:quizkwik/screens/drawerScreens/profileSettingsScreen.dart';
 import 'package:quizkwik/widgets/myContainer.dart';
 import 'package:quizkwik/widgets/profileScreenButton.dart';
 
@@ -34,14 +37,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 color: AppColors.colorBlackHighEmp,
                 fontWeight: FontWeight.bold),
           ),
-          actions: const [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Icon(
-                Icons.settings,
-                color: AppColors.colorBlackHighEmp,
-              ),
-            )
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Get.to(const ProfileSettingsScreen());
+                },
+                icon: const Icon(Icons.settings,
+                    color: AppColors.colorBlackHighEmp))
           ],
           flexibleSpace: Container(
             decoration: const BoxDecoration(
