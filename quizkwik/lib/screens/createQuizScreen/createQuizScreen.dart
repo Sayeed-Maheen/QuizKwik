@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:quizkwik/models/myBottomNav.dart';
 import 'package:quizkwik/screens/createQuizScreen/quizSectionScreen.dart';
 import 'package:quizkwik/widgets/appColors.dart';
@@ -37,7 +40,7 @@ class _CreateQuizScreenState extends State<CreateQuizScreen> {
     myController.dispose();
     super.dispose();
   }
-
+  String selectedImagePath = '';
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -106,46 +109,66 @@ class _CreateQuizScreenState extends State<CreateQuizScreen> {
                                       Padding(
                                         padding: const EdgeInsets.only(
                                             left: 16, right: 16, bottom: 16),
-                                        child: DottedBorder(
-                                          borderType: BorderType.RRect,
-                                          radius: const Radius.circular(12),
-                                          color: AppColors.colorPrimary,
-                                          child: ClipRRect(
-                                            borderRadius: const BorderRadius.all(
-                                                Radius.circular(12)),
-                                            child: SizedBox(
-                                              height: 128.h,
-                                              width: double.infinity,
-                                              child: Column(
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets.symmetric(
-                                                        horizontal: 128, vertical: 20),
-                                                    child: Image.asset(
-                                                        "assets/images/imageIcon.png",
-                                                        height: 40.h,
-                                                        width: 40.w),
-                                                  ),
-                                                  Text(
-                                                    "Click to upload",
-                                                    style: TextStyle(
-                                                        fontSize: 14.sp,
-                                                        color:
-                                                        AppColors.colorBlackHighEmp,
-                                                        fontWeight: FontWeight.w400),
-                                                  ),
-                                                  Padding(
-                                                    padding: const EdgeInsets.all(4),
-                                                    child: Text(
-                                                      " svg, jpg, png, etc",
+                                        child: GestureDetector(
+                                          onTap: () async {
+                                            selectedImagePath = await selectImageFromGallery();
+                                            if (selectedImagePath != '') {
+                                              setState(() {});
+                                            }
+                                          },
+                                          child: DottedBorder(
+                                            borderType: BorderType.RRect,
+                                            radius: const Radius.circular(12),
+                                            color: AppColors.colorPrimary,
+                                            child: selectedImagePath == ''
+                                                ? ClipRRect(
+                                              borderRadius: const BorderRadius.all(
+                                                  Radius.circular(12)),
+                                              child: SizedBox(
+                                                height: 128.h,
+                                                width: double.infinity,
+                                                child: Column(
+                                                  children: [
+                                                    Padding(
+                                                      padding: const EdgeInsets.symmetric(
+                                                          horizontal: 128, vertical: 20),
+                                                      child: Image.asset(
+                                                          "assets/images/imageIcon.png",
+                                                          height: 40.h,
+                                                          width: 40.w),
+                                                    ),
+                                                    Text(
+                                                      "Click to upload",
                                                       style: TextStyle(
-                                                          fontSize: 8.sp,
-                                                          color: AppColors
-                                                              .colorBlackHighEmp,
+                                                          fontSize: 14.sp,
+                                                          color:
+                                                          AppColors.colorBlackHighEmp,
                                                           fontWeight: FontWeight.w400),
                                                     ),
-                                                  ),
-                                                ],
+                                                    Padding(
+                                                      padding: const EdgeInsets.all(4),
+                                                      child: Text(
+                                                        " svg, jpg, png, etc",
+                                                        style: TextStyle(
+                                                            fontSize: 8.sp,
+                                                            color: AppColors
+                                                                .colorBlackHighEmp,
+                                                            fontWeight: FontWeight.w400),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ):ClipRRect(
+                                              borderRadius: const BorderRadius.all(
+                                                  Radius.circular(12)),
+                                              child: SizedBox(
+                                                height: 128.h,
+                                                width: double.infinity,
+                                                child: Image.file(
+                                                  File(selectedImagePath),
+                                                  fit: BoxFit.fill,
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -523,5 +546,17 @@ class _CreateQuizScreenState extends State<CreateQuizScreen> {
         ),
       ),
     );
+  }
+
+  selectImageFromGallery() async {
+    XFile? file = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 10,
+    );
+    if (file != null) {
+      return file.path;
+    } else {
+      return '';
+    }
   }
 }

@@ -116,31 +116,6 @@ class _QuizSectionScreenState extends State<QuizSectionScreen> {
                                             color: AppColors.colorBlackHighEmp,
                                             fontWeight: FontWeight.w600)),
                                   ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: _steps
-                                        .asMap()
-                                        .map((index, step) => MapEntry(
-                                              index,
-                                              Container(
-                                                margin: const EdgeInsets.only(
-                                                    right: 10),
-                                                decoration: BoxDecoration(
-                                                  color: _currentStep == index
-                                                      ? AppColors.colorPrimary
-                                                      : AppColors
-                                                          .colorWhiteLowEmp,
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
-                                                ),
-                                                width: 55.w,
-                                                height: 6.h,
-                                              ),
-                                            ))
-                                        .values
-                                        .toList(),
-                                  ),
-                                  SizedBox(height: 16.h),
                                   Padding(
                                     padding: const EdgeInsets.all(16),
                                     child: Text("Question Name",
